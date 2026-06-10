@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Splinzo Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --stone: #f7f4ee;
+        --stone-brand: #d6cab7;
+        --overlay: rgba(31, 28, 23, 0.42);
+        --text: #1f1c17;
+        --muted: #8a8175;
+        --line: #e7e1d6;
+        --accent: #b08d57;
+        --button: #1f1c17;
+        --button-border: #1f1c17;
+        --button-text: #f7f4ee;
+        --panel-edge: rgba(31, 28, 23, 0.08);
+        --control-bg: rgba(247, 244, 238, 0.84);
+        --control-text: #1f1c17;
+        --success: #66734f;
+        --error: #9a463c;
+        --radius: 12px;
+        --size-hero: 40px;
+        --size-heading: 24px;
+        --size-body: 16px;
+        --size-small: 14px;
+      }
+
+      [data-theme="dark"] {
+        --stone: #17130f;
+        --stone-brand: #33271d;
+        --overlay: rgba(23, 19, 15, 0.58);
+        --text: #ece6dc;
+        --muted: #9f968a;
+        --line: #2c2620;
+        --button: #2a2119;
+        --button-border: #4a3a29;
+        --button-text: #ece6dc;
+        --panel-edge: rgba(236, 230, 220, 0.08);
+        --control-bg: rgba(23, 19, 15, 0.84);
+        --control-text: #ece6dc;
+        --success: #a7b27f;
+        --error: #d09186;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+        background: var(--stone);
+        color: var(--text);
+        font-size: var(--size-body);
+        transition: background 220ms ease, color 220ms ease;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      .toolbar {
+        position: fixed;
+        z-index: 20;
+        top: 18px;
+        right: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--control-bg);
+        color: var(--control-text);
+        backdrop-filter: blur(10px);
+        transition: background 220ms ease, border-color 220ms ease, color 220ms ease;
+      }
+
+      .icon-button {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        background: transparent;
+        color: currentColor;
+        transition: border-color 200ms ease, background 200ms ease, color 200ms ease, transform 200ms ease;
+      }
+
+      .icon-button:hover,
+      .icon-button:focus-visible,
+      .icon-button.is-active {
+        border-color: var(--accent);
+        background: rgba(176, 141, 87, 0.12);
+        outline: none;
+      }
+
+      .icon-button:hover {
+        transform: translateY(-1px);
+      }
+
+      .icon-button svg {
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .preview-shell {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0 auto;
+        background: var(--stone);
+        transition: width 230ms ease, background 220ms ease;
+      }
+
+      .preview-shell[data-device="laptop"] {
+        max-width: 1280px;
+      }
+
+      .preview-shell[data-device="tablet"] {
+        max-width: 834px;
+      }
+
+      .preview-shell[data-device="phone"] {
+        max-width: 390px;
+      }
+
+      .login-page {
+        display: grid;
+        min-height: 100vh;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        background: var(--stone);
+        transition: background 220ms ease;
+      }
+
+      .brand-panel {
+        position: relative;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        padding: 46px 56px;
+        color: #fffaf1;
+        background: var(--stone-brand);
+        transition: background 220ms ease;
+      }
+
+      .brand-panel::before {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background:
+          linear-gradient(110deg, rgba(96, 69, 46, 0.22), rgba(235, 219, 193, 0.08)),
+          repeating-linear-gradient(122deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 96px),
+          repeating-linear-gradient(21deg, rgba(79, 55, 37, 0.16) 0 1px, transparent 1px 132px),
+          var(--stone-brand);
+        transform: scale(1.04);
+      }
+
+      .brand-panel::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background: var(--overlay);
+        transition: background 220ms ease;
+      }
+
+      .brand-top,
+      .brand-copy,
+      .brand-footer {
+        position: relative;
+        z-index: 1;
+      }
+
+      .wordmark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: inherit;
+        font-size: var(--size-body);
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .mark {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        border: 1px solid currentColor;
+        border-radius: 10px;
+      }
+
+      .mark svg {
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+      }
+
+      .brand-copy {
+        max-width: 520px;
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 560px;
+        font-size: var(--size-hero);
+        line-height: 1.08;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .brand-copy p {
+        max-width: 480px;
+        margin-top: 18px;
+        color: rgba(255, 250, 241, 0.82);
+        font-size: var(--size-body);
+        line-height: 1.55;
+      }
+
+      .brand-footer {
+        color: rgba(255, 250, 241, 0.62);
+        font-size: var(--size-small);
+      }
+
+      .form-panel {
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        padding: 72px 44px;
+        background: var(--stone);
+        border-left: 1px solid var(--panel-edge);
+        transition: background 220ms ease, border-color 220ms ease;
+      }
+
+      .auth {
+        width: min(100%, 380px);
+      }
+
+      .form-wordmark {
+        color: var(--text);
+        margin-bottom: 88px;
+        transition: color 220ms ease;
+      }
+
+      h2 {
+        color: var(--text);
+        font-size: var(--size-heading);
+        line-height: 1.2;
+        font-weight: 700;
+        letter-spacing: 0;
+        transition: color 220ms ease;
+      }
+
+      .lede {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: var(--size-body);
+        line-height: 1.55;
+        transition: color 220ms ease;
+      }
+
+      form {
+        margin-top: 42px;
+      }
+
+      .field {
+        position: relative;
+        margin-top: 28px;
+      }
+
+      .field:first-child {
+        margin-top: 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: var(--size-small);
+        font-weight: 500;
+        transition: color 220ms ease;
+      }
+
+      input {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid var(--line);
+        border-radius: 0;
+        padding: 6px 0 12px;
+        background: transparent;
+        color: var(--text);
+        font-size: var(--size-body);
+        outline: none;
+        transition: border-color 200ms ease, color 220ms ease;
+      }
+
+      input:focus {
+        border-bottom-color: var(--accent);
+        box-shadow: 0 1px 0 var(--accent);
+      }
+
+      .forgot-row {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 14px;
+      }
+
+      a {
+        color: var(--text);
+        font-size: var(--size-small);
+        font-weight: 700;
+        text-decoration-color: var(--accent);
+        text-underline-offset: 4px;
+        transition: color 220ms ease, text-decoration-color 200ms ease;
+      }
+
+      a:hover,
+      a:focus-visible {
+        color: var(--accent);
+        outline: none;
+      }
+
+      .message {
+        min-height: 22px;
+        margin-top: 18px;
+        color: var(--error);
+        font-size: var(--size-small);
+        line-height: 1.45;
+        transition: color 220ms ease;
+      }
+
+      .message.success {
+        color: var(--success);
+      }
+
+      .primary-button {
+        display: inline-flex;
+        width: 100%;
+        min-height: 50px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 18px;
+        border: 1px solid var(--button-border);
+        border-radius: var(--radius);
+        background: var(--button);
+        color: var(--button-text);
+        font-size: var(--size-small);
+        font-weight: 700;
+        transition: transform 200ms ease, background 220ms ease, border-color 220ms ease, color 220ms ease;
+      }
+
+      .primary-button:hover,
+      .primary-button:focus-visible {
+        transform: translateY(-1px);
+        outline: 2px solid rgba(176, 141, 87, 0.35);
+        outline-offset: 3px;
+      }
+
+      .primary-button svg {
+        display: none;
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+        stroke-width: 2.1;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .primary-button.is-success svg {
+        display: block;
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 28px 0 18px;
+        color: var(--muted);
+        font-size: var(--size-small);
+        transition: color 220ms ease;
+      }
+
+      .divider::before,
+      .divider::after {
+        flex: 1;
+        height: 1px;
+        content: "";
+        background: var(--line);
+        transition: background 220ms ease;
+      }
+
+      .secondary-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .secondary-button {
+        min-height: 48px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.26);
+        color: var(--text);
+        font-size: var(--size-small);
+        font-weight: 700;
+        transition: border-color 200ms ease, background 220ms ease, color 220ms ease, transform 200ms ease;
+      }
+
+      [data-theme="dark"] .secondary-button {
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .secondary-button:hover,
+      .secondary-button:focus-visible {
+        border-color: var(--accent);
+        transform: translateY(-1px);
+        outline: none;
+      }
+
+      .signup {
+        margin-top: 28px;
+        color: var(--muted);
+        font-size: var(--size-small);
+        text-align: center;
+        transition: color 220ms ease;
+      }
+
+      @media (max-width: 900px) {
+        .login-page {
+          grid-template-columns: 55% 45%;
+        }
+
+        .brand-panel {
+          padding: 36px 34px;
+        }
+
+        .form-panel {
+          padding: 64px 28px;
+        }
+
+        .form-wordmark {
+          margin-bottom: 58px;
+        }
+      }
+
+      .preview-shell[data-device="tablet"] .login-page {
+        grid-template-columns: 55% 45%;
+      }
+
+      .preview-shell[data-device="tablet"] .brand-panel {
+        padding: 36px 34px;
+      }
+
+      .preview-shell[data-device="tablet"] .form-panel {
+        padding: 64px 28px;
+      }
+
+      .preview-shell[data-device="tablet"] .form-wordmark {
+        margin-bottom: 58px;
+      }
+
+      @media (max-width: 620px) {
+        .toolbar {
+          top: 10px;
+          right: 10px;
+          left: 10px;
+          justify-content: center;
+          gap: 5px;
+        }
+
+        .icon-button {
+          width: 32px;
+          height: 32px;
+        }
+
+        .login-page {
+          min-height: 100vh;
+          grid-template-columns: 1fr;
+          grid-template-rows: 34vh auto;
+        }
+
+        .brand-panel {
+          min-height: 34vh;
+          padding: 72px 24px 24px;
+        }
+
+        .brand-copy {
+          margin-top: auto;
+        }
+
+        h1 {
+          font-size: var(--size-heading);
+          line-height: 1.16;
+        }
+
+        .brand-copy p {
+          margin-top: 10px;
+          font-size: var(--size-small);
+        }
+
+        .brand-footer {
+          display: none;
+        }
+
+        .form-panel {
+          min-height: auto;
+          place-items: start center;
+          border-left: 0;
+          border-top: 1px solid var(--panel-edge);
+          padding: 34px 24px 46px;
+        }
+
+        .form-wordmark {
+          margin-bottom: 42px;
+        }
+
+        form {
+          margin-top: 34px;
+        }
+
+        .secondary-actions {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .preview-shell[data-device="phone"] .login-page {
+        min-height: 100vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 34vh auto;
+      }
+
+      .preview-shell[data-device="phone"] .brand-panel {
+        min-height: 34vh;
+        padding: 72px 24px 24px;
+      }
+
+      .preview-shell[data-device="phone"] .brand-copy {
+        margin-top: auto;
+      }
+
+      .preview-shell[data-device="phone"] h1 {
+        font-size: var(--size-heading);
+        line-height: 1.16;
+      }
+
+      .preview-shell[data-device="phone"] .brand-copy p {
+        margin-top: 10px;
+        font-size: var(--size-small);
+      }
+
+      .preview-shell[data-device="phone"] .brand-footer {
+        display: none;
+      }
+
+      .preview-shell[data-device="phone"] .form-panel {
+        min-height: auto;
+        place-items: start center;
+        border-left: 0;
+        border-top: 1px solid var(--panel-edge);
+        padding: 34px 24px 46px;
+      }
+
+      .preview-shell[data-device="phone"] .form-wordmark {
+        margin-bottom: 42px;
+      }
+
+      .preview-shell[data-device="phone"] form {
+        margin-top: 34px;
+      }
+
+      .preview-shell[data-device="phone"] .secondary-actions {
+        grid-template-columns: 1fr;
+      }
+    </style>
+  </head>
+  <body data-theme="light">
+    <div class="toolbar" aria-label="Preview controls">
+      <button class="icon-button" type="button" id="themeToggle" aria-label="Switch to dark theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="M4.93 4.93l1.41 1.41"></path>
+          <path d="M17.66 17.66l1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="M4.93 19.07l1.41-1.41"></path>
+          <path d="M17.66 6.34l1.41-1.41"></path>
+        </svg>
+      </button>
+      <button class="icon-button is-active" type="button" data-device="desktop" aria-label="Desktop preview">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+          <path d="M8 20h8"></path>
+          <path d="M12 16v4"></path>
+        </svg>
+      </button>
+      <button class="icon-button" type="button" data-device="laptop" aria-label="Laptop preview">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="5" y="5" width="14" height="10" rx="2"></rect>
+          <path d="M3 19h18"></path>
+          <path d="M8 15h8"></path>
+        </svg>
+      </button>
+      <button class="icon-button" type="button" data-device="tablet" aria-label="Tablet preview">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="6" y="3" width="12" height="18" rx="2"></rect>
+          <path d="M11 18h2"></path>
+        </svg>
+      </button>
+      <button class="icon-button" type="button" data-device="phone" aria-label="Phone preview">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="8" y="2.8" width="8" height="18.4" rx="2"></rect>
+          <path d="M11 18h2"></path>
+        </svg>
+      </button>
+    </div>
+
+    <main class="preview-shell" id="previewShell" data-device="desktop">
+      <section class="login-page" aria-label="Splinzo sign in">
+        <aside class="brand-panel">
+          <div class="brand-top">
+            <div class="wordmark" aria-label="Splinzo">
+              <span class="mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 17L12 4l7 13"></path>
+                  <path d="M8.5 13h7"></path>
+                </svg>
+              </span>
+              <span>Splinzo</span>
+            </div>
+          </div>
+          <div class="brand-copy">
+            <h1>Where every project finds its place.</h1>
+            <p>Plans, people, approvals and clients - one calm workspace.</p>
+          </div>
+          <p class="brand-footer">© 2026 Splinzo. All rights reserved.</p>
+        </aside>
+
+        <section class="form-panel">
+          <div class="auth">
+            <div class="wordmark form-wordmark" aria-label="Splinzo">
+              <span class="mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 17L12 4l7 13"></path>
+                  <path d="M8.5 13h7"></path>
+                </svg>
+              </span>
+              <span>Splinzo</span>
+            </div>
+            <h2>Welcome back.</h2>
+            <p class="lede">Sign in to pick up where you left off.</p>
+
+            <form id="loginForm" novalidate>
+              <div class="field">
+                <label for="email">Work email</label>
+                <input id="email" name="email" type="text" autocomplete="username" />
+              </div>
+              <div class="field">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" />
+              </div>
+              <div class="forgot-row">
+                <a href="#" aria-label="Reset password">Forgot password?</a>
+              </div>
+              <p class="message" id="message" aria-live="polite"></p>
+              <button class="primary-button" id="signInButton" type="submit">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5"></path>
+                </svg>
+                <span>Sign in</span>
+              </button>
+            </form>
+
+            <div class="divider">or continue with</div>
+            <div class="secondary-actions">
+              <button class="secondary-button" type="button">Google</button>
+              <button class="secondary-button" type="button">SSO</button>
+            </div>
+            <p class="signup">New studio? <a href="#">Create a workspace</a></p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      const body = document.body;
+      const themeToggle = document.getElementById("themeToggle");
+      const previewShell = document.getElementById("previewShell");
+      const deviceButtons = document.querySelectorAll("[data-device]");
+      const form = document.getElementById("loginForm");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const message = document.getElementById("message");
+      const signInButton = document.getElementById("signInButton");
+      const signInLabel = signInButton.querySelector("span");
+      let theme = "light";
+
+      const sunIcon = `
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="M4.93 4.93l1.41 1.41"></path>
+          <path d="M17.66 17.66l1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="M4.93 19.07l1.41-1.41"></path>
+          <path d="M17.66 6.34l1.41-1.41"></path>
+        </svg>`;
+
+      const moonIcon = `
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.2 14.8A8.2 8.2 0 0 1 9.2 3.8 8.5 8.5 0 1 0 20.2 14.8z"></path>
+        </svg>`;
+
+      themeToggle.addEventListener("click", () => {
+        theme = theme === "light" ? "dark" : "light";
+        body.dataset.theme = theme;
+        themeToggle.innerHTML = theme === "light" ? sunIcon : moonIcon;
+        themeToggle.setAttribute("aria-label", theme === "light" ? "Switch to dark theme" : "Switch to light theme");
+      });
+
+      deviceButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const device = button.dataset.device;
+          previewShell.dataset.device = device;
+          deviceButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+        });
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const isValid = email.value === "a" && password.value === "a";
+        message.classList.toggle("success", isValid);
+        signInButton.classList.toggle("is-success", isValid);
+        message.textContent = isValid ? "Signed in. Your workspace is ready." : "Incorrect email or password";
+        signInLabel.textContent = isValid ? "Signed in" : "Sign in";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+{
+  "app": {
+    "name": "ArchScale Studio Hub",
+    "panelName": "Super Admin Centre",
+    "user": "Shanker",
+    "workspace": "Atelier Studio",
+    "demoUser": "a",
+    "demoPassword": "a",
+    "enableAuth": true
+  },
+  "roles": [
+    { "name": "Super Admin", "level": "L1", "icon": "ti-shield-cog", "color": "#9a5a20", "description": "Full platform control across roles, departments, apps, billing and security." },
+    { "name": "Product Admin", "level": "L2", "icon": "ti-adjustments", "color": "#8a5a2b", "description": "Configures apps, departments and integrations across the workspace." },
+    { "name": "Studio Owner", "level": "L3", "icon": "ti-home-cog", "color": "#7c6a52", "description": "Owns a studio workspace and manages people, projects and approvals." },
+    { "name": "Manager", "level": "L4", "icon": "ti-users", "color": "#4f9a6a", "description": "Leads a function, assigns work and reviews output within scope." },
+    { "name": "User", "level": "L5", "icon": "ti-user", "color": "#6f7f87", "description": "Works inside granted apps and creates or updates records." },
+    { "name": "Client", "level": "L6", "icon": "ti-user-heart", "color": "#9b6b7c", "description": "External stakeholder with limited read and approval access." },
+    { "name": "Vendor", "level": "L7", "icon": "ti-truck-delivery", "color": "#718157", "description": "External supplier with access only to assigned tasks and records." }
+  ],
+  "departments": [
+    {
+      "name": "Projects",
+      "description": "Delivery, documents and approvals",
+      "icon": "ti-building-skyscraper",
+      "apps": [
+        { "name": "Projects", "description": "Timelines, milestones and delivery health", "status": "3 active", "icon": "ti-building-skyscraper", "roles": ["Studio", "Manager", "User"] },
+        { "name": "Documents", "description": "Plans, contracts and studio files", "status": "12 recent", "icon": "ti-files", "roles": ["Studio", "Manager", "User", "Client"] },
+        { "name": "Approvals", "description": "Reviews, decisions and sign-off", "status": "4 pending", "icon": "ti-rosette-discount-check", "roles": ["Studio", "Manager", "Client"] },
+        { "name": "Site Visits", "description": "Schedules, observations and reports", "status": "2 today", "icon": "ti-calendar-check", "roles": ["Manager", "User", "Vendor"] }
+      ]
+    },
+    {
+      "name": "Marketing & Sales",
+      "description": "Outreach, leads and relationships",
+      "icon": "ti-speakerphone",
+      "apps": [
+        { "name": "Marketing", "description": "Campaigns, outreach and publishing", "status": "3 drafts", "icon": "ti-speakerphone", "roles": ["Studio", "Manager", "User"] },
+        { "name": "Clients & CRM", "description": "Leads, conversations and relationships", "status": "2 new", "icon": "ti-id", "roles": ["Studio", "Manager", "User"] }
+      ]
+    },
+    {
+      "name": "Brand",
+      "description": "Portfolio, identity and channels",
+      "icon": "ti-palette",
+      "apps": [
+        { "name": "Portfolio", "description": "Selected work and presentation stories", "status": "18 projects", "icon": "ti-photo", "roles": ["Studio", "Manager", "User"] },
+        { "name": "Brand Kits", "description": "Identity standards and reusable assets", "status": "Updated", "icon": "ti-palette", "roles": ["Studio", "Manager"] },
+        { "name": "Social Media", "description": "Content planning and channel publishing", "status": "6 queued", "icon": "ti-sitemap", "roles": ["Studio", "Manager", "User"] }
+      ]
+    },
+    {
+      "name": "Accounts",
+      "description": "Finance and expense control",
+      "icon": "ti-coin",
+      "apps": [
+        { "name": "Finance", "description": "Budgets, invoices and cash flow", "status": "On track", "icon": "ti-coin", "roles": ["Studio", "Manager"] },
+        { "name": "Expenses", "description": "Claims, receipts and approvals", "status": "7 pending", "icon": "ti-receipt", "roles": ["Studio", "Manager", "User"] }
+      ]
+    },
+    {
+      "name": "Resources",
+      "description": "Shared knowledge and suppliers",
+      "icon": "ti-book",
+      "apps": [
+        { "name": "Resources", "description": "Templates, standards and guides", "status": "24 items", "icon": "ti-book", "roles": ["Studio", "Manager", "User"] },
+        { "name": "Vendors", "description": "Approved partners and supplier records", "status": "32 active", "icon": "ti-package", "roles": ["Studio", "Manager"] },
+        { "name": "Materials Library", "description": "Materials, textures and specifications", "status": "46 items", "icon": "ti-sparkles", "roles": ["Studio", "Manager", "User"] },
+        { "name": "Intranet", "description": "Shared updates, policies and internal links", "status": "Standard", "icon": "ti-building-bank", "roles": ["Studio", "Manager", "User"] }
+      ]
+    }
+  ],
+  "permissionMatrix": [
+    { "capability": "Create / delete departments", "source": "Platform", "roles": ["Super Admin", "Product Admin", "Studio Owner"] },
+    { "capability": "Add or remove apps", "source": "Product", "roles": ["Super Admin", "Product Admin", "Studio Owner"] },
+    { "capability": "Manage people & roles", "source": "People", "roles": ["Super Admin", "Product Admin", "Studio Owner"] },
+    { "capability": "Approve deliverables", "source": "Approvals", "roles": ["Super Admin", "Product Admin", "Studio Owner", "Manager", "Client"] },
+    { "capability": "Create & edit records", "source": "App records", "roles": ["Super Admin", "Product Admin", "Studio Owner", "Manager", "User"] },
+    { "capability": "View shared projects", "source": "Projects", "roles": ["Super Admin", "Product Admin", "Studio Owner", "Manager", "User", "Client"] },
+    { "capability": "Access assigned tasks only", "source": "Tasks", "roles": ["Vendor"] },
+    { "capability": "Billing & security", "source": "Security", "roles": ["Super Admin"] }
+  ],
+  "people": [
+    { "name": "Shanker Dev", "email": "shanker@archscale.studio", "role": "Super Admin", "status": "Active" },
+    { "name": "Maya Iyer", "email": "maya@archscale.studio", "role": "Studio Owner", "status": "Active" },
+    { "name": "Arjun Mehta", "email": "arjun@archscale.studio", "role": "Manager", "status": "Invited" }
+  ],
+  "security": [
+    { "name": "Two-factor authentication", "status": "Recommended", "description": "Require admins and owners to verify every new device." },
+    { "name": "Session review", "status": "Monitoring", "description": "Review active browser sessions and revoke stale access." },
+    { "name": "Audit trail", "status": "Enabled", "description": "Track role, app and permission changes made by administrators." }
+  ],
+  "integrations": [
+    { "name": "Supabase Database", "integratedTo": "ArchScale Studio Hub", "purpose": "Primary tenant and application data store.", "status": "Connected / Healthy", "lastChecked": "2026-06-10", "owner": "Engineering", "notes": "Main database connection is healthy.", "icon": "ti-database" },
+    { "name": "Supabase Auth", "integratedTo": "Login and role access", "purpose": "User authentication, sessions and access policies.", "status": "Connected / Healthy", "lastChecked": "2026-06-10", "owner": "Engineering", "notes": "Auth flow active for demo login.", "icon": "ti-lock-check" },
+    { "name": "Supabase Storage", "integratedTo": "Project files", "purpose": "Project files, documents and media storage.", "status": "Issue / Needs attention", "lastChecked": "2026-06-09", "owner": "Product", "notes": "Bucket policy needs final review.", "icon": "ti-cloud" },
+    { "name": "API Webhooks", "integratedTo": "Billing and product events", "purpose": "Outbound product and billing events.", "status": "Not connected / Disabled", "lastChecked": "Not checked", "owner": "Engineering", "notes": "Planned for payment and invoice automation.", "icon": "ti-webhook" }
+  ],
+  "dashboard": {
+    "health": "83%",
+    "columns": [
+      { "title": "Business", "items": [["Total Tenants", "42"], ["Active Tenants", "31"], ["Trial Tenants", "8"], ["Expired Tenants", "3"], ["Paying Tenants", "23"]] },
+      { "title": "Users", "items": [["Total Users", "1,248"], ["Active Users (30 days)", "914"], ["Logged In Today", "186"]] },
+      { "title": "Usage", "items": [["Total Tasks Created", "18,420"], ["Total Projects", "812"], ["Total CRM Leads", "4,106"], ["Total Files Uploaded", "32,880"]] },
+      { "title": "Communication", "items": [["WhatsApp Sent Today", "1,920"], ["Emails Sent Today", "3,480"]] },
+      { "title": "Revenue", "items": [["MRR", "Rs 18.4L"], ["New Trials This Month", "12"], ["Conversions This Month", "5"]] }
+    ]
+  },
+  "businessGrowth": {
+    "plans": [
+      { "name": "Starter", "price": "Rs 2,999", "billing": "monthly", "tenantLimit": "1 studio", "userLimit": "8 users", "status": "Active", "modules": ["Projects", "Documents", "Tasks", "Intranet"] },
+      { "name": "Professional", "price": "Rs 7,999", "billing": "monthly", "tenantLimit": "1 studio", "userLimit": "25 users", "status": "Active", "modules": ["Projects", "Documents", "Approvals", "CRM", "Finance", "Portfolio"] },
+      { "name": "Business", "price": "Rs 18,999", "billing": "monthly", "tenantLimit": "3 studios", "userLimit": "75 users", "status": "Active", "modules": ["Projects", "Documents", "Approvals", "CRM", "Finance", "HR", "Vendors", "Materials Library"] },
+      { "name": "Enterprise", "price": "Custom", "billing": "annual", "tenantLimit": "Unlimited", "userLimit": "Unlimited", "status": "Active", "modules": ["All modules", "Advanced security", "Priority support", "Custom workflows"] },
+      { "name": "Custom", "price": "Quoted", "billing": "contract", "tenantLimit": "Configured", "userLimit": "Configured", "status": "Draft", "modules": ["Selected modules", "Custom terms", "Migration support"] }
+    ],
+    "subscriptions": [
+      { "tenant": "Atelier Studio", "owner": "Shanker", "plan": "Professional", "status": "Active", "coupon": "ANNUAL20", "billing": "Annual", "finalPrice": "Rs 76,790", "renewal": "2027-06-01" },
+      { "tenant": "Nava Design Co", "owner": "Maya Iyer", "plan": "Starter", "status": "Trial", "coupon": "WELCOME10", "billing": "Monthly", "finalPrice": "Rs 2,699", "renewal": "2026-06-24" },
+      { "tenant": "Urban Arc", "owner": "Kabir Sen", "plan": "Business", "status": "Trial", "coupon": "DEMO50", "billing": "Monthly", "finalPrice": "Rs 9,499", "renewal": "2026-06-18" },
+      { "tenant": "Stonegrid", "owner": "Rhea Shah", "plan": "Enterprise", "status": "Active", "coupon": "ARCHSCALE25", "billing": "Annual", "finalPrice": "Custom", "renewal": "2027-01-15" },
+      { "tenant": "Blue Pine Studio", "owner": "Anil Rao", "plan": "Starter", "status": "Expired", "coupon": "None", "billing": "Monthly", "finalPrice": "Rs 2,999", "renewal": "Expired" },
+      { "tenant": "Form & Field", "owner": "Naina Kapoor", "plan": "Professional", "status": "Cancelled", "coupon": "EARLYBIRD", "billing": "Monthly", "finalPrice": "Rs 5,999", "renewal": "Cancelled" }
+    ],
+    "coupons": [
+      { "name": "Welcome offer", "code": "WELCOME10", "discountType": "Percentage", "percentage": "10%", "fixedAmount": "-", "startDate": "2026-06-01", "endDate": "2026-12-31", "usageLimit": 500, "tenantLimit": "1 per tenant", "planRestriction": "Starter, Professional", "status": "Active" },
+      { "name": "ArchScale launch", "code": "ARCHSCALE25", "discountType": "Percentage", "percentage": "25%", "fixedAmount": "-", "startDate": "2026-06-01", "endDate": "2026-09-30", "usageLimit": 100, "tenantLimit": "1 per tenant", "planRestriction": "Business, Enterprise", "status": "Active" },
+      { "name": "Early adopter", "code": "EARLYBIRD", "discountType": "Fixed Amount", "percentage": "-", "fixedAmount": "Rs 2,000", "startDate": "2026-05-01", "endDate": "2026-07-31", "usageLimit": 75, "tenantLimit": "1 per tenant", "planRestriction": "Professional", "status": "Active" },
+      { "name": "Annual prepay", "code": "ANNUAL20", "discountType": "Percentage", "percentage": "20%", "fixedAmount": "-", "startDate": "2026-06-01", "endDate": "2027-06-01", "usageLimit": 300, "tenantLimit": "Unlimited annual upgrades", "planRestriction": "All paid plans", "status": "Active" },
+      { "name": "Demo conversion", "code": "DEMO50", "discountType": "Percentage", "percentage": "50%", "fixedAmount": "-", "startDate": "2026-06-01", "endDate": "2026-08-31", "usageLimit": 50, "tenantLimit": "1 per tenant", "planRestriction": "Starter, Business", "status": "Limited" }
+    ],
+    "promotions": [
+      { "name": "June Studio Launch", "audience": "New architecture studios", "coupon": "WELCOME10", "plan": "Starter, Professional", "channel": "Website demo", "status": "Live", "starts": "2026-06-01", "ends": "2026-06-30", "owner": "Growth" },
+      { "name": "Annual Upgrade Push", "audience": "Active Professional tenants", "coupon": "ANNUAL20", "plan": "Business", "channel": "In-app upgrade", "status": "Live", "starts": "2026-06-10", "ends": "2026-07-15", "owner": "Customer success" },
+      { "name": "Demo Room Recovery", "audience": "Trial users with 3+ sessions", "coupon": "DEMO50", "plan": "Starter, Business", "channel": "Sales follow-up", "status": "Draft", "starts": "2026-06-20", "ends": "2026-08-31", "owner": "Sales" }
+    ],
+    "growthPrograms": [
+      { "type": "Referral Program", "name": "Studio Introductions", "incentive": "1 month credit", "participants": 38, "pipeline": "Rs 4.8L", "status": "Design" },
+      { "type": "Partner Program", "name": "Vendor Network", "incentive": "15% partner fee", "participants": 12, "pipeline": "Rs 9.2L", "status": "Pilot" },
+      { "type": "Affiliate Program", "name": "Design Educators", "incentive": "20% first-year commission", "participants": 24, "pipeline": "Rs 3.1L", "status": "Planned" }
+    ],
+    "trialAnalytics": [
+      { "cohort": "Week 1 June", "trials": 18, "activated": 11, "demoBooked": 7, "expires": "2026-06-18", "risk": "Medium" },
+      { "cohort": "Week 2 June", "trials": 24, "activated": 16, "demoBooked": 9, "expires": "2026-06-25", "risk": "Low" },
+      { "cohort": "Enterprise demos", "trials": 6, "activated": 4, "demoBooked": 6, "expires": "Contract review", "risk": "Low" }
+    ],
+    "tenantConversions": [
+      { "tenant": "Urban Arc", "from": "Trial", "to": "Business", "coupon": "DEMO50", "value": "Rs 9,499", "stage": "Proposal sent", "owner": "Sales" },
+      { "tenant": "Nava Design Co", "from": "Trial", "to": "Starter", "coupon": "WELCOME10", "value": "Rs 2,699", "stage": "Payment pending", "owner": "Growth" },
+      { "tenant": "Atelier Studio", "from": "Professional", "to": "Business", "coupon": "ANNUAL20", "value": "Rs 15,199", "stage": "Upgrade ready", "owner": "Customer success" }
+    ],
+    "churnAnalytics": [
+      { "tenant": "Blue Pine Studio", "plan": "Starter", "risk": "High", "reason": "Expired subscription", "action": "Win-back coupon", "owner": "Success" },
+      { "tenant": "Form & Field", "plan": "Professional", "risk": "High", "reason": "Cancelled after trial", "action": "Exit interview", "owner": "Sales" },
+      { "tenant": "Urban Arc", "plan": "Business trial", "risk": "Medium", "reason": "Low activation", "action": "Book onboarding", "owner": "Growth" }
+    ]
+  },
+  "finance": {
+    "invoiceProfile": {
+      "brandName": "ArchScale Guild",
+      "address": "C1, Oblique, 1047 Vasanth Kunj, New Delhi 110070",
+      "login": "archscale-guild",
+      "contact": "Finance Desk",
+      "email": "billing@archscale.guild",
+      "phone": "+91 11 0000 0000",
+      "taxId": "GSTIN pending",
+      "state": "Delhi",
+      "stateCode": "07"
+    },
+    "summary": [
+      { "label": "Recognised revenue", "value": "Rs 18.4L", "delta": "+12%" },
+      { "label": "Collected", "value": "Rs 14.2L", "delta": "+8%" },
+      { "label": "Outstanding", "value": "Rs 4.1L", "delta": "6 invoices" },
+      { "label": "Refunds & credits", "value": "Rs 42k", "delta": "3 open" }
+    ],
+    "collections": [
+      { "tenant": "Atelier Studio", "invoice": "INV-1028", "amount": "Rs 76,790", "status": "Collected", "method": "Bank transfer", "dueDate": "2026-06-01", "owner": "Finance" },
+      { "tenant": "Nava Design Co", "invoice": "INV-1031", "amount": "Rs 2,699", "status": "Pending", "method": "Card", "dueDate": "2026-06-24", "owner": "Finance" },
+      { "tenant": "Urban Arc", "invoice": "INV-1032", "amount": "Rs 9,499", "status": "Overdue", "method": "UPI", "dueDate": "2026-06-18", "owner": "Collections" },
+      { "tenant": "Blue Pine Studio", "invoice": "INV-1019", "amount": "Rs 2,999", "status": "Failed", "method": "Card", "dueDate": "2026-05-30", "owner": "Collections" }
+    ],
+    "invoices": [
+      { "invoice": "INV-1032", "tenant": "Urban Arc", "plan": "Business", "subtotal": "Rs 9,499", "tax": "Rs 1,710", "total": "Rs 11,209", "status": "Overdue", "dueDate": "2026-06-18" },
+      { "invoice": "INV-1031", "tenant": "Nava Design Co", "plan": "Starter", "subtotal": "Rs 2,699", "tax": "Rs 486", "total": "Rs 3,185", "status": "Pending", "dueDate": "2026-06-24" },
+      { "invoice": "INV-1028", "tenant": "Atelier Studio", "plan": "Professional Annual", "subtotal": "Rs 76,790", "tax": "Rs 13,822", "total": "Rs 90,612", "status": "Paid", "dueDate": "2026-06-01" }
+    ],
+    "taxes": [
+      { "period": "June 2026", "jurisdiction": "India GST", "taxableRevenue": "Rs 16.8L", "taxDue": "Rs 3.02L", "filingStatus": "Preparing", "dueDate": "2026-07-20" },
+      { "period": "May 2026", "jurisdiction": "India GST", "taxableRevenue": "Rs 14.9L", "taxDue": "Rs 2.68L", "filingStatus": "Filed", "dueDate": "2026-06-20" },
+      { "period": "Q2 2026", "jurisdiction": "TDS / Withholding", "taxableRevenue": "Rs 5.1L", "taxDue": "Rs 51k", "filingStatus": "Review", "dueDate": "2026-07-07" }
+    ],
+    "refundsCredits": [
+      { "reference": "CR-204", "tenant": "Form & Field", "type": "Credit note", "amount": "Rs 2,000", "reason": "Early cancellation adjustment", "status": "Approved", "owner": "Finance" },
+      { "reference": "RF-118", "tenant": "Blue Pine Studio", "type": "Refund", "amount": "Rs 7,999", "reason": "Duplicate charge", "status": "Pending approval", "owner": "Finance" },
+      { "reference": "CR-205", "tenant": "Urban Arc", "type": "Service credit", "amount": "Rs 32,000", "reason": "Implementation delay", "status": "Draft", "owner": "Success" }
+    ],
+    "expenses": [
+      { "vendor": "Supabase", "category": "Infrastructure", "amount": "Rs 48,000", "period": "June 2026", "status": "Approved", "owner": "Engineering" },
+      { "vendor": "WhatsApp BSP", "category": "Communication", "amount": "Rs 18,500", "period": "June 2026", "status": "Pending", "owner": "Operations" },
+      { "vendor": "Design contractors", "category": "Product design", "amount": "Rs 1.2L", "period": "June 2026", "status": "Review", "owner": "Product" }
+    ]
+  },
+  "product": {
+    "lifecycle": [
+      { "name": "Projects", "description": "Timelines, milestones and delivery health", "status": "Development" },
+      { "name": "Marketing", "description": "Campaigns, outreach and publishing", "status": "Development" },
+      { "name": "Social Media", "description": "Content planning and channel publishing", "status": "Development" },
+      { "name": "Resources", "description": "Templates, standards and guides", "status": "Development" },
+      { "name": "Documents", "description": "Plans, contracts and studio files", "status": "Published" },
+      { "name": "Approvals", "description": "Reviews, decisions and sign-off", "status": "Published" },
+      { "name": "Site Visits", "description": "Schedules, observations and reports", "status": "Published" },
+      { "name": "Clients & CRM", "description": "Leads, conversations and relationships", "status": "Beta" },
+      { "name": "Portfolio", "description": "Selected work and presentation stories", "status": "Published" },
+      { "name": "Brand Kits", "description": "Identity standards and reusable assets", "status": "Published" },
+      { "name": "Human Resources", "description": "People directory, leave and team records", "status": "Published" },
+      { "name": "Finance", "description": "Budgets, invoices and cash flow", "status": "Beta" },
+      { "name": "Expenses", "description": "Claims, receipts and approvals", "status": "Published" },
+      { "name": "Vendors", "description": "Approved partners and supplier records", "status": "Published" },
+      { "name": "Materials Library", "description": "Materials, textures and specifications", "status": "Published" },
+      { "name": "Intranet", "description": "Shared updates, policies and internal links", "status": "Beta" }
+    ],
+    "modules": ["CRM", "Tasks", "Projects", "HR", "Finance", "Marketing", "Portfolio", "Intranet"],
+    "bundles": [
+      { "name": "Free Demo", "modules": ["CRM", "Tasks", "Portfolio"] },
+      { "name": "Starter", "modules": ["CRM", "Tasks", "Projects", "Intranet"] },
+      { "name": "Professional", "modules": ["CRM", "Tasks", "Projects", "HR", "Finance", "Marketing", "Portfolio", "Intranet"] },
+      { "name": "Enterprise", "modules": ["CRM", "Tasks", "Projects", "HR", "Finance", "Marketing", "Portfolio", "Intranet"] }
+    ]
+  },
+  "supportTickets": [
+    { "id": "#1029", "tenant": "Urban Arc", "priority": "High", "module": "CRM", "status": "Open", "created": "Today" },
+    { "id": "#1028", "tenant": "Nava Design Co", "priority": "Medium", "module": "Projects", "status": "Pending", "created": "Yesterday" },
+    { "id": "#1027", "tenant": "Blue Pine Studio", "priority": "High", "module": "Billing", "status": "Open", "created": "2 days ago" },
+    { "id": "#1026", "tenant": "Atelier Studio", "priority": "Low", "module": "Files", "status": "Resolved", "created": "3 days ago" }
+  ],
+  "auditEvents": [
+    { "event": "Tenant Created", "detail": "Nava Design Co", "actor": "Shanker", "time": "Today, 10:18" },
+    { "event": "Plan Changed", "detail": "Atelier Studio", "actor": "Product Admin", "time": "Today, 09:42" },
+    { "event": "Module Assigned", "detail": "Urban Arc · CRM", "actor": "Shanker", "time": "Yesterday" },
+    { "event": "User Disabled", "detail": "Blue Pine Studio · Vendor", "actor": "Support", "time": "2 days ago" },
+    { "event": "API Error", "detail": "WhatsApp delivery failed", "actor": "System", "time": "2 days ago" }
+  ],
+  "tenants": [
+    { "name": "Atelier Studio", "plan": "Professional", "users": "42/58", "health": "94 · Healthy", "walletTotalRecharged": 185000, "walletLastRechargeAmount": 50000, "walletLastRechargeDate": "2026-06-08", "walletBalance": 42300 },
+    { "name": "Nava Design Co", "plan": "Starter", "users": "12/18", "health": "76 · Active", "walletTotalRecharged": 42000, "walletLastRechargeAmount": 12000, "walletLastRechargeDate": "2026-06-04", "walletBalance": 8600 },
+    { "name": "Urban Arc", "plan": "Trial", "users": "3/11", "health": "48 · At Risk", "walletTotalRecharged": 15000, "walletLastRechargeAmount": 5000, "walletLastRechargeDate": "2026-05-29", "walletBalance": 1100 },
+    { "name": "Stonegrid", "plan": "Enterprise", "users": "88/104", "health": "98 · Healthy", "walletTotalRecharged": 420000, "walletLastRechargeAmount": 100000, "walletLastRechargeDate": "2026-06-09", "walletBalance": 137500 },
+    { "name": "Blue Pine Studio", "plan": "Expired", "users": "1/16", "health": "28 · Churn Risk", "walletTotalRecharged": 28000, "walletLastRechargeAmount": 0, "walletLastRechargeDate": "2026-04-22", "walletBalance": 0 }
+  ]
+}

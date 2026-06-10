@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArchScale · Super Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css" rel="stylesheet">
+<style>
+  :root[data-theme="light"]{
+    --bg:#fbf7f0; --surface:#fffefa; --raise:#ffffff; --sunk:#f6efe5;
+    --ink:#282019; --ink-2:#74685c; --ink-3:#a89b8d;
+    --line:#eadfce; --line-2:#f4ede4;
+    --banner:#f0e5d2; --banner-line:#dfcfb5; --banner-ink:#62513a;
+    --orange:#e67c33; --orange-deep:#b9601f; --orange-soft:#fff0e4;
+    --bronze:#9a7043; --bronze-soft:#efe1cc;
+    --ok:#4f9a6a;
+    --rail:#3a2a1f;
+    --panel:#7e5826;
+    --panel-line:#a97938;
+    --panel-active:#6f4d20;
+    --rail-active:#3a2718;
+    --panel-ink:#ffe3bd;
+    --matrix-head:#f3eadc;
+  }
+  :root[data-theme="dark"]{
+    --bg:#15100c; --surface:#1e1812; --raise:#241d16; --sunk:#1a140f;
+    --ink:#efe7dd; --ink-2:#aa9e91; --ink-3:#756a5e;
+    --line:#35291f; --line-2:#2b2118;
+    --banner:#261d15; --banner-line:#3a2c20; --banner-ink:#d9c8ae;
+    --orange:#f08a45; --orange-deep:#f2a464; --orange-soft:#3d2718;
+    --bronze:#b18455; --bronze-soft:#3a2d20;
+    --ok:#75b88c;
+    --rail:#0f0a07; --panel:#2b1c10; --panel-line:#51351d; --panel-active:#7e5826; --rail-active:#2d1c10; --panel-ink:#d5b98d;
+    --matrix-head:#2a2118;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;transition:background .3s}
+  .app{display:flex;height:100vh;overflow:hidden}
+  body.locked .app{display:none}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  .login-screen{min-height:100vh;display:none;place-items:center;padding:28px;background:var(--bg)}
+  body.locked .login-screen{display:grid}
+  .login-card{width:430px;max-width:100%;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px}
+  .login-card .mark{width:46px;height:46px;border-radius:13px;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:22px}
+  .login-card h1{font-size:26px;font-weight:800;margin-bottom:8px}
+  .login-card p{font-size:14px;color:var(--ink-2);line-height:1.55;margin-bottom:22px}
+  .login-error{display:none;color:#8f3f18;background:#fff3ec;border:1px solid #e2c7b4;border-radius:10px;padding:10px 12px;font-size:12px;font-weight:700;margin-bottom:14px}
+  .login-error.show{display:block}
+
+  .rail{width:70px;background:var(--rail);display:flex;flex-direction:column;align-items:center;padding:18px 0;gap:12px;flex-shrink:0;z-index:3}
+  .logo{width:44px;height:44px;border-radius:13px;background:#fff0e4;color:#e97924;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;margin-bottom:0;flex-shrink:0}
+  .ricon{position:relative;width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;color:#e97924;background:#fff0e4;border:0;cursor:pointer;transition:background .18s,color .18s}
+  .ricon i{font-size:22px}
+  .ricon:hover{background:#ffe2cb}
+  .ricon.on{background:#e97924;color:#fff}
+  .ricon.on::before{content:"";position:absolute;left:-18px;top:8px;bottom:8px;width:4px;border-radius:0 4px 4px 0;background:#ff8732}
+  .ricon .tip{position:absolute;left:60px;top:50%;transform:translateY(-50%);background:var(--rail);color:#f0e6d8;font-size:12px;font-weight:700;padding:7px 10px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;z-index:20}
+  .ricon:hover .tip{opacity:1}
+  .rail-toggle{width:44px;height:34px;border:0;background:transparent;color:#a89583;display:flex;align-items:center;justify-content:center;cursor:pointer;margin-bottom:2px}
+  .rail-toggle i{font-size:24px}
+  .rail-foot{margin-top:auto;width:38px;height:38px;border-radius:10px;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+
+  .panel{width:260px;background:var(--panel);border-right:1px solid rgba(255,255,255,.08);flex-shrink:0;display:flex;flex-direction:column;padding:22px 0;transition:width .26s cubic-bezier(.2,.7,.3,1),padding .26s;overflow:hidden;z-index:2}
+  .panel.collapsed{width:0;padding:16px 0}
+  .panel-h{display:flex;align-items:center;gap:9px;padding:4px 18px 14px;white-space:nowrap}
+  .panel-h .nm{font-size:16px;font-weight:800;color:#fff7ea}
+  .panel-h .col{margin-left:auto;width:30px;height:30px;border:0;background:transparent;color:#f8d0a2;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:22px}
+  .nav-group{display:none}.nav-group.on{display:block}
+  .psec{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#f8c58b;padding:18px 18px 10px;white-space:nowrap}
+  .prow{position:relative;display:flex;align-items:center;gap:13px;padding:13px 18px;color:#fff5e8;cursor:pointer;font-size:15px;font-weight:600;line-height:1.25;white-space:nowrap;transition:background .16s,color .16s;border:0;background:none;font-family:inherit;width:100%;text-align:left;border-radius:0}
+  .prow i{width:30px;font-size:23px;flex-shrink:0;color:#ffc07f;text-align:center}
+  .prow:hover{background:rgba(255,255,255,.08);color:#fff}
+  .prow.on{background:#ef7d2d;color:#fff}
+  .prow.on i{color:#fff}
+  .prow.on::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:#ffb067}
+
+  .expand{display:none}
+
+  .main{flex:1;display:flex;flex-direction:column;min-width:0;position:relative}
+  .banner{background:var(--banner);border-bottom:1px solid var(--banner-line);padding:0 28px;height:72px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+  .banner .pill{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--banner-ink)}
+  .banner i,.btn i,.add-dept i{font-size:16px}
+  .banner .crumb{font-size:14px;font-weight:700;color:var(--ink)}
+  .badge-sa{margin-left:12px;font-size:11px;font-weight:700;color:var(--orange-deep);background:var(--orange-soft);border:1px solid rgba(230,124,51,.18);padding:4px 10px;border-radius:8px;display:flex;align-items:center;gap:5px}
+  .banner .acts{margin-left:auto;display:flex;gap:12px;align-items:center}
+  .ic{width:34px;height:34px;border-radius:9px;border:1px solid transparent;background:none;color:var(--banner-ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .16s,border-color .16s}
+  .ic:hover{background:rgba(255,255,255,.34);border-color:var(--banner-line)}
+  .theme-pill{height:42px;border:1px solid var(--line);background:var(--raise);border-radius:14px;padding:0 15px;display:flex;align-items:center;gap:9px;font-size:13px;font-weight:800;color:var(--ink);cursor:pointer;font-family:inherit}
+  .notify{position:relative;width:42px;height:42px;border:0;background:transparent;color:var(--ink-2);cursor:pointer}
+  .notify i{font-size:24px}.notify::after{content:"";position:absolute;right:7px;top:8px;width:5px;height:5px;border-radius:50%;background:#d5633f}
+  .device-toggle{height:44px;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--raise);border-radius:18px;padding:5px}
+  .device-toggle button{width:36px;height:34px;border:0;background:transparent;border-radius:12px;color:var(--ink-2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .16s,color .16s,transform .16s}
+  .device-toggle button:hover{background:var(--sunk)}
+  .device-toggle button.on{background:var(--orange);color:#fff;transform:translateY(-1px)}
+  .device-toggle i{font-size:19px}
+  .profile-wrap{position:relative}
+  .profile-btn{display:flex;align-items:center;gap:12px;border:0;background:transparent;cursor:pointer;font-family:inherit;color:var(--ink)}
+  .profile-avatar{width:46px;height:46px;border-radius:13px;background:var(--rail);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800}
+  .profile-copy{text-align:left;line-height:1.15}.profile-copy strong{display:block;font-size:15px}.profile-copy span{font-size:12px;color:var(--ink-2);font-weight:700}
+  .profile-btn .ti-chevron-down{font-size:18px;color:var(--ink-2);margin-left:10px}
+  .profile-menu{position:absolute;right:0;top:58px;width:250px;background:var(--raise);border:1px solid var(--line);border-radius:14px;padding:14px;display:none;z-index:40}
+  .profile-menu.show{display:block}
+  .profile-menu button{width:100%;border:0;background:transparent;text-align:left;padding:12px 12px;border-radius:9px;font-family:inherit;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer}
+  .profile-menu button:hover{background:var(--sunk)}
+
+  .scroll{flex:1;overflow-y:auto;padding:34px 38px 52px;transition:max-width .22s ease,margin .22s ease,border-color .22s ease}
+  body[data-preview="laptop"] .scroll{max-width:1180px;margin:0 auto;width:100%}
+  body[data-preview="tablet"] .scroll{max-width:820px;margin:0 auto;width:100%;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+  body[data-preview="mobile"] .scroll{max-width:430px;margin:0 auto;width:100%;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+  .head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:16px;flex-wrap:wrap;max-width:1220px}
+  .t-ey{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:7px}
+  .t-h1{font-size:23px;font-weight:600;letter-spacing:0}
+  .t-sub{font-size:14px;color:var(--ink-2);margin-top:6px}
+
+  .btn{font-family:inherit;font-size:13px;font-weight:700;border-radius:10px;padding:10px 17px;cursor:pointer;border:1px solid transparent;transition:.18s;display:inline-flex;align-items:center;gap:7px}
+  .btn-pri{background:var(--orange);color:#fff}.btn-pri:hover{background:var(--orange-deep);transform:translateY(-1px)}
+  .btn-gh{background:var(--surface);border-color:var(--line);color:var(--ink)}.btn-gh:hover{border-color:var(--orange)}
+
+  .view{display:none}.view.on{display:block;animation:f .32s ease}
+  @keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .roles{display:grid;grid-template-columns:repeat(auto-fill,minmax(286px,1fr));gap:16px;max-width:1160px}
+  .role{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative;overflow:hidden;transition:border-color .18s,transform .18s}
+  .role:hover{border-color:#decab0;transform:translateY(-1px)}
+  .role .tier{position:absolute;top:16px;left:0;width:3px;height:calc(100% - 32px);border-radius:0 3px 3px 0}
+  .role h3{font-size:15px;font-weight:600;display:flex;align-items:center;gap:9px;margin-bottom:5px}
+  .role .lvl{font-size:11px;font-weight:600;color:var(--ink-3);margin-left:auto}
+  .role p{font-size:12.5px;color:var(--ink-2);line-height:1.5;margin-top:8px}
+  .ri{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .role-tools{display:flex;justify-content:flex-end;margin-top:14px}
+  .mini-btn{border:1px solid var(--line);background:var(--raise);color:var(--ink-2);border-radius:9px;padding:7px 10px;font-family:inherit;font-size:11.5px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .mini-btn:hover{border-color:var(--orange);color:var(--orange-deep)}
+
+  #deptList{max-width:1240px}
+  .dept{background:var(--surface);border:1px solid var(--line);border-radius:18px;margin-bottom:20px;overflow:hidden}
+  .dept-h{display:flex;align-items:center;gap:14px;padding:18px 20px;border-bottom:1px solid var(--line-2)}
+  .dept-h .dic{width:42px;height:42px;border-radius:12px;background:var(--orange-soft);color:var(--orange-deep);display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0}
+  .dept-h .nm{font-size:16px;font-weight:600}
+  .dept-h .meta{font-size:12px;color:var(--ink-2);margin-top:2px}
+  .dept-h .acts{margin-left:auto;display:flex;align-items:center;gap:8px}
+  .chip{font-size:11px;font-weight:600;padding:4px 9px;border-radius:7px;background:var(--sunk);color:var(--ink-2)}
+  .apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px;padding:20px}
+  .appcard{position:relative;background:var(--raise);border:1px solid var(--line);border-radius:14px;padding:17px;transition:.18s;cursor:pointer;min-height:168px;display:flex;flex-direction:column;text-align:left;font-family:inherit;color:inherit}
+  .appcard:hover{border-color:#d9c4aa;transform:translateY(-1px)}
+  .appcard .ic2{width:38px;height:38px;border-radius:10px;background:var(--orange-soft);color:var(--orange-deep);display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:14px}
+  .appcard .an{font-size:13.5px;font-weight:600}
+  .appcard .ad{font-size:11.5px;color:var(--ink-2);margin-top:4px;line-height:1.45;max-width:90%}
+  .appmeta{position:absolute;top:14px;right:14px;font-size:10.5px;font-weight:700;padding:4px 8px;border-radius:7px;background:var(--orange-soft);color:var(--orange-deep)}
+  .openline{margin-top:auto;padding-top:16px;color:var(--orange-deep);font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:space-between}
+  .roles-on{display:flex;gap:4px;margin-top:12px;flex-wrap:wrap}
+  .rdot{font-size:10px;font-weight:600;padding:2px 7px;border-radius:6px;background:var(--sunk);color:var(--ink-3)}
+  .addapp{border:1.5px dashed var(--line);border-radius:14px;padding:15px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:var(--ink-3);cursor:pointer;min-height:168px;transition:.18s;background:none;font-family:inherit}
+  .addapp:hover{border-color:var(--orange);color:var(--orange-deep);background:var(--orange-soft)}
+  .addapp i{font-size:24px}.addapp span{font-size:12.5px;font-weight:600}
+  .add-dept{width:100%;border:1.5px dashed var(--line);border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;gap:9px;color:var(--ink-3);cursor:pointer;background:none;font-family:inherit;font-size:13.5px;font-weight:600;transition:.18s}
+  .add-dept:hover{border-color:var(--orange);color:var(--orange-deep);background:var(--orange-soft)}
+
+  .admin-panel{max-width:1060px;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .admin-panel-h{display:flex;align-items:center;gap:14px;padding:20px;border-bottom:1px solid var(--line-2)}
+  .admin-panel-h .dic{width:42px;height:42px;border-radius:12px;background:var(--orange-soft);color:var(--orange-deep);display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0}
+  .admin-panel-h .nm{font-size:16px;font-weight:700}
+  .admin-panel-h .meta{font-size:12px;color:var(--ink-2);margin-top:2px}
+  .admin-list{display:grid}
+  .admin-row{display:grid;grid-template-columns:42px minmax(0,1fr) auto auto;gap:14px;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line-2)}
+  .admin-row:last-child{border-bottom:0}
+  .admin-row h3{font-size:14px;font-weight:700;margin-bottom:4px}
+  .admin-row p{font-size:12px;color:var(--ink-2);line-height:1.45}
+  .row-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .row-tag{font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;background:var(--sunk);color:var(--ink-2)}
+  .row-action{border:1px solid var(--line);background:var(--raise);color:var(--ink-2);border-radius:9px;padding:8px 10px;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer}
+  .row-action:hover{border-color:var(--orange);color:var(--orange-deep)}
+
+  .matrix-wrap{max-width:1120px;border:1px solid var(--line);border-radius:16px;overflow:auto;background:var(--surface)}
+  table{width:100%;border-collapse:collapse;background:var(--surface)}
+  th,td{text-align:left;padding:13px 16px;font-size:13px;border-bottom:1px solid var(--line-2)}
+  thead tr{background:var(--matrix-head)}
+  th{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#6e5a3c}
+  th.lead{color:#5e4a2e}
+  th.c,td.c{text-align:center}
+  td.cap{font-weight:600;color:var(--ink)}
+  .cap-name{display:block}
+  .cap-source{display:inline-flex;margin-top:6px;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;background:var(--orange-soft);color:var(--orange-deep)}
+  tbody tr:nth-child(even){background:rgba(246,239,229,.55)}
+  tbody tr:hover{background:var(--orange-soft)}
+  tr:last-child td{border-bottom:none}
+  .yes{display:inline-flex;width:28px;height:28px;border-radius:50%;align-items:center;justify-content:center;background:#e97924;color:#fff;border:1px solid #b94f12}
+  .no{display:inline-flex;width:28px;height:28px;border-radius:50%;align-items:center;justify-content:center;color:#8a7763;background:#f7eee5;border:1px solid #e1cfba}
+  .perm-toggle{border:0;background:transparent;cursor:pointer;padding:5px;border-radius:999px}
+  .perm-toggle:hover{background:#fde4cf}
+  .perm-toggle:focus-visible{outline:3px solid rgba(233,121,36,.25)}
+
+  .scrim{position:fixed;inset:0;background:rgba(30,20,12,.4);z-index:90;display:none;align-items:center;justify-content:center;padding:20px}
+  .scrim.show{display:flex}
+  .modal{width:440px;max-width:94vw;background:var(--raise);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .modal-h{padding:18px 20px;border-bottom:1px solid var(--line);font-size:15px;font-weight:600}
+  .modal-b{padding:20px}
+  .modal-note{font-size:12px;line-height:1.45;color:var(--ink-2);background:var(--sunk);border:1px solid var(--line-2);border-radius:10px;padding:11px 12px;margin-bottom:15px}
+  .fld{margin-bottom:15px}
+  .fld label{display:block;font-size:12px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+  .fld input,.fld select{width:100%;font-family:inherit;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:11px 13px;outline:none;transition:.18s}
+  .fld input:focus,.fld select:focus{border-color:var(--orange);outline:3px solid rgba(240,133,47,.16)}
+  .icon-pick{display:flex;gap:8px;flex-wrap:wrap}
+  .icon-pick button{width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+  .icon-pick button.sel{border-color:var(--orange);background:var(--orange-soft);color:var(--orange-deep)}
+  .check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .check-grid label{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:10px 11px;font-size:12px;font-weight:700;color:var(--ink-2);cursor:pointer}
+  .check-grid input{accent-color:var(--orange)}
+  .quality-list{display:grid;gap:7px;margin:-3px 0 14px}
+  .quality-list div{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;color:var(--ink-2)}
+  .quality-list i{font-size:15px;color:var(--ink-3)}
+  .quality-list .ok{color:var(--ok)}
+  .quality-list .bad{color:#8f3f18}
+  .danger-zone{display:none;border:1px solid #e2c7b4;background:#fff8f3;border-radius:12px;padding:13px;margin-top:6px}
+  .danger-zone.show{display:block}
+  .danger-zone strong{display:block;font-size:12.5px;margin-bottom:5px;color:#8f3f18}
+  .danger-zone p{font-size:11.5px;color:var(--ink-2);line-height:1.45;margin-bottom:10px}
+  .btn-danger{background:#8f3f18;color:#fff}.btn-danger:hover{background:#713012;transform:translateY(-1px)}
+  .btn-danger:disabled{opacity:.45;cursor:not-allowed;transform:none}
+  .modal-f{padding:16px 20px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:9px}
+
+  .kgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:24px;max-width:1220px}
+  .kpi{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:20px}
+  .kpi .lab{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:15px;color:var(--ink-2);font-weight:300}
+  .kpi .lab i{font-size:16px;color:var(--orange)}
+  .kpi .row{display:flex;align-items:baseline;justify-content:space-between}
+  .kpi .num{font-size:23px;font-weight:600;letter-spacing:0}
+  .kpi .delta{font-size:15px;font-weight:300;color:var(--ok)}
+  .kpi .delta.dn{color:var(--orange-deep)}
+  .pgrid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;margin-bottom:16px;max-width:1220px}
+  .panelc{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:22px}
+  .panelc-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .panelc-h h2{font-size:15px;font-weight:800}
+  .mini{font-size:12px;color:var(--ink-3);font-weight:600}
+  .chart-tools{display:flex;align-items:center;gap:10px}
+  .chart-toggle{display:inline-flex;align-items:center;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--sunk)}
+  .chart-toggle button{border:0;background:transparent;color:var(--ink-2);font-family:inherit;font-size:10.5px;font-weight:800;border-radius:999px;padding:5px 9px;cursor:pointer}
+  .chart-toggle button.on{background:var(--orange);color:#fff}
+  .chart-view{display:none}.chart-view.on{display:block}
+  .donut-wrap{display:grid;place-items:center;min-height:270px}
+  .donut{width:260px;max-width:100%;height:auto}
+  .donut-bg{fill:none;stroke:var(--sunk);stroke-width:24}
+  .donut-seg{fill:none;stroke-width:24;stroke-linecap:butt;transform:rotate(-90deg);transform-origin:100px 100px}
+  .donut-hole{fill:var(--surface)}
+  .legend-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:10px}
+  .legend-row span{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--ink-2)}
+  .legend-row i{width:10px;height:10px;border-radius:2px;display:inline-block}
+  .line-chart{width:100%;height:280px}
+  .line-chart text{font-size:10px;fill:var(--ink-3);font-weight:700}
+  .line-chart .grid{stroke:var(--line-2);stroke-width:1}
+  .line-chart .area{fill:#fff0e4}
+  .line-chart .curve{fill:none;stroke:var(--orange);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .bars{display:flex;flex-direction:column;gap:14px}
+  .barrow{display:flex;align-items:center;gap:12px}
+  .barrow .nm{font-size:13px;width:125px;flex-shrink:0;color:var(--ink-2);font-weight:600}
+  .barrow .track{flex:1;height:9px;background:var(--sunk);border-radius:5px;overflow:hidden}
+  .barrow .track > div{height:100%;border-radius:5px;background:var(--orange)}
+  .barrow .val{font-size:12px;font-weight:800;width:48px;text-align:right;flex-shrink:0}
+  .sparkline{height:190px;display:flex;align-items:end;gap:10px;padding-top:12px}
+  .sparkline span{flex:1;min-width:10px;border-radius:7px 7px 0 0;background:var(--orange-soft);border:1px solid rgba(230,124,51,.18);position:relative}
+  .sparkline span::after{content:"";position:absolute;left:0;right:0;bottom:0;height:var(--h);border-radius:7px 7px 0 0;background:var(--orange)}
+  .tlayout{display:grid;grid-template-columns:1.18fr 1fr;gap:18px;align-items:start;max-width:1220px}
+  .tcard,.usage-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;overflow:hidden}
+  .tenant:last-child .trow{border-bottom:none}
+  .trow{display:flex;align-items:center;gap:13px;padding:16px 18px;cursor:pointer;border-bottom:1px solid var(--line-2);transition:background .15s}
+  .trow:hover{background:var(--bg)}
+  .trow .logo2{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:14px;flex-shrink:0}
+  .trow .tn{font-size:14px;font-weight:800}
+  .trow .tm{font-size:12px;color:var(--ink-2);margin-top:2px}
+  .trow .plan{font-size:11px;font-weight:800;padding:3px 9px;border-radius:7px;margin-left:auto}
+  .plan.pro{background:var(--orange-soft);color:var(--orange-deep)}
+  .plan.ent{background:#e8dcc4;color:#6e5a30}
+  .plan.trial{background:var(--sunk);color:var(--ink-2)}
+  .trow .chev{color:var(--ink-3);font-size:18px;transition:transform .2s;flex-shrink:0}
+  .tenant.open .chev{transform:rotate(90deg)}
+  .users{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--bg)}
+  .tenant.open .users{max-height:420px}
+  .urow{display:flex;align-items:center;gap:11px;padding:11px 18px 11px 30px;border-bottom:1px solid var(--line-2);border-left:2px solid var(--orange)}
+  .urow .ua{width:28px;height:28px;border-radius:8px;background:var(--orange-soft);color:var(--orange-deep);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+  .urow .un{font-size:13px;font-weight:700}.urow .ur{font-size:11px;color:var(--ink-2);margin-top:1px}.urow .ustat{margin-left:auto;font-size:11px;color:var(--ink-3)}
+  .usage-card .uh{padding:16px 18px;border-bottom:1px solid var(--line);font-size:14px;font-weight:800;display:flex;align-items:center;gap:9px}
+  .usage-card .uh .who{font-size:12px;color:var(--ink-2);font-weight:600;margin-left:auto}
+  .usage-card th{text-align:left;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);padding:11px 18px;background:var(--sunk)}
+  .usage-card th.c,.usage-card td.c{text-align:right}
+  .usage-card td{font-size:13px;padding:13px 18px;border-bottom:1px solid var(--line-2)}
+  .usage-card tbody tr:last-child td{border-bottom:none}
+  .appcell{display:flex;align-items:center;gap:10px}
+  .appcell .ai{width:30px;height:30px;border-radius:8px;background:var(--orange-soft);color:var(--orange-deep);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+  .ubar{display:flex;align-items:center;gap:9px;justify-content:flex-end}
+  .ubar .track{width:70px;height:7px;background:var(--sunk);border-radius:4px;overflow:hidden}
+  .ubar .track > div{height:100%;border-radius:4px}.ubar .pct{font-size:12px;font-weight:800;width:34px;text-align:right}
+  .overview-shell{max-width:1280px}
+  .mvp-hero{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:16px;margin-bottom:16px}
+  .mvp-copy,.health-tile,.dash-card,.health-card,.support-card,.audit-card{background:var(--surface);border:1px solid var(--line);border-radius:15px}
+  .mvp-copy{padding:22px}
+  .mvp-ey{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--bronze);margin-bottom:8px}
+  .mvp-title{font-size:23px;font-weight:600;letter-spacing:0;margin-bottom:6px}
+  .mvp-sub{font-size:13px;font-weight:300;color:var(--ink-2);line-height:1.55}
+  .health-tile{padding:22px;background:var(--panel);color:#fff}
+  .health-tile .lab{font-size:13px;font-weight:300;color:#f6dcc1;margin-bottom:4px}
+  .health-tile .big{font-size:38px;font-weight:700;letter-spacing:-.02em}
+  .health-tile .sub{font-size:12px;font-weight:300;color:#f6dcc1}
+  .overview-tabs{display:none}
+  .overview-tab{height:40px;border:1px solid var(--line);border-radius:13px;background:var(--surface);color:var(--ink-2);font-family:inherit;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 10px;white-space:nowrap;cursor:pointer;transition:background .16s,border-color .16s,color .16s,transform .16s}
+  .overview-tab:hover{border-color:#dbc8ad;transform:translateY(-1px)}
+  .overview-tab.on{background:var(--sunk);border-color:#dbc8ad;color:var(--bronze)}
+  .overview-tab i{font-size:16px}
+  .dash-columns{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  .dash-card{padding:16px}
+  .dash-card h3,.support-card h3,.audit-card h3{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--bronze);margin-bottom:12px}
+  .mini-stat{border:1px solid var(--line-2);border-radius:11px;padding:12px;margin-bottom:9px;background:var(--raise)}
+  .mini-stat:last-child{margin-bottom:0}
+  .mini-stat .label{font-size:12px;font-weight:300;color:var(--ink-2);margin-bottom:4px}
+  .mini-stat .value{font-size:23px;font-weight:600;color:var(--ink)}
+  .graph-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:16px}
+  .graph-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
+  .graph-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+  .graph-head .ey{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--bronze)}
+  .graph-head h3{font-size:15px;font-weight:600}
+  .graph-num{text-align:right;font-size:23px;font-weight:600}
+  .graph-note{display:block;font-size:11px;font-weight:300;color:var(--ink-2);margin-top:3px}
+  .micro-chart{height:120px;border:1px solid var(--line-2);border-radius:12px;padding:12px 14px 28px;display:flex;align-items:end;gap:18px;background:var(--raise);position:relative}
+  .micro-chart span{flex:1;min-width:22px;height:var(--h);border-radius:8px 8px 2px 2px;background:var(--bronze)}
+  .micro-chart.orange span{background:var(--orange)}
+  .micro-chart.green span{background:var(--ok)}
+  .micro-months{position:absolute;left:14px;right:14px;bottom:6px;display:grid;grid-template-columns:repeat(6,1fr);font-size:10px;font-weight:300;color:var(--ink-2);text-align:center}
+  .health-table{margin-bottom:16px}
+  .table-shell{overflow:auto;border:1px solid var(--line);border-radius:13px}
+  .status-pill{display:inline-flex;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:600}
+  .status-good{background:#e8f4ec;color:#3d7b54}.status-warn{background:#f7eddb;color:#8b6330}.status-risk{background:#fff4d8;color:#9a6b10}.status-bad{background:#fde6dd;color:#9a432a}
+  .health-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .health-card{padding:18px}
+  .health-card .score{float:right;width:48px;height:48px;border-radius:12px;background:var(--panel);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700}
+  .health-card h3{font-size:17px;font-weight:600;margin-bottom:14px}
+  .health-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;clear:both}
+  .support-kpis{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px}
+  .support-kpis .mini-stat{width:120px;margin-bottom:0}
+  .support-card,.audit-card{padding:18px}
+  .support-layout,.audit-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.75fr);gap:14px}
+  .audit-alerts{display:grid;gap:9px}
+  .alert-row{display:flex;align-items:center;gap:12px;border:1px solid var(--line-2);border-radius:11px;padding:12px;background:var(--raise)}
+  .alert-row i{color:var(--orange);font-size:18px}.alert-row span{font-size:12px;font-weight:600;color:var(--ink-2)}.alert-row strong{margin-left:auto;font-size:15px;font-weight:600}
+  .product-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px;margin-bottom:14px}
+  .product-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px}
+  .product-title h2{font-size:17px;font-weight:600;margin-top:4px}
+  .product-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .product-tools input,.product-tools select,.bundle-tools input{height:36px;border:1px solid var(--line);border-radius:10px;background:var(--raise);color:var(--ink);font-family:inherit;font-size:12px;font-weight:300;padding:0 12px;min-width:160px}
+  .lifecycle-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .life-column{border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--raise)}
+  .life-h{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--bronze);margin-bottom:11px}
+  .life-count{font-size:12px;font-weight:600;color:var(--ink)}
+  .life-row{display:grid;grid-template-columns:minmax(0,1fr) 140px 86px;gap:8px;align-items:center;border:1px solid var(--line-2);border-radius:11px;padding:9px 10px;margin-bottom:7px;background:var(--surface)}
+  .life-row:last-child{margin-bottom:0}
+  .life-row strong{display:block;font-size:13px;font-weight:600}
+  .life-row span{display:block;font-size:11.5px;font-weight:300;color:var(--ink-2);margin-top:2px;line-height:1.35}
+  .life-row select{height:32px;border:1px solid var(--line);border-radius:9px;background:var(--sunk);color:var(--bronze);font-family:inherit;font-size:11px;font-weight:600;padding:0 9px}
+  .delete-soft{height:32px;border:1px solid #efcfc4;background:#fff1ed;color:#9a432a;border-radius:9px;font-family:inherit;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:5px;cursor:pointer}
+  .bundle-tools{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
+  .module-checks{display:flex;gap:8px;flex-wrap:wrap}
+  .module-checks label{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--sunk);color:var(--bronze);border-radius:10px;padding:9px 12px;font-size:12px;font-weight:600}
+  .module-checks input{accent-color:var(--orange)}
+  .bundle-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .bundle-card{position:relative;min-height:118px;border:1px solid var(--line);border-radius:13px;background:var(--sunk);padding:15px}
+  .bundle-card h3{font-size:13px;font-weight:600;margin-bottom:8px}
+  .bundle-card p{font-size:12px;font-weight:300;color:var(--ink-2);line-height:1.45;padding-right:20px}
+  .bundle-card .delete-soft{margin-top:16px;width:max-content;padding:0 11px}
+  .bundle-card .trash{position:absolute;right:12px;bottom:14px;color:#9a432a;font-size:16px}
+
+  @media(max-width:1100px){.dash-columns,.graph-grid,.bundle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.overview-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  @media(max-width:900px){.kgrid{grid-template-columns:repeat(2,1fr)}.pgrid,.tlayout,.mvp-hero,.support-layout,.audit-layout,.health-grid,.lifecycle-grid{grid-template-columns:1fr}}
+  @media(max-width:680px){.panel{position:absolute;height:100%;border-right:1px solid var(--panel-line)}.scroll{padding:20px 16px 40px}.roles{grid-template-columns:1fr}.apps{grid-template-columns:1fr}.summary-grid{grid-template-columns:1fr}.kgrid,.dash-columns,.graph-grid,.overview-tabs,.health-metrics,.bundle-grid{grid-template-columns:1fr}.life-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="locked">
+<section class="login-screen" aria-label="Login">
+  <form class="login-card" id="loginForm">
+    <div class="mark">A</div>
+    <h1>ArchScale Super Admin</h1>
+    <p>Sign in to manage overview, access, roles, departments, integrations and upcoming admin pages.</p>
+    <div class="login-error" id="loginError">Use demo credentials: user ID <b>a</b> and password <b>a</b>.</div>
+    <div class="fld"><label>User ID</label><input id="loginUser" autocomplete="username" placeholder="a"></div>
+    <div class="fld"><label>Password</label><input id="loginPass" type="password" autocomplete="current-password" placeholder="a"></div>
+    <button class="btn btn-pri" type="submit" style="width:100%;justify-content:center">Login</button>
+  </form>
+</section>
+<div class="app">
+
+  <nav class="rail" aria-label="Sections">
+    <div class="logo">A</div>
+    <button class="rail-toggle" id="railPanelToggle" aria-label="Expand or collapse panel"><i class="ti ti-chevrons-left"></i></button>
+    <button class="ricon on" id="adminCentreBtn" aria-label="Super Admin Centre"><i class="ti ti-layout-grid"></i><span class="tip">Super Admin Centre</span></button>
+    <button class="ricon" id="overviewCentreBtn" aria-label="Overview Centre"><i class="ti ti-chart-arcs"></i><span class="tip">Overview</span></button>
+    <div class="rail-foot">SD</div>
+  </nav>
+
+  <aside class="panel" id="panel">
+    <div class="panel-h">
+      <span class="nm">Super Admin Centre</span>
+      <button class="col" id="collapseBtn" aria-label="Collapse panel"><i class="ti ti-chevrons-left"></i></button>
+    </div>
+    <div class="nav-group on" id="adminNav">
+      <div class="psec">Governance</div>
+      <button class="prow on" data-tab="access"><i class="ti ti-users-group"></i>Access &amp; roles</button>
+      <button class="prow" data-tab="builder"><i class="ti ti-layout-grid-add"></i>Departments &amp; apps</button>
+      <button class="prow" data-tab="matrix"><i class="ti ti-layout-grid"></i>Permission matrix</button>
+      <button class="prow" data-tab="people"><i class="ti ti-users"></i>People</button>
+      <div class="psec">Platform</div>
+      <button class="prow" data-tab="security"><i class="ti ti-lock"></i>Security</button>
+      <button class="prow" data-tab="integrations"><i class="ti ti-plug-connected"></i>Integrations</button>
+    </div>
+    <div class="nav-group" id="overviewNav">
+      <div class="psec">Business</div>
+      <button class="prow" data-tab="o-overview"><i class="ti ti-layout-dashboard"></i>Dashboard</button>
+      <button class="prow" data-tab="o-tenants"><i class="ti ti-building-store"></i>Tenants &amp; users</button>
+      <button class="prow" data-tab="o-insights"><i class="ti ti-chart-arcs"></i>Insights</button>
+      <button class="prow" data-tab="o-revenue"><i class="ti ti-coin"></i>Revenue</button>
+      <button class="prow" data-tab="o-support"><i class="ti ti-lifebuoy"></i>Support</button>
+      <div class="psec">Product</div>
+      <button class="prow" data-tab="o-product"><i class="ti ti-bundle"></i>Apps &amp; bundles</button>
+      <div class="psec">Platform</div>
+      <button class="prow" data-tab="o-access"><i class="ti ti-shield-cog"></i>Access summary</button>
+      <button class="prow" data-tab="o-audit"><i class="ti ti-lock-check"></i>Audit logs</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <button class="expand" id="expandBtn" aria-label="Expand panel"><i class="ti ti-chevrons-right"></i></button>
+    <header class="banner">
+      <span class="pill"><i class="ti ti-layout-dashboard"></i>Control Center</span>
+      <span class="crumb" id="crumb">· Access &amp; roles</span>
+      <span class="badge-sa"><i class="ti ti-shield-check"></i>Super Admin</span>
+      <div class="acts">
+        <button class="theme-pill" id="themeBtn" aria-label="Toggle theme"><i class="ti ti-moon"></i><span>Dark</span></button>
+        <button class="notify" aria-label="Notifications"><i class="ti ti-bell"></i></button>
+        <div class="device-toggle" aria-label="Preview device">
+          <button class="on" aria-label="Desktop" data-preview="desktop"><i class="ti ti-device-desktop"></i></button>
+          <button aria-label="Laptop" data-preview="laptop"><i class="ti ti-device-laptop"></i></button>
+          <button aria-label="Tablet" data-preview="tablet"><i class="ti ti-device-tablet"></i></button>
+          <button aria-label="Mobile" data-preview="mobile"><i class="ti ti-device-mobile"></i></button>
+        </div>
+        <div class="profile-wrap">
+          <button class="profile-btn" id="profileBtn" aria-label="Open profile menu"><span class="profile-avatar">SD</span><span class="profile-copy"><strong>Shanker</strong><span>Atelier Studio</span></span><i class="ti ti-chevron-down"></i></button>
+          <div class="profile-menu" id="profileMenu">
+            <button type="button">My profile</button>
+            <button type="button">Workspace settings</button>
+            <button type="button" data-profile-tab="access">Super Admin Panel</button>
+            <button type="button" data-profile-tab="o-overview">Design Lab</button>
+            <button type="button" id="logoutBtn">Sign out</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="scroll">
+      <div class="head">
+        <div>
+          <p class="t-ey" id="eyebrow">GOVERNANCE</p>
+          <h1 class="t-h1" id="title">Access &amp; roles</h1>
+          <p class="t-sub" id="sub">Define who can do what across the platform.</p>
+        </div>
+        <button class="btn btn-pri" id="headBtn"><i class="ti ti-plus"></i><span id="headBtnTxt">New role</span></button>
+      </div>
+
+      <section class="view on" id="v-access"><div class="roles" id="rolesGrid"></div></section>
+
+      <section class="view" id="v-builder"><div id="deptList"></div>
+        <button class="add-dept" id="addDept"><i class="ti ti-plus"></i>Add a department / function</button>
+      </section>
+
+      <section class="view" id="v-matrix">
+        <div class="matrix-wrap"><table><thead id="matrixHead"></thead><tbody id="matrixBody"></tbody></table></div>
+      </section>
+
+      <section class="view" id="v-people">
+        <div class="admin-panel"><div class="admin-panel-h"><span class="dic"><i class="ti ti-users"></i></span><div><div class="nm">People directory</div><div class="meta">Manage members, invites and role assignment</div></div><span class="chip" id="peopleCount">0 people</span></div><div class="admin-list" id="peopleList"></div></div>
+      </section>
+      <section class="view" id="v-security">
+        <div class="admin-panel"><div class="admin-panel-h"><span class="dic"><i class="ti ti-lock"></i></span><div><div class="nm">Security controls</div><div class="meta">Manage authentication controls and audit actions</div></div><span class="chip" id="securityCount">0 controls</span></div><div class="admin-list" id="securityList"></div></div>
+      </section>
+      <section class="view" id="v-integrations">
+        <div class="admin-panel"><div class="admin-panel-h"><span class="dic"><i class="ti ti-plug"></i></span><div><div class="nm">Integrations</div><div class="meta">Register connected services, API keys and webhooks</div></div><span class="chip" id="integrationCount">0 connected</span></div><div class="admin-list" id="integrationList"></div></div>
+      </section>
+
+      <section class="view" id="v-o-overview">
+        <div class="overview-shell">
+          <div class="mvp-hero"><div class="mvp-copy"><div class="mvp-ey">Super Admin MVP</div><div class="mvp-title">Dashboard</div><div class="mvp-sub">Control tenants, plans, modules, support, integrations and security from one owner console.</div></div><div class="health-tile"><div class="lab">Tenant Health</div><div class="big tnum">83%</div><div class="sub">Average platform score</div></div></div>
+          <div class="overview-tabs"><button class="overview-tab on"><i class="ti ti-gauge"></i>Dashboard</button><button class="overview-tab"><i class="ti ti-users-group"></i>Users &amp; Roles</button><button class="overview-tab"><i class="ti ti-coin"></i>Subscriptions</button><button class="overview-tab"><i class="ti ti-bundle"></i>Apps &amp; Bundles</button><button class="overview-tab"><i class="ti ti-chart-bar"></i>Usage Analytics</button><button class="overview-tab"><i class="ti ti-lifebuoy"></i>Support</button><button class="overview-tab"><i class="ti ti-cloud"></i>Integrations</button><button class="overview-tab"><i class="ti ti-lock-check"></i>Audit Logs</button></div>
+          <div class="dash-columns">
+            <div class="dash-card"><h3>Business</h3><div class="mini-stat"><div class="label">Total Tenants</div><div class="value tnum">42</div></div><div class="mini-stat"><div class="label">Active Tenants</div><div class="value tnum">31</div></div><div class="mini-stat"><div class="label">Trial Tenants</div><div class="value tnum">8</div></div><div class="mini-stat"><div class="label">Expired Tenants</div><div class="value tnum">3</div></div><div class="mini-stat"><div class="label">Paying Tenants</div><div class="value tnum">23</div></div></div>
+            <div class="dash-card"><h3>Users</h3><div class="mini-stat"><div class="label">Total Users</div><div class="value tnum">1,248</div></div><div class="mini-stat"><div class="label">Active Users (30 days)</div><div class="value tnum">914</div></div><div class="mini-stat"><div class="label">Logged In Today</div><div class="value tnum">186</div></div></div>
+            <div class="dash-card"><h3>Usage</h3><div class="mini-stat"><div class="label">Total Tasks Created</div><div class="value tnum">18,420</div></div><div class="mini-stat"><div class="label">Total Projects</div><div class="value tnum">812</div></div><div class="mini-stat"><div class="label">Total CRM Leads</div><div class="value tnum">4,106</div></div><div class="mini-stat"><div class="label">Total Files Uploaded</div><div class="value tnum">32,880</div></div></div>
+            <div class="dash-card"><h3>Communication</h3><div class="mini-stat"><div class="label">WhatsApp Sent Today</div><div class="value tnum">1,920</div></div><div class="mini-stat"><div class="label">Emails Sent Today</div><div class="value tnum">3,480</div></div></div>
+            <div class="dash-card"><h3>Revenue</h3><div class="mini-stat"><div class="label">MRR</div><div class="value tnum">Rs 18.4L</div></div><div class="mini-stat"><div class="label">New Trials This Month</div><div class="value tnum">12</div></div><div class="mini-stat"><div class="label">Conversions This Month</div><div class="value tnum">5</div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="v-o-support">
+        <div class="overview-shell">
+          <div class="mvp-hero"><div class="mvp-copy"><div class="mvp-ey">Super Admin MVP</div><div class="mvp-title">Support</div><div class="mvp-sub">Control tenant tickets, priority, module ownership and resolution from one support console.</div></div><div class="health-tile"><div class="lab">Tenant Health</div><div class="big tnum">83%</div><div class="sub">Average platform score</div></div></div>
+          <div class="overview-tabs"><button class="overview-tab"><i class="ti ti-gauge"></i>Dashboard</button><button class="overview-tab"><i class="ti ti-users-group"></i>Users &amp; Roles</button><button class="overview-tab"><i class="ti ti-coin"></i>Subscriptions</button><button class="overview-tab"><i class="ti ti-bundle"></i>Apps &amp; Bundles</button><button class="overview-tab"><i class="ti ti-chart-bar"></i>Usage Analytics</button><button class="overview-tab on"><i class="ti ti-lifebuoy"></i>Support</button><button class="overview-tab"><i class="ti ti-cloud"></i>Integrations</button><button class="overview-tab"><i class="ti ti-lock-check"></i>Audit Logs</button></div>
+          <div class="support-kpis"><div class="mini-stat"><div class="label">Open Tickets</div><div class="value tnum">18</div></div><div class="mini-stat"><div class="label">Pending Tickets</div><div class="value tnum">7</div></div><div class="mini-stat"><div class="label">Resolved Tickets</div><div class="value tnum">42</div></div><div class="mini-stat"><div class="label">Avg Response Time</div><div class="value tnum">2h 14m</div></div></div>
+          <div class="support-card"><h3>Support Centre</h3><div class="panelc-h" style="margin-bottom:14px"><h2>Ticket list</h2></div><div class="table-shell"><table><thead><tr><th>Ticket #</th><th>Tenant</th><th>Priority</th><th>Module</th><th>Status</th><th>Created</th><th>Actions</th></tr></thead><tbody><tr><td>#1029</td><td>Urban Arc</td><td>High</td><td>CRM</td><td>Open</td><td>Today</td><td>Open · Assign · Resolve · Close</td></tr><tr><td>#1028</td><td>Nava Design Co</td><td>Medium</td><td>Projects</td><td>Pending</td><td>Yesterday</td><td>Open · Assign · Resolve · Close</td></tr><tr><td>#1027</td><td>Blue Pine Studio</td><td>High</td><td>Billing</td><td>Open</td><td>2 days ago</td><td>Open · Assign · Resolve · Close</td></tr><tr><td>#1026</td><td>Atelier Studio</td><td>Low</td><td>Files</td><td>Resolved</td><td>3 days ago</td><td>Open · Assign · Resolve · Close</td></tr></tbody></table></div></div>
+        </div>
+      </section>
+
+      <section class="view" id="v-o-audit">
+        <div class="overview-shell">
+          <div class="mvp-hero"><div class="mvp-copy"><div class="mvp-ey">Super Admin MVP</div><div class="mvp-title">Audit Logs</div><div class="mvp-sub">Track tenant creation, plan changes, module assignment, user access and system-level events.</div></div><div class="health-tile"><div class="lab">Tenant Health</div><div class="big tnum">83%</div><div class="sub">Average platform score</div></div></div>
+          <div class="overview-tabs"><button class="overview-tab"><i class="ti ti-gauge"></i>Dashboard</button><button class="overview-tab"><i class="ti ti-users-group"></i>Users &amp; Roles</button><button class="overview-tab"><i class="ti ti-coin"></i>Subscriptions</button><button class="overview-tab"><i class="ti ti-bundle"></i>Apps &amp; Bundles</button><button class="overview-tab"><i class="ti ti-chart-bar"></i>Usage Analytics</button><button class="overview-tab"><i class="ti ti-lifebuoy"></i>Support</button><button class="overview-tab"><i class="ti ti-cloud"></i>Integrations</button><button class="overview-tab on"><i class="ti ti-lock-check"></i>Audit Logs</button></div>
+          <div class="audit-layout"><div class="audit-card"><h3>Activity Log</h3><div class="panelc-h" style="margin-bottom:14px"><h2>Tracked events</h2></div><div class="table-shell"><table><thead><tr><th>Event</th><th>Detail</th><th>Actor</th><th>Time</th></tr></thead><tbody><tr><td>Tenant Created</td><td>Nava Design Co</td><td>Shanker</td><td>Today, 10:18</td></tr><tr><td>Plan Changed</td><td>Atelier Studio</td><td>Product Admin</td><td>Today, 09:42</td></tr><tr><td>Module Assigned</td><td>Urban Arc · CRM</td><td>Shanker</td><td>Yesterday</td></tr><tr><td>User Disabled</td><td>Blue Pine Studio · Vendor</td><td>Support</td><td>2 days ago</td></tr><tr><td>API Error</td><td>WhatsApp delivery failed</td><td>System</td><td>2 days ago</td></tr></tbody></table></div></div><div class="audit-card"><h3>Security</h3><div class="audit-alerts"><div class="alert-row"><i class="ti ti-alert-triangle"></i><span>Failed Logins</span><strong>12</strong></div><div class="alert-row"><i class="ti ti-shield-check"></i><span>Locked Accounts</span><strong>2</strong></div><div class="alert-row"><i class="ti ti-alert-triangle"></i><span>API Errors</span><strong>9</strong></div><div class="alert-row"><i class="ti ti-circle-check"></i><span>System Errors</span><strong>1</strong></div></div></div></div>
+        </div>
+      </section>
+
+      <section class="view" id="v-o-product">
+        <div class="overview-shell">
+          <div class="mvp-hero"><div class="mvp-copy"><div class="mvp-ey">Product</div><div class="mvp-title">Apps &amp; Bundles</div><div class="mvp-sub">Register product modules, move apps through lifecycle stages, and bundle modules into subscription plans.</div></div><div class="health-tile"><div class="lab">Published Apps</div><div class="big tnum">12</div><div class="sub">4 still in development</div></div></div>
+          <div class="overview-tabs"><button class="overview-tab"><i class="ti ti-gauge"></i>Dashboard</button><button class="overview-tab"><i class="ti ti-users-group"></i>Users &amp; Roles</button><button class="overview-tab"><i class="ti ti-coin"></i>Subscriptions</button><button class="overview-tab on"><i class="ti ti-bundle"></i>Apps &amp; Bundles</button><button class="overview-tab"><i class="ti ti-chart-bar"></i>Usage Analytics</button><button class="overview-tab"><i class="ti ti-lifebuoy"></i>Support</button><button class="overview-tab"><i class="ti ti-cloud"></i>Integrations</button><button class="overview-tab"><i class="ti ti-lock-check"></i>Audit Logs</button></div>
+          <div class="product-card">
+            <div class="product-head"><div class="product-title"><div class="mvp-ey">Application Registry</div><h2>Apps lifecycle</h2></div><div class="product-tools"><input id="productAppName" value="" placeholder="App name"><input id="productAppDesc" value="" placeholder="Short description"><select id="productAppStatus"><option>Development</option><option>Beta</option><option>Published</option></select><button class="btn btn-pri" id="productAddApp"><i class="ti ti-plus"></i>Add App</button></div></div>
+            <div class="lifecycle-grid">
+              <div class="life-column" id="lifeDev"><div class="life-h"><span>Draft / Development</span><span class="life-count">4 apps</span></div>
+                <div class="life-row"><div><strong>Projects</strong><span>Timelines, milestones and delivery health</span></div><select><option>Development</option><option>Beta</option><option>Published</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Marketing</strong><span>Campaigns, outreach and publishing</span></div><select><option>Development</option><option>Beta</option><option>Published</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Social Media</strong><span>Content planning and channel publishing</span></div><select><option>Development</option><option>Beta</option><option>Published</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Resources</strong><span>Templates, standards and guides</span></div><select><option>Development</option><option>Beta</option><option>Published</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+              </div>
+              <div class="life-column" id="lifeReleased"><div class="life-h"><span>Released / Beta / Published</span><span class="life-count">12 apps</span></div>
+                <div class="life-row"><div><strong>Documents</strong><span>Plans, contracts and studio files</span></div><select><option>Published</option><option>Beta</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Approvals</strong><span>Reviews, decisions and sign-off</span></div><select><option>Published</option><option>Beta</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Site Visits</strong><span>Schedules, observations and reports</span></div><select><option>Published</option><option>Beta</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Clients &amp; CRM</strong><span>Leads, conversations and relationships</span></div><select><option>Beta</option><option>Published</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Portfolio</strong><span>Selected work and presentation stories</span></div><select><option>Published</option><option>Beta</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Brand Kits</strong><span>Identity standards and reusable assets</span></div><select><option>Published</option><option>Beta</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Human Resources</strong><span>People directory, leave and team records</span></div><select><option>Published</option><option>Beta</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Finance</strong><span>Budgets, invoices and cash flow</span></div><select><option>Beta</option><option>Published</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Expenses</strong><span>Claims, receipts and approvals</span></div><select><option>Published</option><option>Beta</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Vendors</strong><span>Approved partners and supplier records</span></div><select><option>Published</option><option>Beta</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Materials Library</strong><span>Materials, textures and specifications</span></div><select><option>Published</option><option>Beta</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+                <div class="life-row"><div><strong>Intranet</strong><span>Shared updates, policies and internal links</span></div><select><option>Beta</option><option>Published</option><option>Development</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-head"><div class="product-title"><div class="mvp-ey">Plan-named Bundles</div><h2>Bundles match subscriptions</h2></div><div class="product-tools"><input value="" placeholder="Bundle name"><button class="btn btn-pri"><i class="ti ti-plus"></i>Create Bundle</button></div></div>
+            <div class="bundle-tools"><div class="module-checks"><label><input type="checkbox" checked>CRM</label><label><input type="checkbox" checked>Tasks</label><label><input type="checkbox">Projects</label><label><input type="checkbox">HR</label><label><input type="checkbox">Finance</label><label><input type="checkbox">Marketing</label><label><input type="checkbox">Portfolio</label><label><input type="checkbox">Intranet</label></div></div>
+            <div class="bundle-grid"><div class="bundle-card"><h3>Free Demo</h3><p>CRM, Tasks, Portfolio</p><button class="delete-soft">Delete Bundle</button><i class="ti ti-trash trash"></i></div><div class="bundle-card"><h3>Starter</h3><p>CRM, Tasks, Projects, Intranet</p><button class="delete-soft">Delete Bundle</button><i class="ti ti-trash trash"></i></div><div class="bundle-card"><h3>Professional</h3><p>CRM, Tasks, Projects, HR, Finance, Marketing, Portfolio, Intranet</p><button class="delete-soft">Delete Bundle</button><i class="ti ti-trash trash"></i></div><div class="bundle-card"><h3>Enterprise</h3><p>CRM, Tasks, Projects, HR, Finance, Marketing, Portfolio, Intranet</p><button class="delete-soft">Delete Bundle</button><i class="ti ti-trash trash"></i></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="v-o-tenants">
+        <div class="tlayout"><div class="tcard" id="tenantList"></div><div class="usage-card"><div class="uh"><i class="ti ti-chart-bar" style="font-size:18px;color:var(--orange)"></i>App usage<span class="who" id="usageWho">Atelier Studio</span></div><table><thead><tr><th>Application</th><th class="c">Seats</th><th class="c">Usage</th></tr></thead><tbody id="usageBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="v-o-insights">
+        <div class="overview-shell">
+          <div class="graph-grid">
+            <div class="graph-card"><div class="graph-head"><div><div class="ey">Dashboard Graph</div><h3>User Increase</h3></div><div class="graph-num tnum">+186<span class="graph-note">new active users in 30 days</span></div></div><div class="micro-chart"><span style="--h:32%"></span><span style="--h:42%"></span><span style="--h:50%"></span><span style="--h:62%"></span><span style="--h:80%"></span><span style="--h:100%"></span><div class="micro-months"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div></div></div>
+            <div class="graph-card"><div class="graph-head"><div><div class="ey">Dashboard Graph</div><h3>Businesses Added</h3></div><div class="graph-num tnum">+12<span class="graph-note">new tenants this month</span></div></div><div class="micro-chart orange"><span style="--h:36%"></span><span style="--h:44%"></span><span style="--h:58%"></span><span style="--h:68%"></span><span style="--h:84%"></span><span style="--h:100%"></span><div class="micro-months"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div></div></div>
+            <div class="graph-card"><div class="graph-head"><div><div class="ey">Dashboard Graph</div><h3>Sales Done</h3></div><div class="graph-num tnum">Rs 14.2L<span class="graph-note">collected revenue this month</span></div></div><div class="micro-chart green"><span style="--h:46%"></span><span style="--h:58%"></span><span style="--h:66%"></span><span style="--h:82%"></span><span style="--h:94%"></span><span style="--h:100%"></span><div class="micro-months"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div></div></div>
+          </div>
+          <div class="support-card health-table"><div class="panelc-h"><div><h3>Most Important Widget</h3><h2>Tenant Health Score</h2></div><button class="mini-btn">Export view</button></div><div class="table-shell"><table><thead><tr><th>Tenant</th><th>Plan</th><th>Last Login</th><th>Users Active</th><th>Modules Used</th><th>Storage</th><th>Tickets</th><th>Health Score</th></tr></thead><tbody><tr><td>Atelier Studio</td><td>Professional</td><td>Today</td><td>42/58</td><td>7</td><td>61%</td><td>1</td><td><span class="status-pill status-good">94 · Healthy</span></td></tr><tr><td>Nava Design Co</td><td>Starter</td><td>Yesterday</td><td>12/18</td><td>5</td><td>44%</td><td>3</td><td><span class="status-pill status-warn">76 · Active</span></td></tr><tr><td>Urban Arc</td><td>Trial</td><td>4 days ago</td><td>3/11</td><td>2</td><td>18%</td><td>5</td><td><span class="status-pill status-risk">48 · At Risk</span></td></tr><tr><td>Stonegrid</td><td>Enterprise</td><td>Today</td><td>88/104</td><td>8</td><td>72%</td><td>0</td><td><span class="status-pill status-good">98 · Healthy</span></td></tr><tr><td>Blue Pine Studio</td><td>Expired</td><td>21 days ago</td><td>1/16</td><td>1</td><td>81%</td><td>8</td><td><span class="status-pill status-bad">28 · Churn Risk</span></td></tr></tbody></table></div></div>
+          <div class="health-grid" style="margin-bottom:16px">
+            <div class="health-card"><div class="mvp-ey">Owner Health Summary</div><div class="score tnum">78</div><h3>Sales Health</h3><div class="health-metrics"><div class="mini-stat"><div class="label">Demo Requests</div><div class="value tnum">18</div></div><div class="mini-stat"><div class="label">New Trials</div><div class="value tnum">12</div></div><div class="mini-stat"><div class="label">Trial to Paid</div><div class="value tnum">41%</div></div><div class="mini-stat"><div class="label">Conversion Pipeline</div><div class="value tnum">Rs 9.6L</div></div><div class="mini-stat"><div class="label">Churn Risk Tenants</div><div class="value tnum">3</div></div><div class="mini-stat"><div class="label">Top Source</div><div class="value">Partner referrals</div></div></div></div>
+            <div class="health-card"><div class="mvp-ey">Owner Health Summary</div><div class="score tnum">84</div><h3>Financial Health</h3><div class="health-metrics"><div class="mini-stat"><div class="label">MRR</div><div class="value tnum">Rs 18.4L</div></div><div class="mini-stat"><div class="label">ARR</div><div class="value tnum">Rs 2.2Cr</div></div><div class="mini-stat"><div class="label">Collected This Month</div><div class="value tnum">Rs 14.2L</div></div><div class="mini-stat"><div class="label">Outstanding Invoices</div><div class="value tnum">Rs 4.1L</div></div><div class="mini-stat"><div class="label">Failed Payments</div><div class="value tnum">Rs 840</div></div><div class="mini-stat"><div class="label">ARPT</div><div class="value tnum">Rs 800</div></div></div></div>
+          </div>
+        </div>
+        <div class="pgrid">
+          <div class="panelc"><div class="panelc-h"><h2>Daily active users</h2><span class="mini">Last 14 days</span></div><div class="sparkline"><span style="--h:45%"></span><span style="--h:50%"></span><span style="--h:56%"></span><span style="--h:52%"></span><span style="--h:61%"></span><span style="--h:70%"></span><span style="--h:67%"></span><span style="--h:74%"></span><span style="--h:81%"></span><span style="--h:78%"></span><span style="--h:84%"></span><span style="--h:89%"></span><span style="--h:86%"></span><span style="--h:94%"></span></div></div>
+          <div class="panelc" data-chart-card="engagement"><div class="panelc-h"><h2>Engagement by role</h2><div class="chart-toggle"><button class="on" data-chart-toggle="engagement" data-view="bars">Bars</button><button data-chart-toggle="engagement" data-view="pie">Pie</button></div></div><div class="chart-view on" data-chart-view="engagement-bars"><div class="bars"><div class="barrow"><span class="nm">Manager</span><div class="track"><div style="width:28%"></div></div><span class="val">28%</span></div><div class="barrow"><span class="nm">User</span><div class="track"><div style="width:46%"></div></div><span class="val">46%</span></div><div class="barrow"><span class="nm">Client</span><div class="track"><div style="width:18%;background:#e4ad2d"></div></div><span class="val">18%</span></div><div class="barrow"><span class="nm">Vendor</span><div class="track"><div style="width:8%;background:var(--ok)"></div></div><span class="val">8%</span></div></div></div><div class="chart-view" data-chart-view="engagement-pie"><div class="donut-wrap"><svg class="donut" viewBox="0 0 200 200" aria-label="Engagement by role pie chart"><circle class="donut-bg" cx="100" cy="100" r="74"></circle><circle class="donut-seg" cx="100" cy="100" r="74" stroke="#c75b0f" stroke-dasharray="130 465" stroke-dashoffset="0"></circle><circle class="donut-seg" cx="100" cy="100" r="74" stroke="#f47b26" stroke-dasharray="214 465" stroke-dashoffset="-130"></circle><circle class="donut-seg" cx="100" cy="100" r="74" stroke="#e4ad2d" stroke-dasharray="84 465" stroke-dashoffset="-344"></circle><circle class="donut-seg" cx="100" cy="100" r="74" stroke="#4c9f6d" stroke-dasharray="37 465" stroke-dashoffset="-428"></circle><circle class="donut-hole" cx="100" cy="100" r="50"></circle></svg><div class="legend-row"><span><i style="background:#c75b0f"></i>Manager</span><span><i style="background:#f47b26"></i>User</span><span><i style="background:#e4ad2d"></i>Client</span><span><i style="background:#4c9f6d"></i>Vendor</span></div></div></div></div>
+        </div>
+        <div class="pgrid" style="grid-template-columns:1fr 1fr"><div class="panelc" data-chart-card="retention"><div class="panelc-h"><h2>Retention</h2><div class="chart-tools"><span class="mini">6 mo cohort</span><div class="chart-toggle"><button class="on" data-chart-toggle="retention" data-view="bars">Bars</button><button data-chart-toggle="retention" data-view="line">Curve</button></div></div></div><div class="chart-view on" data-chart-view="retention-bars"><div class="bars"><div class="barrow"><span class="nm">M0</span><div class="track"><div style="width:100%"></div></div><span class="val">100%</span></div><div class="barrow"><span class="nm">M1</span><div class="track"><div style="width:88%"></div></div><span class="val">88%</span></div><div class="barrow"><span class="nm">M3</span><div class="track"><div style="width:74%"></div></div><span class="val">74%</span></div><div class="barrow"><span class="nm">M5</span><div class="track"><div style="width:69%"></div></div><span class="val">69%</span></div></div></div><div class="chart-view" data-chart-view="retention-line"><svg class="line-chart" viewBox="0 0 520 280" preserveAspectRatio="none" aria-label="Retention curve"><line class="grid" x1="40" y1="44" x2="500" y2="44"></line><line class="grid" x1="40" y1="88" x2="500" y2="88"></line><line class="grid" x1="40" y1="132" x2="500" y2="132"></line><line class="grid" x1="40" y1="176" x2="500" y2="176"></line><line class="grid" x1="40" y1="220" x2="500" y2="220"></line><text x="10" y="48">100</text><text x="16" y="92">95</text><text x="16" y="136">90</text><text x="16" y="180">85</text><text x="16" y="224">80</text><polygon class="area" points="40,44 132,85 224,128 316,160 408,183 500,203 500,220 40,220"></polygon><polyline class="curve" points="40,44 132,85 224,128 316,160 408,183 500,203"></polyline><text x="40" y="255">M0</text><text x="126" y="255">M1</text><text x="218" y="255">M2</text><text x="310" y="255">M3</text><text x="402" y="255">M4</text><text x="494" y="255">M5</text></svg></div></div><div class="panelc"><div class="panelc-h"><h2>Feature stickiness</h2></div><div class="bars"><div class="barrow"><span class="nm">Tasks</span><div class="track"><div style="width:88%"></div></div><span class="val">88%</span></div><div class="barrow"><span class="nm">Approvals</span><div class="track"><div style="width:71%"></div></div><span class="val">71%</span></div><div class="barrow"><span class="nm">Documents</span><div class="track"><div style="width:64%;background:var(--ok)"></div></div><span class="val">64%</span></div><div class="barrow"><span class="nm">Site Visits</span><div class="track"><div style="width:42%"></div></div><span class="val">42%</span></div></div></div></div>
+      </section>
+
+      <section class="view" id="v-o-revenue">
+        <div class="kgrid"><div class="kpi"><div class="lab"><i class="ti ti-coin"></i>MRR</div><div class="row"><span class="num tnum">Rs 18.4L</span><span class="delta">+12%</span></div></div><div class="kpi"><div class="lab"><i class="ti ti-calendar-dollar"></i>ARR</div><div class="row"><span class="num tnum">Rs 2.2Cr</span><span class="delta">+14%</span></div></div><div class="kpi"><div class="lab"><i class="ti ti-arrow-down-circle"></i>Churn</div><div class="row"><span class="num tnum">1.8%</span><span class="delta">-0.4%</span></div></div><div class="kpi"><div class="lab"><i class="ti ti-user-dollar"></i>ARPU</div><div class="row"><span class="num tnum">Rs 1,430</span><span class="delta">+3%</span></div></div></div>
+        <div class="panelc" style="max-width:1220px"><div class="panelc-h"><h2>Monthly recurring revenue</h2><span class="mini">Trailing 12 months</span></div><div class="sparkline"><span style="--h:41%"></span><span style="--h:45%"></span><span style="--h:48%"></span><span style="--h:52%"></span><span style="--h:56%"></span><span style="--h:60%"></span><span style="--h:64%"></span><span style="--h:68%"></span><span style="--h:73%"></span><span style="--h:78%"></span><span style="--h:83%"></span><span style="--h:90%"></span></div></div>
+      </section>
+
+      <section class="view" id="v-o-access">
+        <div class="usage-card" style="max-width:900px"><div class="uh"><i class="ti ti-shield-cog" style="font-size:18px;color:var(--orange)"></i>Platform access by role</div><table><thead><tr><th>Role</th><th>Scope</th><th class="c">Accounts</th></tr></thead><tbody id="overviewAccessBody"></tbody></table></div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="deptScrim"><div class="modal"><div class="modal-h" id="deptModalTitle">New department / function</div><div class="modal-b">
+  <div class="modal-note">Keep departments as broad business functions. Use apps/modules inside them for specific workflows.</div>
+  <div class="fld"><label>Department name</label><input id="deptName" placeholder="e.g. Operations" autocomplete="off"></div>
+  <div class="fld"><label>Short description</label><input id="deptDesc" placeholder="e.g. Internal processes and logistics" autocomplete="off"></div>
+  <div class="quality-list" id="deptQuality"></div>
+  <div class="fld"><label>Icon</label><div class="icon-pick" id="deptIcons"></div></div>
+  <div class="danger-zone" id="deptDanger"><strong>Delete department / function</strong><p>First confirm deletion, then type the exact department name. This removes the department and every app/module inside it from this configuration.</p><button class="mini-btn" id="armDeleteDept"><i class="ti ti-alert-triangle"></i>Request delete</button><div class="fld" id="deleteDeptConfirmWrap" style="display:none;margin-top:12px;margin-bottom:0"><label>Type department name to authorise</label><input id="deleteDeptConfirm" autocomplete="off"><button class="btn btn-danger" id="confirmDeleteDept" style="margin-top:10px" disabled>Delete department</button></div></div>
+</div><div class="modal-f"><button class="btn btn-gh" data-close>Cancel</button><button class="btn btn-pri" id="saveDept">Create department</button></div></div></div>
+
+<div class="scrim" id="appScrim"><div class="modal"><div class="modal-h" id="appModalTitle">Add app to <span id="appDeptName" style="color:var(--orange-deep);margin-left:5px"></span></div><div class="modal-b">
+  <div class="modal-note">Use this to control which roles can see the app/module card in the Studio Owner tenant view.</div>
+  <div class="fld"><label>App name</label><input id="appName" placeholder="e.g. Inventory" autocomplete="off"></div>
+  <div class="fld"><label>Short description</label><input id="appDesc" placeholder="e.g. Stock and supplies" autocomplete="off"></div>
+  <div class="fld"><label>Status chip</label><input id="appStatus" placeholder="e.g. 12 recent" autocomplete="off"></div>
+  <div class="fld"><label>Icon</label><div class="icon-pick" id="appIcons"></div></div>
+  <div class="fld"><label>Visible to roles</label><div class="icon-pick" id="appRoles" style="gap:6px"></div></div>
+  <div class="danger-zone" id="appDanger"><strong>Delete app / module</strong><p>First confirm deletion, then type the exact app name. This removes the module card from the department.</p><button class="mini-btn" id="armDeleteApp"><i class="ti ti-alert-triangle"></i>Request delete</button><div class="fld" id="deleteAppConfirmWrap" style="display:none;margin-top:12px;margin-bottom:0"><label>Type app name to authorise</label><input id="deleteAppConfirm" autocomplete="off"><button class="btn btn-danger" id="confirmDeleteApp" style="margin-top:10px" disabled>Delete app</button></div></div>
+</div><div class="modal-f"><button class="btn btn-gh" data-close>Cancel</button><button class="btn btn-pri" id="saveApp">Add app</button></div></div></div>
+
+<div class="scrim" id="roleScrim"><div class="modal"><div class="modal-h" id="roleModalTitle">New role</div><div class="modal-b">
+  <div class="modal-note">Level marks seniority/equivalence in the platform. Use L1 for highest control, then L2, L3 and onward for narrower access.</div>
+  <div class="fld"><label>Role name</label><input id="roleName" placeholder="e.g. Design Lead" autocomplete="off"></div>
+  <div class="fld"><label>Level / equivalent tier</label><select id="roleLevel"></select></div>
+  <div class="fld"><label>Role description</label><input id="roleDesc" placeholder="What this role can manage" autocomplete="off"></div>
+  <div class="fld"><label>Icon</label><div class="icon-pick" id="roleIcons"></div></div>
+  <div class="danger-zone" id="roleDanger"><strong>Delete role</strong><p>First confirm deletion, then type the exact role name. This removes the role column from the permission matrix and clears it from app/member assignments.</p><button class="mini-btn" id="armDeleteRole"><i class="ti ti-alert-triangle"></i>Request delete</button><div class="fld" id="deleteRoleConfirmWrap" style="display:none;margin-top:12px;margin-bottom:0"><label>Type role name to authorise</label><input id="deleteRoleConfirm" autocomplete="off"><button class="btn btn-danger" id="confirmDeleteRole" style="margin-top:10px" disabled>Delete role</button></div></div>
+</div><div class="modal-f"><button class="btn btn-gh" data-close>Cancel</button><button class="btn btn-pri" id="saveRole">Create role</button></div></div></div>
+
+<div class="scrim" id="capScrim"><div class="modal"><div class="modal-h">Add capability</div><div class="modal-b">
+  <div class="fld"><label>Capability name</label><input id="capName" placeholder="e.g. Publish portfolio" autocomplete="off"></div>
+  <div class="fld"><label>Source app / module</label><select id="capSource"></select></div>
+  <div class="fld"><label>Allowed roles</label><div class="check-grid" id="capRoles"></div></div>
+</div><div class="modal-f"><button class="btn btn-gh" data-close>Cancel</button><button class="btn btn-pri" id="saveCap">Add capability</button></div></div></div>
+
+<div class="scrim" id="memberScrim"><div class="modal"><div class="modal-h">Invite member</div><div class="modal-b">
+  <div class="fld"><label>Name</label><input id="memberName" placeholder="e.g. Priya Nair" autocomplete="off"></div>
+  <div class="fld"><label>Email</label><input id="memberEmail" placeholder="name@studio.com" autocomplete="off"></div>
+  <div class="fld"><label>Role</label><select id="memberRole"></select></div>
+</div><div class="modal-f"><button class="btn btn-gh" data-close>Cancel</button><button class="btn btn-pri" id="saveMember">Invite member</button></div></div></div>
+
+<div class="scrim" id="securityScrim"><div class="modal"><div class="modal-h">Add security control</div><div class="modal-b">
+  <div class="fld"><label>Control name</label><input id="securityName" placeholder="e.g. Device review" autocomplete="off"></div>
+  <div class="fld"><label>Status</label><select id="securityStatus"><option>Required</option><option>Recommended</option><option>Monitoring</option><option>Enabled</option></select></div>
+  <div class="fld"><label>Description</label><input id="securityDesc" placeholder="Short operating note" autocomplete="off"></div>
+</div><div class="modal-f"><button class="btn btn-gh" data-close>Cancel</button><button class="btn btn-pri" id="saveSecurity">Add control</button></div></div></div>
+
+<div class="scrim" id="integrationScrim"><div class="modal"><div class="modal-h">Add integration</div><div class="modal-b">
+  <div class="fld"><label>Service name</label><input id="integrationName" placeholder="e.g. Slack" autocomplete="off"></div>
+  <div class="fld"><label>Icon</label><div class="icon-pick" id="integrationIcons"></div></div>
+  <div class="fld"><label>Type</label><select id="integrationType"><option>Backend</option><option>Authentication</option><option>Communication</option><option>Storage</option><option>Accounting</option><option>Automation</option><option>Webhook</option></select></div>
+  <div class="fld"><label>Status</label><select id="integrationStatus"><option>Connected</option><option>Needs setup</option><option>Suggested</option></select></div>
+</div><div class="modal-f"><button class="btn btn-gh" data-close>Cancel</button><button class="btn btn-pri" id="saveIntegration">Add integration</button></div></div></div>
+
+<script>
+const AUTH_KEY='archscale_super_admin_session';
+const DEMO_USER='a',DEMO_PASS='a';
+let roles=[
+  {n:'Super Admin',lvl:'L1',i:'ti-shield-lock',c:'#c25e12',d:'Full control of the platform — roles, departments, apps, billing and security. The only role that can create other admins.'},
+  {n:'Product Admin',lvl:'L2',i:'ti-adjustments',c:'#8a5a2b',d:'Configures apps, departments and integrations across the workspace, but cannot change billing or top-level security.'},
+  {n:'Studio Owner',lvl:'L3',i:'ti-building',c:'#6b5644',d:'Owns a studio workspace — manages its people, projects and approvals end to end.'},
+  {n:'Manager',lvl:'L4',i:'ti-users',c:'#3f7d58',d:'Leads a team or function — assigns work, reviews output and approves within their scope.'},
+  {n:'User',lvl:'L5',i:'ti-user',c:'#4a5d6e',d:'Day-to-day team member — works inside the apps they are granted, creates and updates records.'},
+  {n:'Client',lvl:'L6',i:'ti-briefcase',c:'#7a4b63',d:'External stakeholder — views shared projects, approves deliverables, limited read access.'},
+  {n:'Vendor',lvl:'L7',i:'ti-truck',c:'#5b6e3f',d:'External supplier — accesses only assigned tasks, documents or purchase orders.'}
+];
+let rolesShort=['Super Admin','Product Admin','Studio Owner','Manager','User','Client','Vendor'];
+let depts=[
+  {name:'Projects',desc:'Delivery, documents and approvals',icon:'ti-layers-subtract',apps:[
+    {n:'Projects',d:'Timelines, milestones and delivery health',i:'ti-building',m:'3 active',roles:['Studio Owner','Manager','User']},
+    {n:'Documents',d:'Plans, contracts and studio files',i:'ti-files',m:'12 recent',roles:['Studio Owner','Manager','User','Client']},
+    {n:'Approvals',d:'Reviews, decisions and sign-off',i:'ti-rosette-discount-check',m:'4 pending',roles:['Studio Owner','Manager','Client']},
+    {n:'Site Visits',d:'Schedules, observations and reports',i:'ti-calendar-check',m:'2 today',roles:['Manager','User','Vendor']}]},
+  {name:'Marketing & Sales',desc:'Outreach, leads and relationships',icon:'ti-trending-up',apps:[
+    {n:'Marketing',d:'Campaigns, outreach and publishing',i:'ti-speakerphone',m:'3 drafts',roles:['Studio Owner','Manager','User']},
+    {n:'Clients & CRM',d:'Leads, conversations and relationships',i:'ti-id-badge-2',m:'2 new',roles:['Studio Owner','Manager','User']}]},
+  {name:'Brand',desc:'Portfolio, identity and channels',icon:'ti-palette',apps:[
+    {n:'Portfolio',d:'Selected work and presentation stories',i:'ti-photo',m:'18 projects',roles:['Studio Owner','Manager','User','Client']},
+    {n:'Brand Kits',d:'Identity standards and reusable assets',i:'ti-color-swatch',m:'Updated',roles:['Studio Owner','Manager','User']},
+    {n:'Social Media',d:'Content planning and channel publishing',i:'ti-hierarchy-2',m:'6 queued',roles:['Manager','User']}]},
+  {name:'Human Resources',desc:'People directory, leave and team records',icon:'ti-users-group',apps:[
+    {n:'Human Resources',d:'People directory, leave and team records',i:'ti-users-group',m:'18 people',roles:['Studio Owner','Manager','User']}]},
+  {name:'Accounts',desc:'Budgets, claims and studio finance',icon:'ti-receipt-2',apps:[
+    {n:'Finance',d:'Budgets, invoices and cash flow',i:'ti-coin-rupee',m:'On track',roles:['Studio Owner','Manager']},
+    {n:'Expenses',d:'Claims, receipts and approvals',i:'ti-receipt',m:'7 pending',roles:['Studio Owner','Manager','User']}]},
+  {name:'Resources',desc:'Templates, suppliers, materials and internal links',icon:'ti-book-2',apps:[
+    {n:'Resources',d:'Templates, standards and guides',i:'ti-book-2',m:'24 items',roles:['Studio Owner','Manager','User']},
+    {n:'Vendors',d:'Approved partners and supplier records',i:'ti-package',m:'32 active',roles:['Studio Owner','Manager','Vendor']},
+    {n:'Materials Library',d:'Materials, textures and specifications',i:'ti-sparkles',m:'46 items',roles:['Studio Owner','Manager','User','Vendor']},
+    {n:'Intranet',d:'Shared updates, policies and internal links',i:'ti-building-bank',m:'Standard',roles:['Studio Owner','Manager','User']}]}
+];
+const iconChoices=['ti-shield-cog','ti-layout-dashboard','ti-database','ti-lock-check','ti-cloud-up','ti-webhook','ti-plug-connected','ti-layers-subtract','ti-building','ti-trending-up','ti-palette','ti-users-group','ti-receipt-2','ti-book-2','ti-files','ti-calendar-check','ti-speakerphone','ti-id-badge-2','ti-photo','ti-color-swatch','ti-hierarchy-2','ti-package','ti-sparkles','ti-building-bank','ti-truck','ti-receipt','ti-chart-bar','ti-briefcase','ti-tools'];
+let matrix=[
+  ['Create / delete departments',[1,1,0,0,0,0,0],'Platform'],['Add or remove apps',[1,1,1,0,0,0,0],'Platform'],
+  ['Manage people & roles',[1,1,1,0,0,0,0],'People'],['Approve deliverables',[1,1,1,1,0,1,0],'Approvals'],
+  ['Create & edit records',[1,1,1,1,1,0,0],'App records'],['View shared projects',[1,1,1,1,1,1,0],'Projects'],
+  ['Access assigned tasks only',[0,0,0,0,0,0,1],'Tasks'],['Billing & security',[1,0,0,0,0,0,0],'Security']
+];
+const meta={
+  access:{ey:'GOVERNANCE',t:'Access & roles',s:'Define who can do what across the platform.',btn:'New role'},
+  builder:{ey:'GOVERNANCE',t:'Departments & apps',s:'Build the functions and apps your studio runs on.',btn:'New department'},
+  matrix:{ey:'GOVERNANCE',t:'Permission matrix',s:'What each of the seven roles can do.',btn:'Edit rules'},
+  people:{ey:'GOVERNANCE',t:'People',s:'Invite members and assign them roles.',btn:'Invite people'},
+  security:{ey:'PLATFORM',t:'Security',s:'Authentication, sessions and audit log.',btn:'Security log'},
+  integrations:{ey:'PLATFORM',t:'Integrations',s:'Connect the tools your studio already uses.',btn:'Add integration'},
+  'o-overview':{ey:'BUSINESS',t:'Dashboard',s:'Control tenants, plans, modules, support, integrations and security from one owner console.'},
+  'o-tenants':{ey:'BUSINESS',t:'Tenants & users',s:'All studios on the platform. Click one to see its users; the table shows their app usage.'},
+  'o-insights':{ey:'BUSINESS',t:'Insights',s:'Engagement, retention and feature stickiness across the platform.'},
+  'o-revenue':{ey:'BUSINESS',t:'Revenue',s:'Recurring revenue, churn and per-user economics.'},
+  'o-support':{ey:'OPERATIONS',t:'Support',s:'Tenant tickets, priorities, module ownership and resolution controls.'},
+  'o-product':{ey:'PRODUCT',t:'Apps & bundles',s:'Lifecycle states, app registry and subscription bundles for the product suite.'},
+  'o-access':{ey:'PLATFORM',t:'Access summary',s:'Platform-wide roles and how many accounts hold each.'},
+  'o-audit':{ey:'PLATFORM',t:'Audit logs',s:'Tracked events, security alerts and system-level activity.'}
+};
+let members=[
+  {name:'Shanker Dev',email:'shanker@archscale.studio',role:'Super Admin',status:'Active'},
+  {name:'Maya Iyer',email:'maya@archscale.studio',role:'Studio Owner',status:'Active'},
+  {name:'Arjun Mehta',email:'arjun@archscale.studio',role:'Manager',status:'Invited'}
+];
+let securityItems=[
+  {name:'Two-factor authentication',status:'Recommended',desc:'Require admins and owners to verify every new device.'},
+  {name:'Session review',status:'Monitoring',desc:'Review active browser sessions and revoke stale access.'},
+  {name:'Audit trail',status:'Enabled',desc:'Track role, app and permission changes made by administrators.'}
+];
+let integrations=[
+  {name:'Supabase Database',type:'Backend',status:'Connected',icon:'ti-database'},
+  {name:'Supabase Auth',type:'Authentication',status:'Connected',icon:'ti-lock-check'},
+  {name:'Supabase Storage',type:'Storage',status:'Connected',icon:'ti-cloud-up'},
+  {name:'API Webhooks',type:'Webhook',status:'Needs setup',icon:'ti-webhook'}
+];
+const overviewTenants=[
+  {n:'Atelier Studio',init:'AS',c:'#ed7d2b',users:18,plan:'ent',planTxt:'Enterprise',loc:'Mumbai',apps:[['Projects','ti-building',96],['Documents','ti-files',88],['Clients & CRM','ti-id-badge-2',74],['Approvals','ti-circle-check',61],['Site Visits','ti-calendar-check',48],['Portfolio','ti-photo',39]],members:[['Shanker De','Studio Owner','SD'],['Emma Wilson','Manager','EW'],['James Carter','User','JC'],['Sophia Lee','User','SL']]},
+  {n:'Sneller Homes',init:'SH',c:'#3f9d6b',users:12,plan:'pro',planTxt:'Pro',loc:'Bangalore',apps:[['Projects','ti-building',90],['Documents','ti-files',71],['Approvals','ti-circle-check',55],['Clients & CRM','ti-id-badge-2',40],['Social Media','ti-share',22]],members:[['Ravi Menon','Studio Owner','RM'],['Anita Rao','Manager','AR'],['Karthik S','User','KS']]},
+  {n:'Tankersley',init:'TK',c:'#8a5a7a',users:9,plan:'pro',planTxt:'Pro',loc:'Delhi',apps:[['Projects','ti-building',82],['Site Visits','ti-calendar-check',64],['Documents','ti-files',50],['Approvals','ti-circle-check',31]],members:[['Priya Nair','Studio Owner','PN'],['Dev Shah','Manager','DS']]},
+  {n:'Form & Field',init:'FF',c:'#2f7d8a',users:6,plan:'trial',planTxt:'Trial',loc:'Pune',apps:[['Projects','ti-building',60],['Documents','ti-files',38],['Clients & CRM','ti-id-badge-2',20]],members:[['Neha Gupta','Studio Owner','NG'],['Arjun M','User','AM']]}
+];
+const overviewAccess=[
+  ['Super Admin','Full platform control',2],['Product Admin','Apps, tenants, billing',5],
+  ['Studio Owner','Owns one workspace',48],['Manager','Leads a team',186],
+  ['User','Day-to-day member','1,043'],['Client','External, read/approve',312],['Vendor','Assigned tasks only',97]
+];
+
+function renderRoles(){document.getElementById('rolesGrid').innerHTML=roles.map((r,i)=>`<div class="role"><span class="tier" style="background:${r.c}"></span><h3><span class="ri" style="background:${r.c}1f;color:${r.c}"><i class="ti ${r.i}" style="font-size:18px"></i></span>${r.n}<span class="lvl">${r.lvl}</span></h3><p>${r.d}</p><div class="role-tools"><button class="mini-btn" data-edit-role="${i}"><i class="ti ti-pencil"></i>Edit role</button></div></div>`).join('');document.querySelectorAll('[data-edit-role]').forEach(b=>b.addEventListener('click',()=>openRole(+b.dataset.editRole)));}
+function roleDots(l){return l.map(r=>`<span class="rdot">${r.split(' ')[0]}</span>`).join('');}
+function renderDepts(){document.getElementById('deptList').innerHTML=depts.map((d,di)=>`<div class="dept"><div class="dept-h"><span class="dic"><i class="ti ${d.icon}"></i></span><div><div class="nm">${d.name}</div><div class="meta">${d.desc}</div></div><div class="acts"><span class="chip">${d.apps.length} app${d.apps.length!==1?'s':''}</span><button class="mini-btn" data-edit-dept="${di}"><i class="ti ti-pencil"></i>Edit</button></div></div><div class="apps">${d.apps.map((a,ai)=>`<button class="appcard" data-edit-app="${di}:${ai}"><span class="appmeta">${a.m||'Ready'}</span><div class="ic2"><i class="ti ${a.i}"></i></div><div class="an">${a.n}</div><div class="ad">${a.d}</div><div class="roles-on">${roleDots(a.roles)}</div><div class="openline"><span>Edit application</span><i class="ti ti-pencil"></i></div></button>`).join('')}<button class="addapp" data-dept="${di}"><i class="ti ti-plus"></i><span>Add app</span></button></div></div>`).join('');document.querySelectorAll('.addapp').forEach(b=>b.addEventListener('click',()=>openApp(+b.dataset.dept)));document.querySelectorAll('[data-edit-dept]').forEach(b=>b.addEventListener('click',()=>openDept(+b.dataset.editDept)));document.querySelectorAll('[data-edit-app]').forEach(b=>b.addEventListener('click',()=>{const [di,ai]=b.dataset.editApp.split(':').map(Number);openApp(di,ai);}));}
+function roleHeader(r){return r.replace(/\s+/g,'<br>');}
+function capabilitySources(){return ['Platform',...depts.flatMap(d=>d.apps.map(a=>`${d.name} / ${a.n}`))];}
+function renderMatrix(){
+  document.getElementById('matrixHead').innerHTML=`<tr><th class="lead">Capability</th>${rolesShort.map(r=>`<th class="c">${roleHeader(r)}</th>`).join('')}</tr>`;
+  document.getElementById('matrixBody').innerHTML=matrix.map(([cap,arr,source],ri)=>`<tr><td class="cap"><span class="cap-name">${cap}</span><span class="cap-source">${source||'Platform'}</span></td>${rolesShort.map((role,ci)=>`<td class="c"><button class="perm-toggle" data-r="${ri}" data-c="${ci}" aria-label="Toggle ${cap} for ${role}">${arr[ci]?'<span class="yes"><i class="ti ti-check"></i></span>':'<span class="no"><i class="ti ti-minus"></i></span>'}</button></td>`).join('')}</tr>`).join('');
+  document.querySelectorAll('.perm-toggle').forEach(b=>b.addEventListener('click',()=>{const r=+b.dataset.r,c=+b.dataset.c;matrix[r][1][c]=matrix[r][1][c]?0:1;renderMatrix();}));
+}
+function renderPeople(){
+  document.getElementById('peopleCount').textContent=`${members.length} people`;
+  document.getElementById('peopleList').innerHTML=members.map((m,i)=>`<div class="admin-row"><span class="dic"><i class="ti ti-user"></i></span><div><div class="nm">${m.name}</div><div class="meta">${m.email}</div></div><div class="row-tags"><span class="row-tag">${m.role}</span><span class="row-tag">${m.status}</span></div><button class="row-action" data-member="${i}"><i class="ti ti-user-cog"></i></button></div>`).join('');
+  document.querySelectorAll('[data-member]').forEach(b=>b.addEventListener('click',()=>{const i=+b.dataset.member;members[i].status=members[i].status==='Active'?'Paused':'Active';renderPeople();}));
+}
+function renderSecurity(){
+  document.getElementById('securityCount').textContent=`${securityItems.length} controls`;
+  document.getElementById('securityList').innerHTML=securityItems.map((s,i)=>`<div class="admin-row"><span class="dic"><i class="ti ti-lock-check"></i></span><div><div class="nm">${s.name}</div><div class="meta">${s.desc}</div></div><div class="row-tags"><span class="row-tag">${s.status}</span></div><button class="row-action" data-security="${i}"><i class="ti ti-refresh"></i></button></div>`).join('');
+  document.querySelectorAll('[data-security]').forEach(b=>b.addEventListener('click',()=>{const states=['Required','Recommended','Monitoring','Enabled'];const item=securityItems[+b.dataset.security];item.status=states[(states.indexOf(item.status)+1)%states.length];renderSecurity();}));
+}
+function renderIntegrations(){
+  const connected=integrations.filter(i=>i.status==='Connected').length;
+  document.getElementById('integrationCount').textContent=`${connected} connected`;
+  document.getElementById('integrationList').innerHTML=integrations.map((it,i)=>`<div class="admin-row"><span class="dic"><i class="ti ${it.icon||'ti-plug-connected'}"></i></span><div><div class="nm">${it.name}</div><div class="meta">${it.type}</div></div><div class="row-tags"><span class="row-tag">${it.status}</span></div><button class="row-action" data-integration="${i}"><i class="ti ti-pencil"></i></button></div>`).join('');
+  document.querySelectorAll('[data-integration]').forEach(b=>b.addEventListener('click',()=>openIntegration(+b.dataset.integration)));
+}
+function usageColor(p){return p>=70?'var(--orange)':p>=45?'#d99a26':'var(--ok)';}
+function renderOverviewUsage(t){
+  document.getElementById('usageWho').textContent=t.n;
+  document.getElementById('usageBody').innerHTML=t.apps.map(([n,i,p])=>`<tr><td><div class="appcell"><span class="ai"><i class="ti ${i}"></i></span>${n}</div></td><td class="c tnum" style="color:var(--ink-2)">${Math.round(t.users*p/100)}</td><td class="c"><div class="ubar"><div class="track"><div style="width:${p}%;background:${usageColor(p)}"></div></div><span class="pct">${p}%</span></div></td></tr>`).join('');
+}
+function renderOverviewTenants(){
+  document.getElementById('tenantList').innerHTML=overviewTenants.map((t,i)=>`<div class="tenant${i===0?' open':''}" data-tenant="${i}"><div class="trow"><span class="logo2" style="background:${t.c}">${t.init}</span><div><div class="tn">${t.n}</div><div class="tm">${t.loc} · ${t.users} users</div></div><span class="plan ${t.plan}">${t.planTxt}</span><i class="ti ti-chevron-right chev"></i></div><div class="users">${t.members.map(([n,r,a])=>`<div class="urow"><span class="ua">${a}</span><div><div class="un">${n}</div><div class="ur">${r}</div></div><span class="ustat">active</span></div>`).join('')}</div></div>`).join('');
+  document.querySelectorAll('[data-tenant]').forEach(el=>el.querySelector('.trow').addEventListener('click',()=>{const i=+el.dataset.tenant;document.querySelectorAll('[data-tenant]').forEach(x=>{if(x!==el)x.classList.remove('open')});el.classList.toggle('open');renderOverviewUsage(overviewTenants[i]);}));
+  renderOverviewUsage(overviewTenants[0]);
+}
+function renderOverviewAccess(){document.getElementById('overviewAccessBody').innerHTML=overviewAccess.map(([r,s,n])=>`<tr><td style="font-weight:800">${r}</td><td style="color:var(--ink-2)">${s}</td><td class="c tnum">${n}</td></tr>`).join('');}
+
+function setTab(tab){const m=meta[tab];if(!m)return;
+  document.querySelectorAll('.prow').forEach(r=>r.classList.toggle('on',r.dataset.tab===tab));
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  document.getElementById('v-'+tab).classList.add('on');
+  document.getElementById('crumb').innerHTML='· '+m.t;
+  document.getElementById('eyebrow').textContent=m.ey;
+  document.getElementById('title').textContent=m.t;
+  document.getElementById('sub').textContent=tab==='matrix'?`What each of the ${rolesShort.length} roles can do.`:m.s;
+  document.getElementById('headBtn').style.display=m.btn?'inline-flex':'none';
+  if(m.btn)document.getElementById('headBtnTxt').textContent=m.btn;
+}
+document.querySelectorAll('[data-tab]').forEach(el=>el.addEventListener('click',()=>setTab(el.dataset.tab)));
+
+const panel=document.getElementById('panel');
+function setPanelCollapsed(collapsed){
+  panel.classList.toggle('collapsed',collapsed);
+  document.querySelector('#railPanelToggle i').className=collapsed?'ti ti-chevrons-right':'ti ti-chevrons-left';
+}
+document.getElementById('collapseBtn').addEventListener('click',()=>setPanelCollapsed(true));
+document.getElementById('expandBtn').addEventListener('click',()=>setPanelCollapsed(false));
+document.getElementById('railPanelToggle').addEventListener('click',()=>setPanelCollapsed(!panel.classList.contains('collapsed')));
+function setCentre(centre){
+  setPanelCollapsed(false);
+  document.getElementById('adminCentreBtn').classList.toggle('on',centre==='admin');
+  document.getElementById('overviewCentreBtn').classList.toggle('on',centre==='overview');
+  document.getElementById('adminNav').classList.toggle('on',centre==='admin');
+  document.getElementById('overviewNav').classList.toggle('on',centre==='overview');
+  document.querySelector('.panel-h .nm').textContent=centre==='admin'?'Super Admin Centre':'Overview';
+  setTab(centre==='admin'?'access':'o-overview');
+}
+document.getElementById('adminCentreBtn').addEventListener('click',()=>setCentre('admin'));
+document.getElementById('overviewCentreBtn').addEventListener('click',()=>setCentre('overview'));
+
+function setAuthenticated(on){
+  document.body.classList.toggle('locked',!on);
+  if(on)localStorage.setItem(AUTH_KEY,JSON.stringify({user:'Shanker',workspace:'Atelier Studio',signedInAt:new Date().toISOString()}));
+  else localStorage.removeItem(AUTH_KEY);
+}
+document.getElementById('loginForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const ok=document.getElementById('loginUser').value.trim()===DEMO_USER&&document.getElementById('loginPass').value===DEMO_PASS;
+  document.getElementById('loginError').classList.toggle('show',!ok);
+  if(ok)setAuthenticated(true);
+});
+if(localStorage.getItem(AUTH_KEY))document.body.classList.remove('locked');
+document.getElementById('profileBtn').addEventListener('click',e=>{e.stopPropagation();document.getElementById('profileMenu').classList.toggle('show');});
+document.addEventListener('click',e=>{if(!e.target.closest('.profile-wrap'))document.getElementById('profileMenu').classList.remove('show');});
+document.querySelectorAll('[data-profile-tab]').forEach(b=>b.addEventListener('click',()=>{const tab=b.dataset.profileTab;document.getElementById('profileMenu').classList.remove('show');setCentre(tab.startsWith('o-')?'overview':'admin');setTab(tab);}));
+document.querySelectorAll('.overview-tab').forEach(btn=>btn.addEventListener('click',()=>{
+  const label=btn.textContent.trim();
+  const map={'Dashboard':'o-overview','Users & Roles':'access','Subscriptions':'o-revenue','Apps & Bundles':'o-product','Usage Analytics':'o-insights','Support':'o-support','Integrations':'integrations','Audit Logs':'o-audit'};
+  const tab=map[label];
+  if(!tab)return;
+  setCentre(tab.startsWith('o-')?'overview':'admin');
+  setTab(tab);
+}));
+document.getElementById('logoutBtn').addEventListener('click',()=>{document.getElementById('profileMenu').classList.remove('show');document.getElementById('loginPass').value='';setAuthenticated(false);});
+document.querySelectorAll('.device-toggle button').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.device-toggle button').forEach(b=>b.classList.toggle('on',b===btn));
+  const preview=btn.dataset.preview||'desktop';
+  if(preview==='desktop')document.body.removeAttribute('data-preview');
+  else document.body.dataset.preview=preview;
+}));
+
+function updateProductCounts(){
+  ['lifeDev','lifeReleased'].forEach(id=>{
+    const col=document.getElementById(id);
+    if(!col)return;
+    const count=col.querySelectorAll('.life-row').length;
+    col.querySelector('.life-count').textContent=`${count} app${count===1?'':'s'}`;
+  });
+}
+function wireLifeRow(row){
+  const select=row.querySelector('select');
+  row.querySelector('.delete-soft')?.addEventListener('click',()=>{row.remove();updateProductCounts();});
+  select?.addEventListener('change',()=>{
+    const target=select.value==='Development'?document.getElementById('lifeDev'):document.getElementById('lifeReleased');
+    target?.appendChild(row);
+    updateProductCounts();
+  });
+}
+function htmlText(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+document.querySelectorAll('.life-row').forEach(wireLifeRow);
+document.getElementById('productAddApp')?.addEventListener('click',()=>{
+  const name=document.getElementById('productAppName').value.trim();
+  const desc=document.getElementById('productAppDesc').value.trim();
+  const status=document.getElementById('productAppStatus').value;
+  if(!name)return;
+  const row=document.createElement('div');
+  row.className='life-row';
+  row.innerHTML=`<div><strong>${htmlText(name)}</strong><span>${htmlText(desc||'New product module')}</span></div><select><option${status==='Development'?' selected':''}>Development</option><option${status==='Beta'?' selected':''}>Beta</option><option${status==='Published'?' selected':''}>Published</option></select><button class="delete-soft"><i class="ti ti-trash"></i>Delete</button>`;
+  wireLifeRow(row);
+  (status==='Development'?document.getElementById('lifeDev'):document.getElementById('lifeReleased')).appendChild(row);
+  document.getElementById('productAppName').value='';
+  document.getElementById('productAppDesc').value='';
+  updateProductCounts();
+});
+updateProductCounts();
+
+let pickedDeptIcon=iconChoices[0],editingDeptIdx=null;
+function fillIcons(c,onPick,initial){c.innerHTML=iconChoices.map(ic=>`<button data-ic="${ic}" class="${ic===initial?'sel':''}"><i class="ti ${ic}"></i></button>`).join('');c.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{c.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');onPick(b.dataset.ic);}));}
+const deptScrim=document.getElementById('deptScrim');
+function resetDeleteDept(){document.getElementById('deleteDeptConfirmWrap').style.display='none';document.getElementById('deleteDeptConfirm').value='';document.getElementById('confirmDeleteDept').disabled=true;}
+function deptQuality(){
+  const n=document.getElementById('deptName').value.trim();
+  const d=document.getElementById('deptDesc').value.trim();
+  const dup=depts.some((x,i)=>i!==editingDeptIdx&&x.name.toLowerCase()===n.toLowerCase());
+  const checks=[
+    {ok:n.length>=3,t:'Name is clear and at least 3 characters'},
+    {ok:!dup,t:'Name is unique across departments'},
+    {ok:d.length>=18,t:'Description explains the business function'},
+    {ok:!/(misc|other|general|stuff)$/i.test(n),t:'Avoid generic bucket names'}
+  ];
+  document.getElementById('deptQuality').innerHTML=checks.map(c=>`<div><i class="ti ${c.ok?'ti-check ok':'ti-alert-circle bad'}"></i>${c.t}</div>`).join('');
+  return checks.every(c=>c.ok);
+}
+function openDept(idx=null){
+  editingDeptIdx=idx;
+  const dept=idx===null?{name:'',desc:'',icon:iconChoices[1]}:depts[idx];
+  pickedDeptIcon=dept.icon;
+  document.getElementById('deptModalTitle').textContent=idx===null?'New department / function':'Edit department / function';
+  document.getElementById('deptName').value=dept.name;
+  document.getElementById('deptDesc').value=dept.desc;
+  document.getElementById('saveDept').textContent=idx===null?'Create department':'Save changes';
+  fillIcons(document.getElementById('deptIcons'),ic=>pickedDeptIcon=ic,pickedDeptIcon);
+  document.getElementById('deptDanger').classList.toggle('show',idx!==null);
+  resetDeleteDept();deptQuality();deptScrim.classList.add('show');document.getElementById('deptName').focus();
+}
+document.getElementById('addDept').addEventListener('click',()=>openDept());
+document.getElementById('deptName').addEventListener('input',deptQuality);
+document.getElementById('deptDesc').addEventListener('input',deptQuality);
+document.getElementById('saveDept').addEventListener('click',()=>{const n=document.getElementById('deptName').value.trim();const desc=document.getElementById('deptDesc').value.trim();if(!deptQuality())return;if(editingDeptIdx===null){depts.push({name:n,desc,icon:pickedDeptIcon,apps:[]});}else{depts[editingDeptIdx]={...depts[editingDeptIdx],name:n,desc,icon:pickedDeptIcon};}deptScrim.classList.remove('show');renderDepts();});
+document.getElementById('armDeleteDept').addEventListener('click',()=>{document.getElementById('deleteDeptConfirmWrap').style.display='block';document.getElementById('deleteDeptConfirm').focus();});
+document.getElementById('deleteDeptConfirm').addEventListener('input',e=>{document.getElementById('confirmDeleteDept').disabled=editingDeptIdx===null||e.target.value!==depts[editingDeptIdx].name;});
+document.getElementById('confirmDeleteDept').addEventListener('click',()=>{if(editingDeptIdx===null)return;depts.splice(editingDeptIdx,1);editingDeptIdx=null;deptScrim.classList.remove('show');renderDepts();});
+
+let appDeptIdx=0,editingAppIdx=null,pickedAppIcon=iconChoices[1],pickedRoles=['Manager','User'];
+const appScrim=document.getElementById('appScrim');
+function renderRolePick(){const c=document.getElementById('appRoles');c.innerHTML=rolesShort.map(r=>`<button data-role="${r}" class="${pickedRoles.includes(r)?'sel':''}" style="width:auto;padding:0 12px;font-size:12px;font-weight:600">${r}</button>`).join('');c.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const r=b.dataset.role;if(pickedRoles.includes(r)){pickedRoles=pickedRoles.filter(x=>x!==r);b.classList.remove('sel');}else{pickedRoles.push(r);b.classList.add('sel');}}));}
+function resetDeleteApp(){document.getElementById('deleteAppConfirmWrap').style.display='none';document.getElementById('deleteAppConfirm').value='';document.getElementById('confirmDeleteApp').disabled=true;}
+function openApp(di,ai=null){
+  appDeptIdx=di;editingAppIdx=ai;
+  const app=ai===null?{n:'',d:'',i:iconChoices[2],m:'Ready',roles:['Manager','User']}:depts[di].apps[ai];
+  pickedAppIcon=app.i;pickedRoles=[...app.roles];
+  document.getElementById('appModalTitle').innerHTML=`${ai===null?'Add app to':'Edit app in'} <span id="appDeptName" style="color:var(--orange-deep);margin-left:5px">${depts[di].name}</span>`;
+  document.getElementById('appName').value=app.n;
+  document.getElementById('appDesc').value=app.d;
+  document.getElementById('appStatus').value=app.m||'Ready';
+  document.getElementById('saveApp').textContent=ai===null?'Add app':'Save changes';
+  document.getElementById('appDanger').classList.toggle('show',ai!==null);
+  fillIcons(document.getElementById('appIcons'),ic=>pickedAppIcon=ic,pickedAppIcon);renderRolePick();resetDeleteApp();appScrim.classList.add('show');document.getElementById('appName').focus();
+}
+document.getElementById('saveApp').addEventListener('click',()=>{
+  const n=document.getElementById('appName').value.trim();if(!n)return;
+  const app={n,d:document.getElementById('appDesc').value.trim()||'New app',i:pickedAppIcon,m:document.getElementById('appStatus').value.trim()||'Ready',roles:[...pickedRoles]};
+  if(editingAppIdx===null)depts[appDeptIdx].apps.push(app);else depts[appDeptIdx].apps[editingAppIdx]=app;
+  appScrim.classList.remove('show');renderDepts();
+});
+document.getElementById('armDeleteApp').addEventListener('click',()=>{document.getElementById('deleteAppConfirmWrap').style.display='block';document.getElementById('deleteAppConfirm').focus();});
+document.getElementById('deleteAppConfirm').addEventListener('input',e=>{document.getElementById('confirmDeleteApp').disabled=editingAppIdx===null||e.target.value!==depts[appDeptIdx].apps[editingAppIdx].n;});
+document.getElementById('confirmDeleteApp').addEventListener('click',()=>{if(editingAppIdx===null)return;depts[appDeptIdx].apps.splice(editingAppIdx,1);editingAppIdx=null;appScrim.classList.remove('show');renderDepts();});
+
+let pickedRoleIcon='ti-shield-cog',editingRoleIdx=null;
+const roleScrim=document.getElementById('roleScrim');
+function syncRoleNames(){rolesShort=roles.map(r=>r.n);}
+function renderLevelOptions(selected){const levels=Array.from({length:Math.max(roles.length+2,8)},(_,i)=>`L${i+1}`);document.getElementById('roleLevel').innerHTML=levels.map(l=>`<option ${l===selected?'selected':''}>${l}</option>`).join('');}
+function resetDeleteRole(){document.getElementById('deleteRoleConfirmWrap').style.display='none';document.getElementById('deleteRoleConfirm').value='';document.getElementById('confirmDeleteRole').disabled=true;}
+function openRole(idx=null){
+  editingRoleIdx=idx;
+  const role=idx===null?{n:'',lvl:`L${roles.length+1}`,i:'ti-shield-cog',d:''}:roles[idx];
+  pickedRoleIcon=role.i;
+  document.getElementById('roleModalTitle').textContent=idx===null?'New role':'Edit role';
+  document.getElementById('roleName').value=role.n;
+  document.getElementById('roleDesc').value=role.d;
+  renderLevelOptions(role.lvl);
+  fillIcons(document.getElementById('roleIcons'),ic=>pickedRoleIcon=ic,pickedRoleIcon);
+  const canDelete=idx!==null&&role.n!=='Super Admin';
+  document.getElementById('roleDanger').classList.toggle('show',canDelete);
+  document.getElementById('saveRole').textContent=idx===null?'Create role':'Save changes';
+  resetDeleteRole();
+  roleScrim.classList.add('show');
+  document.getElementById('roleName').focus();
+}
+function replaceRoleReferences(oldName,newName){
+  depts.forEach(d=>d.apps.forEach(a=>{a.roles=a.roles.map(r=>r===oldName?newName:r);}));
+  members.forEach(m=>{if(m.role===oldName)m.role=newName;});
+}
+document.getElementById('saveRole').addEventListener('click',()=>{
+  const n=document.getElementById('roleName').value.trim();if(!n)return;
+  const lvl=document.getElementById('roleLevel').value;
+  const d=document.getElementById('roleDesc').value.trim()||'Custom workspace role managed by Super Admin.';
+  if(editingRoleIdx===null){
+    roles.push({n,lvl,i:pickedRoleIcon,c:'#a86a33',d});
+    matrix=matrix.map(([cap,arr,source])=>[cap,[...arr,0],source]);
+  }else{
+    const oldName=roles[editingRoleIdx].n;
+    roles[editingRoleIdx]={...roles[editingRoleIdx],n,lvl,i:pickedRoleIcon,d};
+    replaceRoleReferences(oldName,n);
+  }
+  syncRoleNames();roleScrim.classList.remove('show');renderRoles();renderDepts();renderMatrix();renderPeople();
+});
+document.getElementById('armDeleteRole').addEventListener('click',()=>{document.getElementById('deleteRoleConfirmWrap').style.display='block';document.getElementById('deleteRoleConfirm').focus();});
+document.getElementById('deleteRoleConfirm').addEventListener('input',e=>{document.getElementById('confirmDeleteRole').disabled=editingRoleIdx===null||e.target.value!==roles[editingRoleIdx].n;});
+document.getElementById('confirmDeleteRole').addEventListener('click',()=>{
+  if(editingRoleIdx===null||roles[editingRoleIdx].n==='Super Admin')return;
+  const removed=roles[editingRoleIdx].n;
+  roles.splice(editingRoleIdx,1);
+  matrix=matrix.map(([cap,arr,source])=>[cap,arr.filter((_,i)=>i!==editingRoleIdx),source]);
+  depts.forEach(d=>d.apps.forEach(a=>{a.roles=a.roles.filter(r=>r!==removed);}));
+  members.forEach(m=>{if(m.role===removed)m.role='User';});
+  syncRoleNames();editingRoleIdx=null;roleScrim.classList.remove('show');renderRoles();renderDepts();renderMatrix();renderPeople();
+});
+
+const capScrim=document.getElementById('capScrim');
+function openCapability(){document.getElementById('capName').value='';document.getElementById('capSource').innerHTML=capabilitySources().map(s=>`<option>${s}</option>`).join('');document.getElementById('capRoles').innerHTML=rolesShort.map((r,i)=>`<label><input type="checkbox" value="${i}">${r}</label>`).join('');capScrim.classList.add('show');document.getElementById('capName').focus();}
+document.getElementById('saveCap').addEventListener('click',()=>{const n=document.getElementById('capName').value.trim();if(!n)return;const allowed=Array.from(document.querySelectorAll('#capRoles input')).map(x=>x.checked?1:0);matrix.push([n,allowed,document.getElementById('capSource').value]);capScrim.classList.remove('show');renderMatrix();});
+
+const memberScrim=document.getElementById('memberScrim');
+function openMember(){document.getElementById('memberName').value='';document.getElementById('memberEmail').value='';document.getElementById('memberRole').innerHTML=rolesShort.map(r=>`<option>${r}</option>`).join('');memberScrim.classList.add('show');document.getElementById('memberName').focus();}
+document.getElementById('saveMember').addEventListener('click',()=>{const name=document.getElementById('memberName').value.trim();if(!name)return;members.push({name,email:document.getElementById('memberEmail').value.trim()||'invite pending',role:document.getElementById('memberRole').value,status:'Invited'});memberScrim.classList.remove('show');renderPeople();});
+
+const securityScrim=document.getElementById('securityScrim');
+function openSecurity(){document.getElementById('securityName').value='';document.getElementById('securityDesc').value='';document.getElementById('securityStatus').value='Required';securityScrim.classList.add('show');document.getElementById('securityName').focus();}
+document.getElementById('saveSecurity').addEventListener('click',()=>{const name=document.getElementById('securityName').value.trim();if(!name)return;securityItems.push({name,status:document.getElementById('securityStatus').value,desc:document.getElementById('securityDesc').value.trim()||'New security operating control.'});securityScrim.classList.remove('show');renderSecurity();});
+
+let editingIntegrationIdx=null,pickedIntegrationIcon='ti-plug-connected';
+const integrationScrim=document.getElementById('integrationScrim');
+function openIntegration(idx=null){
+  editingIntegrationIdx=idx;
+  const item=idx===null?{name:'',type:'Backend',status:'Connected',icon:'ti-plug-connected'}:integrations[idx];
+  pickedIntegrationIcon=item.icon||'ti-plug-connected';
+  document.getElementById('integrationName').value=item.name;
+  document.getElementById('integrationType').value=item.type;
+  document.getElementById('integrationStatus').value=item.status;
+  document.getElementById('saveIntegration').textContent=idx===null?'Add integration':'Save changes';
+  fillIcons(document.getElementById('integrationIcons'),ic=>pickedIntegrationIcon=ic,pickedIntegrationIcon);
+  integrationScrim.classList.add('show');document.getElementById('integrationName').focus();
+}
+document.getElementById('saveIntegration').addEventListener('click',()=>{const name=document.getElementById('integrationName').value.trim();if(!name)return;const item={name,type:document.getElementById('integrationType').value,status:document.getElementById('integrationStatus').value,icon:pickedIntegrationIcon};if(editingIntegrationIdx===null)integrations.push(item);else integrations[editingIntegrationIdx]=item;integrationScrim.classList.remove('show');renderIntegrations();});
+
+document.getElementById('headBtn').addEventListener('click',()=>{const cur=document.querySelector('.prow.on').dataset.tab;({access:openRole,builder:openDept,matrix:openCapability,people:openMember,security:openSecurity,integrations:openIntegration}[cur]||openDept)();});
+
+const scrims=[deptScrim,appScrim,roleScrim,capScrim,memberScrim,securityScrim,integrationScrim];
+function closeScrims(){scrims.forEach(s=>s.classList.remove('show'));}
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeScrims));
+scrims.forEach(s=>s.addEventListener('click',e=>{if(e.target===s)s.classList.remove('show');}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeScrims();});
+
+document.getElementById('themeBtn').addEventListener('click',()=>{const d=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',d?'light':'dark');document.querySelector('#themeBtn i').className=d?'ti ti-moon':'ti ti-sun';document.querySelector('#themeBtn span').textContent=d?'Dark':'Light';});
+document.querySelectorAll('[data-chart-toggle]').forEach(btn=>btn.addEventListener('click',()=>{
+  const chart=btn.dataset.chartToggle,view=btn.dataset.view;
+  document.querySelectorAll(`[data-chart-toggle="${chart}"]`).forEach(b=>b.classList.toggle('on',b===btn));
+  document.querySelectorAll(`[data-chart-view^="${chart}-"]`).forEach(v=>v.classList.toggle('on',v.dataset.chartView===`${chart}-${view}`));
+}));
+
+renderRoles();renderDepts();renderMatrix();renderPeople();renderSecurity();renderIntegrations();renderOverviewTenants();renderOverviewAccess();
+</script>
+</body>
+</html>
