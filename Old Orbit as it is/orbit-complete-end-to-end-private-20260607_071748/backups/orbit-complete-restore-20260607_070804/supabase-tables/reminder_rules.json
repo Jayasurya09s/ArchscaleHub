@@ -1,0 +1,44 @@
+[
+  {
+    "id": "a3d2cb7f-be11-42dc-b09d-38dc02122ac4",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Proposal follow-up (2 days)",
+    "trigger_type": "proposal_sent",
+    "condition": "Client has not responded",
+    "delay_minutes": 2880,
+    "recipient_type": "client",
+    "template_id": "e98594da-3750-44da-aefc-155f181bdd2c",
+    "active": true,
+    "created_at": "2026-06-03T01:51:12.218494+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "0213773d-38f8-41f5-995c-0c50f2e328a5",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Payment reminder (1 day before)",
+    "trigger_type": "invoice_due",
+    "condition": "Payment status is Unpaid",
+    "delay_minutes": -1440,
+    "recipient_type": "client",
+    "template_id": "5f65fe29-3ac5-42d5-a635-1e072208e9c3",
+    "active": true,
+    "created_at": "2026-06-03T01:51:12.218494+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "9b10d604-0770-41b4-8f5e-a30dbccc80a8",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Task reminder (6h before)",
+    "trigger_type": "task_due",
+    "condition": "Task not Completed",
+    "delay_minutes": -360,
+    "recipient_type": "team",
+    "template_id": "459d01ae-ef5e-466e-8d4c-1992e8fe1499",
+    "active": false,
+    "created_at": "2026-06-03T01:51:12.218494+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

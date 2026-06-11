@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orbit Workspace Hub</title>
+    <script type="module" crossorigin src="/assets/index-B--lp9T8.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-7hqUqd77.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      window.addEventListener('error', function (event) {
+        var root = document.getElementById('root');
+        if (!root || root.children.length) return;
+        root.innerHTML = '<pre style="white-space:pre-wrap;padding:24px;font:13px/1.5 ui-monospace,Menlo,monospace;color:#991b1b;background:#fff1f2;border:1px solid #fecdd3;margin:24px;border-radius:12px;">Orbit boot error:\n' + (event.message || 'Unknown error') + '\n' + (event.filename || '') + ':' + (event.lineno || '') + ':' + (event.colno || '') + '</pre>';
+      });
+      window.addEventListener('unhandledrejection', function (event) {
+        var root = document.getElementById('root');
+        if (!root || root.children.length) return;
+        var reason = event.reason || {};
+        root.innerHTML = '<pre style="white-space:pre-wrap;padding:24px;font:13px/1.5 ui-monospace,Menlo,monospace;color:#991b1b;background:#fff1f2;border:1px solid #fecdd3;margin:24px;border-radius:12px;">Orbit boot rejection:\n' + (reason.message || String(reason)) + '</pre>';
+      });
+    </script>
+  </body>
+</html>

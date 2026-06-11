@@ -1,0 +1,84 @@
+[
+  {
+    "id": "cf82d562-87b5-4801-87e6-d2a41c66d63e",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "enrolment_id": null,
+    "contact_id": "4f4d3911-76c6-4450-ac8d-c19e21c52167",
+    "event_type": "clicked",
+    "node_key": "n-condition-1",
+    "provider_message_id": null,
+    "payload": {
+      "source": "manual_verification"
+    },
+    "occurred_at": "2026-06-03T02:58:27.962+00:00",
+    "created_at": "2026-06-03T02:58:28.939324+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "32a83b9c-cfb1-4251-ba14-b30d34f6d373",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "enrolment_id": "6deaad18-06d7-459d-8c16-cc58d2d3a88f",
+    "contact_id": "4f4d3911-76c6-4450-ac8d-c19e21c52167",
+    "event_type": "wait_started",
+    "node_key": "n-wait-1",
+    "provider_message_id": null,
+    "payload": {
+      "mins": 1440,
+      "dueAt": "2026-06-04T03:03:56.761Z"
+    },
+    "occurred_at": "2026-06-03T03:03:59.711+00:00",
+    "created_at": "2026-06-03T03:03:59.852813+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "06288328-75ec-4a53-b010-a325c38ae37f",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "enrolment_id": "6deaad18-06d7-459d-8c16-cc58d2d3a88f",
+    "contact_id": "4f4d3911-76c6-4450-ac8d-c19e21c52167",
+    "event_type": "condition_no",
+    "node_key": "n-condition-1",
+    "provider_message_id": null,
+    "payload": {
+      "condition": "clicked",
+      "withinHours": 24
+    },
+    "occurred_at": "2026-06-04T18:43:22.178+00:00",
+    "created_at": "2026-06-04T18:43:22.229222+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "51c50bd6-2709-4b42-ba88-f23252714ca8",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "enrolment_id": "6deaad18-06d7-459d-8c16-cc58d2d3a88f",
+    "contact_id": "4f4d3911-76c6-4450-ac8d-c19e21c52167",
+    "event_type": "message_sent",
+    "node_key": "n-reengage",
+    "provider_message_id": null,
+    "payload": {
+      "provider": "mock",
+      "templateId": "459d01ae-ef5e-466e-8d4c-1992e8fe1499",
+      "providerMessageId": "mock_1780598602988"
+    },
+    "occurred_at": "2026-06-04T18:43:23.321+00:00",
+    "created_at": "2026-06-04T18:43:23.369881+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "ee5263b3-f2cc-4630-ac7b-271d7e003290",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "enrolment_id": "6deaad18-06d7-459d-8c16-cc58d2d3a88f",
+    "contact_id": "4f4d3911-76c6-4450-ac8d-c19e21c52167",
+    "event_type": "exited",
+    "node_key": "n-exit",
+    "provider_message_id": null,
+    "payload": {},
+    "occurred_at": "2026-06-04T18:43:23.656+00:00",
+    "created_at": "2026-06-04T18:43:23.718199+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

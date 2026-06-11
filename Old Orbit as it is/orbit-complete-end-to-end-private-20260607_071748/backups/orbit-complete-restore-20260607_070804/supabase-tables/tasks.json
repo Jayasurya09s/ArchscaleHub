@@ -1,0 +1,486 @@
+[
+  {
+    "id": "f3eed3b4-55c8-4391-954f-54bafc9ed304",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Test - Merge Members",
+    "description": null,
+    "type": "General",
+    "dept_id": "32e8f239-50cf-41f6-9f0d-010cbef55bc3",
+    "assigned_by": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "assigned_to": null,
+    "manager_id": null,
+    "priority": "med",
+    "status": "draft",
+    "due": "2026-06-02T12:47:00+00:00",
+    "start_date": "2026-06-02",
+    "end_date": null,
+    "focus": true,
+    "focus_date": "2026-06-02",
+    "recurring": false,
+    "estimate_minutes": 0,
+    "channels": {
+      "email": true,
+      "inApp": true,
+      "whatsapp": true
+    },
+    "reminders": [],
+    "checklist": [],
+    "tags": [],
+    "watchers": [],
+    "dependencies": {
+      "blocks": [],
+      "blockedBy": []
+    },
+    "comments": [],
+    "activity": [
+      {
+        "who": "u1",
+        "what": "created task",
+        "when": "just now"
+      }
+    ],
+    "created_at": "2026-06-03T01:42:14.624143+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "ef3f7ff2-bcdf-48c5-a893-6561377ae684",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Test - Pickup Unassigned tasks ",
+    "description": null,
+    "type": "General",
+    "dept_id": "32e8f239-50cf-41f6-9f0d-010cbef55bc3",
+    "assigned_by": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "assigned_to": null,
+    "manager_id": null,
+    "priority": "med",
+    "status": "draft",
+    "due": "2026-06-02T00:45:00+00:00",
+    "start_date": "2026-06-02",
+    "end_date": null,
+    "focus": false,
+    "focus_date": null,
+    "recurring": false,
+    "estimate_minutes": 30,
+    "channels": {
+      "email": true,
+      "inApp": true,
+      "whatsapp": true
+    },
+    "reminders": [],
+    "checklist": [],
+    "tags": [],
+    "watchers": [],
+    "dependencies": {
+      "blocks": [],
+      "blockedBy": []
+    },
+    "comments": [],
+    "activity": [
+      {
+        "who": "u1",
+        "what": "created task",
+        "when": "just now"
+      }
+    ],
+    "created_at": "2026-06-03T01:42:14.624143+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "d1f2d60e-0b8c-4405-9eba-8699640b0b50",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": " Testing - Exit Triage with edge cases",
+    "description": "Set up a test scenario:\n\nAdd a test member \"Edge Case Tester\"\nCreate 3 tasks assigned to them\nMake Edge Case Tester the manager of one of those tasks (open task → set manager)\nMake Edge Case Tester the delegator (assignedBy) of another task\nNow Archive them via Exit Triage:\n\nReassign 1 task to someone else\nPark 1 task to Unassigned\nCancel 1 task\n\n\nIn the Delegations section, transfer ownership to someone\nIn the Approvals section, transfer manager to someone\nClick Archive\nThen reload\n✅ Verify: reassignments stuck, parked task in Unassigned, cancelled task is cancelled, delegations transferred, manager transferred",
+    "type": "General",
+    "dept_id": "32e8f239-50cf-41f6-9f0d-010cbef55bc3",
+    "assigned_by": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "assigned_to": "bbceec45-5b4d-408e-9087-3b912a315ea5",
+    "manager_id": null,
+    "priority": "med",
+    "status": "assigned",
+    "due": "2026-06-02T09:30:00+00:00",
+    "start_date": "2026-06-02",
+    "end_date": null,
+    "focus": true,
+    "focus_date": "2026-06-02",
+    "recurring": false,
+    "estimate_minutes": 30,
+    "channels": {
+      "email": true,
+      "inApp": true,
+      "whatsapp": true
+    },
+    "reminders": [],
+    "checklist": [],
+    "tags": [],
+    "watchers": [],
+    "dependencies": {
+      "blocks": [],
+      "blockedBy": []
+    },
+    "comments": [],
+    "activity": [
+      {
+        "who": "u1",
+        "what": "created task",
+        "when": "just now"
+      }
+    ],
+    "created_at": "2026-06-03T01:42:14.624143+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "a3c21006-5612-4e31-96b3-ecde8099840e",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Pickup Mam from Airport",
+    "description": null,
+    "type": "General",
+    "dept_id": "0fa56c0e-b3ae-46e3-ae07-2e3f1d599ff2",
+    "assigned_by": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "assigned_to": "235e0373-4163-4fc0-b3a2-388be1bde790",
+    "manager_id": null,
+    "priority": "med",
+    "status": "assigned",
+    "due": "2026-06-02T11:15:00+00:00",
+    "start_date": "2026-06-02",
+    "end_date": null,
+    "focus": false,
+    "focus_date": null,
+    "recurring": false,
+    "estimate_minutes": 60,
+    "channels": {
+      "email": true,
+      "inApp": true,
+      "whatsapp": true
+    },
+    "reminders": [],
+    "checklist": [],
+    "tags": [],
+    "watchers": [],
+    "dependencies": {
+      "blocks": [],
+      "blockedBy": []
+    },
+    "comments": [],
+    "activity": [
+      {
+        "who": "u1",
+        "what": "created task",
+        "when": "just now"
+      }
+    ],
+    "created_at": "2026-06-03T01:42:14.624143+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "42a77131-9c90-4b7a-8523-e5dc310935d6",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Assign Junaid's Task for today ",
+    "description": null,
+    "type": "General",
+    "dept_id": "e2ceb65d-7cf8-409f-9518-dd920d6b03b8",
+    "assigned_by": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "assigned_to": "3950e3b5-8851-4f70-b3ce-896d0c193b60",
+    "manager_id": null,
+    "priority": "high",
+    "status": "assigned",
+    "due": "2026-06-02T15:30:00+00:00",
+    "start_date": "2026-06-02",
+    "end_date": null,
+    "focus": true,
+    "focus_date": "2026-06-02",
+    "recurring": false,
+    "estimate_minutes": 240,
+    "channels": {
+      "email": true,
+      "inApp": true,
+      "whatsapp": true
+    },
+    "reminders": [],
+    "checklist": [],
+    "tags": [],
+    "watchers": [],
+    "dependencies": {
+      "blocks": [],
+      "blockedBy": []
+    },
+    "comments": [],
+    "activity": [
+      {
+        "who": "u1",
+        "what": "created task",
+        "when": "just now"
+      }
+    ],
+    "created_at": "2026-06-03T01:42:14.624143+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "9e7e74d7-a67e-4718-a25a-f8c29eb06e97",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Verify 15 apps minimum for understanding gaps",
+    "description": "Create the thing on the excel sheet",
+    "type": "General",
+    "dept_id": "350b41e1-511c-498b-a0dc-7893fc54c0aa",
+    "assigned_by": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "assigned_to": "8e9735d7-c3ba-435b-8e23-72d03004a9b4",
+    "manager_id": null,
+    "priority": "med",
+    "status": "assigned",
+    "due": "2026-06-02T18:05:00+00:00",
+    "start_date": "2026-06-02",
+    "end_date": null,
+    "focus": true,
+    "focus_date": "2026-06-01",
+    "recurring": false,
+    "estimate_minutes": 120,
+    "channels": {
+      "email": true,
+      "inApp": true,
+      "whatsapp": true
+    },
+    "reminders": [],
+    "checklist": [],
+    "tags": [],
+    "watchers": [],
+    "dependencies": {
+      "blocks": [],
+      "blockedBy": []
+    },
+    "comments": [],
+    "activity": [
+      {
+        "who": "u1",
+        "what": "created task",
+        "when": "just now"
+      }
+    ],
+    "created_at": "2026-06-03T01:42:14.624143+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "a3ef7a0a-f15f-4931-a712-e95633af2464",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "20 Prompts Identify & Test for ID specifically",
+    "description": null,
+    "type": "General",
+    "dept_id": "350b41e1-511c-498b-a0dc-7893fc54c0aa",
+    "assigned_by": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "assigned_to": "8e9735d7-c3ba-435b-8e23-72d03004a9b4",
+    "manager_id": null,
+    "priority": "med",
+    "status": "assigned",
+    "due": "2026-06-02T18:03:00+00:00",
+    "start_date": "2026-06-02",
+    "end_date": null,
+    "focus": true,
+    "focus_date": "2026-06-01",
+    "recurring": false,
+    "estimate_minutes": 960,
+    "channels": {
+      "email": true,
+      "inApp": true,
+      "whatsapp": true
+    },
+    "reminders": [],
+    "checklist": [],
+    "tags": [],
+    "watchers": [],
+    "dependencies": {
+      "blocks": [],
+      "blockedBy": []
+    },
+    "comments": [],
+    "activity": [
+      {
+        "who": "u1",
+        "what": "created task",
+        "when": "just now"
+      }
+    ],
+    "created_at": "2026-06-03T01:42:14.624143+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "f466abeb-5fc0-4b26-ba4b-127c41029393",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "15 Apps Identify & Test",
+    "description": "List them in the sequence of the stage they are needed. For apps that allow testing has test user counts ready.",
+    "type": "General",
+    "dept_id": "350b41e1-511c-498b-a0dc-7893fc54c0aa",
+    "assigned_by": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "assigned_to": "8e9735d7-c3ba-435b-8e23-72d03004a9b4",
+    "manager_id": null,
+    "priority": "med",
+    "status": "assigned",
+    "due": null,
+    "start_date": null,
+    "end_date": null,
+    "focus": true,
+    "focus_date": "2026-06-02",
+    "recurring": false,
+    "estimate_minutes": 240,
+    "channels": {
+      "email": true,
+      "inApp": true,
+      "whatsapp": true
+    },
+    "reminders": [],
+    "checklist": [],
+    "tags": [],
+    "watchers": [],
+    "dependencies": {
+      "blocks": [],
+      "blockedBy": []
+    },
+    "comments": [],
+    "activity": [
+      {
+        "who": "u1",
+        "what": "created task",
+        "when": "just now"
+      }
+    ],
+    "created_at": "2026-06-03T01:42:14.624143+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "061ec232-1f02-4bff-8f59-078471562a9a",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "OutStation Challans Clear",
+    "description": null,
+    "type": "General",
+    "dept_id": "0fa56c0e-b3ae-46e3-ae07-2e3f1d599ff2",
+    "assigned_by": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "assigned_to": "93ff41d5-4f1c-4718-8279-db27ac0fa9cd",
+    "manager_id": null,
+    "priority": "med",
+    "status": "assigned",
+    "due": "2026-05-28T18:00:00+00:00",
+    "start_date": "2026-05-28",
+    "end_date": null,
+    "focus": false,
+    "focus_date": null,
+    "recurring": false,
+    "estimate_minutes": 1440,
+    "channels": {
+      "email": true,
+      "inApp": true,
+      "whatsapp": true
+    },
+    "reminders": [],
+    "checklist": [],
+    "tags": [],
+    "watchers": [],
+    "dependencies": {
+      "blocks": [],
+      "blockedBy": []
+    },
+    "comments": [],
+    "activity": [
+      {
+        "who": "u1",
+        "what": "created task",
+        "when": "just now"
+      }
+    ],
+    "created_at": "2026-06-03T01:42:14.624143+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "99c6ba14-2e2d-4e22-a092-51945711d94b",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Complete Challans",
+    "description": null,
+    "type": "General",
+    "dept_id": "0fa56c0e-b3ae-46e3-ae07-2e3f1d599ff2",
+    "assigned_by": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "assigned_to": "235e0373-4163-4fc0-b3a2-388be1bde790",
+    "manager_id": null,
+    "priority": "med",
+    "status": "assigned",
+    "due": "2026-05-27T17:59:00+00:00",
+    "start_date": "2026-05-27",
+    "end_date": null,
+    "focus": true,
+    "focus_date": "2026-06-01",
+    "recurring": false,
+    "estimate_minutes": 0,
+    "channels": {
+      "email": true,
+      "inApp": true,
+      "whatsapp": true
+    },
+    "reminders": [],
+    "checklist": [],
+    "tags": [],
+    "watchers": [],
+    "dependencies": {
+      "blocks": [],
+      "blockedBy": []
+    },
+    "comments": [],
+    "activity": [
+      {
+        "who": "u1",
+        "what": "created task",
+        "when": "just now"
+      }
+    ],
+    "created_at": "2026-06-03T01:42:14.624143+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "85fdf5fc-af5c-41c8-897f-0d7f039a367e",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Hire a research Assistant",
+    "description": null,
+    "type": "General",
+    "dept_id": "e24f83fb-db52-4769-9713-9be0ebd9eb2f",
+    "assigned_by": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "assigned_to": "5ab5a7d1-fd64-4761-a5c6-b8eaf7719ad3",
+    "manager_id": null,
+    "priority": "med",
+    "status": "assigned",
+    "due": "2026-05-04T17:58:00+00:00",
+    "start_date": "2026-05-04",
+    "end_date": null,
+    "focus": false,
+    "focus_date": null,
+    "recurring": false,
+    "estimate_minutes": 960,
+    "channels": {
+      "email": true,
+      "inApp": true,
+      "whatsapp": true
+    },
+    "reminders": [],
+    "checklist": [],
+    "tags": [],
+    "watchers": [],
+    "dependencies": {
+      "blocks": [],
+      "blockedBy": []
+    },
+    "comments": [],
+    "activity": [
+      {
+        "who": "u1",
+        "what": "created task",
+        "when": "just now"
+      }
+    ],
+    "created_at": "2026-06-03T01:42:14.624143+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

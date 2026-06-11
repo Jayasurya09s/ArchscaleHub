@@ -1,0 +1,62 @@
+[
+  {
+    "id": "dc9a9b4b-ea0b-47fd-9388-7ae14475a9c7",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Studio growth program — Asha",
+    "contact_id": "5dead2f4-acd1-4278-a936-9cd469444ea7",
+    "company_id": "7dd73f76-4eeb-4bf1-84bc-cd6b3b6419fd",
+    "stage": "proposal",
+    "value": 180000,
+    "expected_close": "2026-06-20",
+    "owner_id": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "notes": "Proposal sent, awaiting response.",
+    "created_at": "2026-06-03T01:47:48.18956+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "bb503576-f1f6-466f-b9fc-69d379408592",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Coaching retainer — Verma",
+    "contact_id": "a5686bbf-d116-42b6-b1f7-b17f16fb1d9f",
+    "company_id": "5c8a3ca9-6d1a-4e42-8072-67bdab60c0bb",
+    "stage": "qualified",
+    "value": 120000,
+    "expected_close": "2026-07-05",
+    "owner_id": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "notes": null,
+    "created_at": "2026-06-03T01:47:48.18956+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "1f99132c-e786-4f75-bd5f-4c447f0888aa",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Brand revamp — Saaya",
+    "contact_id": "0a0db24c-6369-4cac-b1aa-9afa5746d0ea",
+    "company_id": "08d1fa66-2a06-40b8-8945-66434e2e3126",
+    "stage": "new",
+    "value": 90000,
+    "expected_close": "2026-07-15",
+    "owner_id": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "notes": null,
+    "created_at": "2026-06-03T01:47:48.18956+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "afc2b53d-ca0d-42d7-ace6-82249f4cd4bc",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Repeat project — Saaya (Kavya)",
+    "contact_id": "fe83fc8b-fdfb-4ee8-a7cd-a505c16c26b9",
+    "company_id": "08d1fa66-2a06-40b8-8945-66434e2e3126",
+    "stage": "won",
+    "value": 250000,
+    "expected_close": "2026-04-30",
+    "owner_id": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "notes": "Closed, delivered.",
+    "created_at": "2026-06-03T01:47:48.18956+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

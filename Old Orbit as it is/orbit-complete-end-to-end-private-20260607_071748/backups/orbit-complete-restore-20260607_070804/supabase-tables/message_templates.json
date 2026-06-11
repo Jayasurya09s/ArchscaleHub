@@ -1,0 +1,46 @@
+[
+  {
+    "id": "e98594da-3750-44da-aefc-155f181bdd2c",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Proposal follow-up",
+    "use_case": "proposal_sent",
+    "body": "Hi {{client_name}}, just checking in regarding the proposal we shared for {{proposal_name}}. Please let us know if you would like us to clarify anything or move to the next step.",
+    "status": "active",
+    "created_at": "2026-06-03T01:51:11.869156+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "5f65fe29-3ac5-42d5-a635-1e072208e9c3",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Payment reminder",
+    "use_case": "invoice_due",
+    "body": "Hi {{client_name}}, a gentle reminder that the payment of {{amount}} for {{project_name}} is due on {{due_date}}. Do reach out if you need anything.",
+    "status": "active",
+    "created_at": "2026-06-03T01:51:11.869156+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "459d01ae-ef5e-466e-8d4c-1992e8fe1499",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Task reminder",
+    "use_case": "task_due",
+    "body": "Hi {{assigned_person}}, your task \"{{task_name}}\" is due by {{due_date}}. Please update the status once done.",
+    "status": "approved",
+    "created_at": "2026-06-03T01:51:11.869156+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "9bddf677-7cef-44fd-9794-3b2957f1490c",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Meeting reminder",
+    "use_case": "meeting_soon",
+    "body": "Hi {{client_name}}, reminder for our meeting at {{meeting_time}}. Looking forward to it!",
+    "status": "draft",
+    "created_at": "2026-06-03T01:51:11.869156+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

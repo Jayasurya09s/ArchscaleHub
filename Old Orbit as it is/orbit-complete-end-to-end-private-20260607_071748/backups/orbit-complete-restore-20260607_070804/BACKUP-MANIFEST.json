@@ -1,0 +1,160 @@
+{
+  "createdAt": "2026-06-07T01:46:40.264Z",
+  "supabaseExport": {
+    "exportedAt": "2026-06-07T01:44:23.528Z",
+    "supabaseUrl": "https://qmjnpfhinjcderzghkpb.supabase.co",
+    "usedKeyType": "service-role-or-secret",
+    "tables": {
+      "activities": {
+        "ok": true,
+        "rowCount": 4
+      },
+      "announcements": {
+        "ok": true,
+        "rowCount": 2
+      },
+      "companies": {
+        "ok": true,
+        "rowCount": 4
+      },
+      "contacts": {
+        "ok": true,
+        "rowCount": 6
+      },
+      "deals": {
+        "ok": true,
+        "rowCount": 4
+      },
+      "departments": {
+        "ok": true,
+        "rowCount": 12
+      },
+      "drip_campaigns": {
+        "ok": true,
+        "rowCount": 1
+      },
+      "drip_edges": {
+        "ok": true,
+        "rowCount": 8
+      },
+      "drip_enrolments": {
+        "ok": true,
+        "rowCount": 1
+      },
+      "drip_events": {
+        "ok": true,
+        "rowCount": 5
+      },
+      "drip_nodes": {
+        "ok": true,
+        "rowCount": 8
+      },
+      "ideas": {
+        "ok": true,
+        "rowCount": 10
+      },
+      "important_dates": {
+        "ok": true,
+        "rowCount": 55
+      },
+      "intranet_content": {
+        "ok": true,
+        "rowCount": 12
+      },
+      "intranet_content_attachments": {
+        "ok": true,
+        "rowCount": 0
+      },
+      "intranet_sections": {
+        "ok": true,
+        "rowCount": 7
+      },
+      "message_logs": {
+        "ok": true,
+        "rowCount": 17
+      },
+      "message_templates": {
+        "ok": true,
+        "rowCount": 4
+      },
+      "pipelines": {
+        "ok": true,
+        "rowCount": 1
+      },
+      "platform_memberships": {
+        "ok": true,
+        "rowCount": 9
+      },
+      "platform_organizations": {
+        "ok": true,
+        "rowCount": 5
+      },
+      "platform_role_audit": {
+        "ok": true,
+        "rowCount": 0
+      },
+      "platform_workspace_snapshots": {
+        "ok": true,
+        "rowCount": 0
+      },
+      "platform_workspaces": {
+        "ok": true,
+        "rowCount": 4
+      },
+      "portfolio_assets": {
+        "ok": true,
+        "rowCount": 77
+      },
+      "portfolio_item_tags": {
+        "ok": true,
+        "rowCount": 0
+      },
+      "portfolio_items": {
+        "ok": true,
+        "rowCount": 19
+      },
+      "portfolio_share_links": {
+        "ok": true,
+        "rowCount": 10
+      },
+      "portfolio_view_events": {
+        "ok": true,
+        "rowCount": 4
+      },
+      "quick_links": {
+        "ok": true,
+        "rowCount": 3
+      },
+      "reminder_rules": {
+        "ok": true,
+        "rowCount": 3
+      },
+      "task_templates": {
+        "ok": true,
+        "rowCount": 6
+      },
+      "task_files": {
+        "ok": false,
+        "rowCount": 0,
+        "error": "Could not find the table 'public.task_files' in the schema cache"
+      },
+      "tasks": {
+        "ok": true,
+        "rowCount": 11
+      },
+      "users": {
+        "ok": true,
+        "rowCount": 21
+      },
+      "wa_connections": {
+        "ok": true,
+        "rowCount": 1
+      },
+      "workspace_settings": {
+        "ok": true,
+        "rowCount": 2
+      }
+    }
+  },
+  "localApiStateReachable": false
+}

@@ -1,0 +1,184 @@
+[
+  {
+    "id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "New lead nurture (WhatsApp)",
+    "channel": "whatsapp",
+    "status": "active",
+    "pipeline_id": "53420064-bc37-4e08-994b-089fb2d538aa",
+    "audience": {
+      "tags": [],
+      "stages": [
+        "lead"
+      ]
+    },
+    "steps": [],
+    "created_at": "2026-06-03T01:51:13.817436+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "flow": {
+      "edges": [
+        {
+          "id": "e1",
+          "type": "smoothstep",
+          "source": "n-trigger",
+          "target": "n-send-1"
+        },
+        {
+          "id": "e2",
+          "type": "smoothstep",
+          "source": "n-send-1",
+          "target": "n-wait-1"
+        },
+        {
+          "id": "e3",
+          "type": "smoothstep",
+          "source": "n-wait-1",
+          "target": "n-condition-1"
+        },
+        {
+          "id": "e4",
+          "type": "smoothstep",
+          "label": "yes",
+          "source": "n-condition-1",
+          "target": "n-stage-yes",
+          "animated": true,
+          "sourceHandle": "yes"
+        },
+        {
+          "id": "e5",
+          "type": "smoothstep",
+          "label": "no",
+          "source": "n-condition-1",
+          "target": "n-reengage",
+          "sourceHandle": "no"
+        },
+        {
+          "id": "e6",
+          "type": "smoothstep",
+          "source": "n-stage-yes",
+          "target": "n-task"
+        },
+        {
+          "id": "e7",
+          "type": "smoothstep",
+          "source": "n-task",
+          "target": "n-exit"
+        },
+        {
+          "id": "e8",
+          "type": "smoothstep",
+          "source": "n-reengage",
+          "target": "n-exit"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n-trigger",
+          "data": {
+            "kind": "trigger",
+            "title": "Contact enters audience",
+            "trigger": "audience_match"
+          },
+          "type": "dripNode",
+          "position": {
+            "x": 0,
+            "y": 120
+          }
+        },
+        {
+          "id": "n-send-1",
+          "data": {
+            "kind": "send_whatsapp",
+            "title": "Send welcome WhatsApp",
+            "templateId": "wt1"
+          },
+          "type": "dripNode",
+          "position": {
+            "x": 260,
+            "y": 120
+          }
+        },
+        {
+          "id": "n-wait-1",
+          "data": {
+            "kind": "wait",
+            "mins": 1440,
+            "title": "Wait 24 hours"
+          },
+          "type": "dripNode",
+          "position": {
+            "x": 520,
+            "y": 120
+          }
+        },
+        {
+          "id": "n-condition-1",
+          "data": {
+            "kind": "condition",
+            "title": "Did they reply or click?",
+            "condition": "clicked",
+            "withinHours": 24
+          },
+          "type": "dripNode",
+          "position": {
+            "x": 780,
+            "y": 120
+          }
+        },
+        {
+          "id": "n-stage-yes",
+          "data": {
+            "kind": "update_stage",
+            "title": "Move to MQL",
+            "toStage": "mql"
+          },
+          "type": "dripNode",
+          "position": {
+            "x": 1040,
+            "y": 40
+          }
+        },
+        {
+          "id": "n-reengage",
+          "data": {
+            "kind": "send_whatsapp",
+            "title": "Send re-engagement",
+            "templateId": "wt3"
+          },
+          "type": "dripNode",
+          "position": {
+            "x": 1040,
+            "y": 210
+          }
+        },
+        {
+          "id": "n-task",
+          "data": {
+            "kind": "create_task",
+            "title": "Create sales follow-up",
+            "taskTitle": "Call interested lead"
+          },
+          "type": "dripNode",
+          "position": {
+            "x": 1300,
+            "y": 40
+          }
+        },
+        {
+          "id": "n-exit",
+          "data": {
+            "kind": "exit",
+            "title": "End drip"
+          },
+          "type": "dripNode",
+          "position": {
+            "x": 1560,
+            "y": 120
+          }
+        }
+      ],
+      "version": 1
+    },
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

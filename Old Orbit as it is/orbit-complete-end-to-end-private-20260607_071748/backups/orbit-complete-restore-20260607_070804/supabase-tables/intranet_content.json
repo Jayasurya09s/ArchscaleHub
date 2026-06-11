@@ -1,0 +1,218 @@
+[
+  {
+    "id": "d4bad879-9a3a-4bb2-954e-f789cbb52b7f",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "b196ac81-f212-4fa6-a161-12b5eaff0ed6",
+    "title": "Employee Onboarding SOP",
+    "type": "sop",
+    "status": "published",
+    "excerpt": "Step-by-step process for onboarding a new team member from offer to day 30.",
+    "body": null,
+    "tags": [
+      "onboarding",
+      "hr"
+    ],
+    "author": "Christopher Parsons",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "3b64d71e-d681-4af6-8645-094aae6c87f8",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "b196ac81-f212-4fa6-a161-12b5eaff0ed6",
+    "title": "Vendor Registration Process",
+    "type": "sop",
+    "status": "published",
+    "excerpt": "How to register and approve a new vendor in the system.",
+    "body": null,
+    "tags": [
+      "vendors",
+      "procurement"
+    ],
+    "author": "Devender Singh",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "c58fc82b-80ab-4d6d-959d-65ec02da0038",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "ef25e49a-c1d9-4baa-9dc6-ba2c8a0df7a7",
+    "title": "Hospital Planning Standards",
+    "type": "article",
+    "status": "published",
+    "excerpt": "Key design standards and codes for healthcare facility planning in India.",
+    "body": null,
+    "tags": [
+      "healthcare",
+      "standards"
+    ],
+    "author": "Ann Johnson",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "c9499740-19cf-4bb0-ab53-e84c12962de6",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "6325ea1e-3445-4474-80e6-a4a86a9d1316",
+    "title": "Interior Design BOQ Template",
+    "type": "template",
+    "status": "published",
+    "excerpt": "Bill of quantities template for interior fit-out projects.",
+    "body": null,
+    "tags": [
+      "boq",
+      "interior",
+      "costing"
+    ],
+    "author": "Brianne Walton",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "4d8b2966-43b3-4359-b63a-3732098df078",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "6325ea1e-3445-4474-80e6-a4a86a9d1316",
+    "title": "Client Proposal Template",
+    "type": "template",
+    "status": "published",
+    "excerpt": "Standard proposal format for new client pitches.",
+    "body": null,
+    "tags": [
+      "proposal",
+      "sales"
+    ],
+    "author": "Brianne Walton",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "930b14ae-97f3-4c3e-ab13-60c2e39c0b51",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "24572d76-24d6-4520-9d26-80ffd60220a0",
+    "title": "Leave & Attendance Policy",
+    "type": "policy",
+    "status": "published",
+    "excerpt": "Annual leave, sick leave, and attendance rules.",
+    "body": null,
+    "tags": [
+      "hr",
+      "leave"
+    ],
+    "author": "HR Team",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "05f29041-974f-487a-bf69-1b5edb65f35e",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "24572d76-24d6-4520-9d26-80ffd60220a0",
+    "title": "Code of Conduct",
+    "type": "policy",
+    "status": "published",
+    "excerpt": "Workplace behaviour and professional conduct guidelines.",
+    "body": null,
+    "tags": [
+      "hr",
+      "conduct"
+    ],
+    "author": "HR Team",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "d8df769f-c851-4510-8881-6a5a066a34b2",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "3091676b-3c92-410b-aa2e-db149847c067",
+    "title": "Revit Project Setup (Video)",
+    "type": "video",
+    "status": "published",
+    "excerpt": "How to set up a new Revit project with the studio template.",
+    "body": null,
+    "tags": [
+      "revit",
+      "training"
+    ],
+    "author": "Learning Team",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "43689fb7-b495-441b-9c38-8611bc512294",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "3091676b-3c92-410b-aa2e-db149847c067",
+    "title": "Materials & Patterns in Revit",
+    "type": "video",
+    "status": "published",
+    "excerpt": "Applying materials and patterns in Revit.",
+    "body": null,
+    "tags": [
+      "revit",
+      "training"
+    ],
+    "author": "Learning Team",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "8862a740-1dec-4db1-944c-dfbdb3aeccad",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "92eba0fe-86e0-44e4-b8cb-fc919e80180e",
+    "title": "Active Projects Tracker",
+    "type": "spreadsheet",
+    "status": "published",
+    "excerpt": "Live tracker of all active studio projects and stages.",
+    "body": null,
+    "tags": [
+      "projects",
+      "tracking"
+    ],
+    "author": "PMO",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "02c7621c-7c7b-4671-bbe5-783c138e6b64",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "679e4060-650a-47fb-8a51-4aa1cf232ba1",
+    "title": "Approved Vendor List 2026",
+    "type": "document",
+    "status": "published",
+    "excerpt": "Current approved vendors for materials, lighting, furniture.",
+    "body": null,
+    "tags": [
+      "vendors"
+    ],
+    "author": "Procurement",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "f881cbe0-f732-4727-b766-f5581afe97c5",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "section_id": "ef25e49a-c1d9-4baa-9dc6-ba2c8a0df7a7",
+    "title": "Design Review Checklist",
+    "type": "checklist",
+    "status": "draft",
+    "excerpt": "Pre-submission checklist for design deliverables.",
+    "body": null,
+    "tags": [
+      "design",
+      "qa"
+    ],
+    "author": "Ann Johnson",
+    "created_at": "2026-06-03T01:56:20.559288+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

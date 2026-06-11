@@ -1,0 +1,221 @@
+[
+  {
+    "id": "00000000-0000-0000-0000-000000000302",
+    "organization_id": "00000000-0000-0000-0000-000000000101",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "user_id": null,
+    "email": "product.admin@orbit.local",
+    "display_name": "Product Admin",
+    "role": "product_admin",
+    "status": "active",
+    "app_access": [
+      "admin",
+      "plans",
+      "people",
+      "projects",
+      "brand",
+      "marketing",
+      "crm",
+      "intranet",
+      "docExpress"
+    ],
+    "metadata": {
+      "seeded": true,
+      "demo_login": true
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T03:50:54.772305+00:00"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000304",
+    "organization_id": "00000000-0000-0000-0000-000000000102",
+    "workspace_id": "00000000-0000-0000-0000-000000000202",
+    "user_id": null,
+    "email": "manager@example.com",
+    "display_name": "Manager Demo",
+    "role": "manager",
+    "status": "active",
+    "app_access": [
+      "plans",
+      "people",
+      "projects",
+      "brand",
+      "marketing",
+      "crm",
+      "intranet"
+    ],
+    "metadata": {
+      "seeded": true,
+      "demo_login": true
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T03:50:54.772305+00:00"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000305",
+    "organization_id": "00000000-0000-0000-0000-000000000102",
+    "workspace_id": "00000000-0000-0000-0000-000000000202",
+    "user_id": null,
+    "email": "member@example.com",
+    "display_name": "Team Member Demo",
+    "role": "member",
+    "status": "active",
+    "app_access": [
+      "plans",
+      "people",
+      "projects",
+      "intranet"
+    ],
+    "metadata": {
+      "seeded": true,
+      "demo_login": true
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T03:50:54.772305+00:00"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000306",
+    "organization_id": "00000000-0000-0000-0000-000000000102",
+    "workspace_id": "00000000-0000-0000-0000-000000000202",
+    "user_id": null,
+    "email": "client@example.com",
+    "display_name": "Client Demo",
+    "role": "client",
+    "status": "active",
+    "app_access": [
+      "projects",
+      "brand"
+    ],
+    "metadata": {
+      "seeded": true,
+      "demo_login": true
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T03:50:54.772305+00:00"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000307",
+    "organization_id": "00000000-0000-0000-0000-000000000102",
+    "workspace_id": "00000000-0000-0000-0000-000000000202",
+    "user_id": null,
+    "email": "vendor@example.com",
+    "display_name": "Vendor Demo",
+    "role": "vendor",
+    "status": "active",
+    "app_access": [
+      "projects",
+      "docExpress"
+    ],
+    "metadata": {
+      "seeded": true,
+      "demo_login": true
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T03:50:54.772305+00:00"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000308",
+    "organization_id": "00000000-0000-0000-0000-000000000103",
+    "workspace_id": "00000000-0000-0000-0000-000000000203",
+    "user_id": null,
+    "email": "shankerde@gmail.com",
+    "display_name": "Shanker De",
+    "role": "super_admin",
+    "status": "active",
+    "app_access": [
+      "admin",
+      "plans",
+      "people",
+      "projects",
+      "brand",
+      "marketing",
+      "crm",
+      "intranet",
+      "docExpress"
+    ],
+    "metadata": {
+      "seeded": true
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T03:50:54.772305+00:00"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000309",
+    "organization_id": "00000000-0000-0000-0000-000000000104",
+    "workspace_id": "00000000-0000-0000-0000-000000000204",
+    "user_id": null,
+    "email": "shankerde@gmail.com",
+    "display_name": "Shanker De",
+    "role": "super_admin",
+    "status": "active",
+    "app_access": [
+      "admin",
+      "plans",
+      "people",
+      "projects",
+      "brand",
+      "marketing",
+      "crm",
+      "intranet",
+      "docExpress"
+    ],
+    "metadata": {
+      "seeded": true
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T03:50:54.772305+00:00"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000301",
+    "organization_id": "00000000-0000-0000-0000-000000000101",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "user_id": null,
+    "email": "shankerde@gmail.com",
+    "display_name": "Shanker De",
+    "role": "super_admin",
+    "status": "active",
+    "app_access": [
+      "admin",
+      "plans",
+      "people",
+      "projects",
+      "brand",
+      "marketing",
+      "crm",
+      "intranet",
+      "docExpress"
+    ],
+    "metadata": {
+      "seeded": true
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T14:20:29.831623+00:00"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000303",
+    "organization_id": "00000000-0000-0000-0000-000000000102",
+    "workspace_id": "00000000-0000-0000-0000-000000000202",
+    "user_id": null,
+    "email": "design3.archscale@gmail.com",
+    "display_name": "Studio Owner Demo",
+    "role": "studio_owner",
+    "status": "active",
+    "app_access": [
+      "admin",
+      "plans",
+      "people",
+      "projects",
+      "brand",
+      "marketing",
+      "crm",
+      "intranet",
+      "docExpress"
+    ],
+    "metadata": {
+      "seeded": true,
+      "demo_login": true
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T15:03:40.427302+00:00"
+  }
+]

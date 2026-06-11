@@ -1,0 +1,125 @@
+[
+  {
+    "id": "5dead2f4-acd1-4278-a936-9cd469444ea7",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Rohit Asha",
+    "whatsapp": "+91 98290 11111",
+    "email": "rohit@ashainteriors.in",
+    "company_id": "7dd73f76-4eeb-4bf1-84bc-cd6b3b6419fd",
+    "role": "Principal Designer",
+    "pipeline_id": "53420064-bc37-4e08-994b-089fb2d538aa",
+    "stage": "sql",
+    "tags": [
+      "studio-owner",
+      "tier-2"
+    ],
+    "city": "Jaipur",
+    "source": "Referral",
+    "notes": "Looking to scale studio ops.",
+    "created_at": "2026-06-03T01:47:47.580318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "a5686bbf-d116-42b6-b1f7-b17f16fb1d9f",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Meena Verma",
+    "whatsapp": "+91 99931 22222",
+    "email": "meena@vermaarch.in",
+    "company_id": "5c8a3ca9-6d1a-4e42-8072-67bdab60c0bb",
+    "role": "Founder",
+    "pipeline_id": "53420064-bc37-4e08-994b-089fb2d538aa",
+    "stage": "mql",
+    "tags": [
+      "architect",
+      "tier-2"
+    ],
+    "city": "Indore",
+    "source": "Webinar",
+    "notes": "Downloaded pricing guide.",
+    "created_at": "2026-06-03T01:47:47.580318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "4f4d3911-76c6-4450-ac8d-c19e21c52167",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Sanjay Nirman",
+    "whatsapp": "+91 90040 33333",
+    "email": "sanjay@nirmanbuilders.in",
+    "company_id": "0ea0b680-6ba6-4bb2-8f93-e82a40e0ab0e",
+    "role": "MD",
+    "pipeline_id": "53420064-bc37-4e08-994b-089fb2d538aa",
+    "stage": "lead",
+    "tags": [
+      "builder"
+    ],
+    "city": "Nagpur",
+    "source": "Cold outreach",
+    "notes": null,
+    "created_at": "2026-06-03T01:47:47.580318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "0a0db24c-6369-4cac-b1aa-9afa5746d0ea",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Pooja Saaya",
+    "whatsapp": "+91 97250 44444",
+    "email": "pooja@studiosaaya.in",
+    "company_id": "08d1fa66-2a06-40b8-8945-66434e2e3126",
+    "role": "Creative Head",
+    "pipeline_id": "53420064-bc37-4e08-994b-089fb2d538aa",
+    "stage": "mql",
+    "tags": [
+      "studio-owner",
+      "tier-3"
+    ],
+    "city": "Surat",
+    "source": "Instagram",
+    "notes": "Engaged with reels.",
+    "created_at": "2026-06-03T01:47:47.580318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "cb6db64d-116e-44e1-bc15-25801adee76b",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Arjun Mehta",
+    "whatsapp": "+91 98111 55555",
+    "email": "arjun.mehta@gmail.com",
+    "company_id": null,
+    "role": "Independent Designer",
+    "pipeline_id": "53420064-bc37-4e08-994b-089fb2d538aa",
+    "stage": "subscriber",
+    "tags": [
+      "newsletter"
+    ],
+    "city": "Bhopal",
+    "source": "Website",
+    "notes": null,
+    "created_at": "2026-06-03T01:47:47.580318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "fe83fc8b-fdfb-4ee8-a7cd-a505c16c26b9",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Kavya Rao",
+    "whatsapp": "+91 96550 66666",
+    "email": "kavya@studiosaaya.in",
+    "company_id": "08d1fa66-2a06-40b8-8945-66434e2e3126",
+    "role": "Project Manager",
+    "pipeline_id": "53420064-bc37-4e08-994b-089fb2d538aa",
+    "stage": "customer",
+    "tags": [
+      "existing-client"
+    ],
+    "city": "Surat",
+    "source": "Referral",
+    "notes": "Past project delivered.",
+    "created_at": "2026-06-03T01:47:47.580318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

@@ -1,0 +1,75 @@
+[
+  {
+    "id": "00000000-0000-0000-0000-000000000101",
+    "name": "Orbit Internal Demo",
+    "slug": "orbit-internal-demo",
+    "status": "active",
+    "plan": "internal",
+    "owner_name": "Shanker De",
+    "owner_email": "shankerde@gmail.com",
+    "region": "India",
+    "metadata": {
+      "purpose": "main internal studio"
+    },
+    "created_at": "2026-06-06T03:42:38.874483+00:00",
+    "updated_at": "2026-06-06T03:50:54.772305+00:00"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000102",
+    "name": "Client Demo 1",
+    "slug": "client-demo-1",
+    "status": "demo",
+    "plan": "trial",
+    "owner_name": "Demo Owner",
+    "owner_email": "demo.owner1@example.com",
+    "region": "India",
+    "metadata": {
+      "purpose": "client demo tenant"
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T03:50:54.772305+00:00"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000103",
+    "name": "Client Demo 2",
+    "slug": "client-demo-2",
+    "status": "demo",
+    "plan": "trial",
+    "owner_name": "Demo Owner",
+    "owner_email": "demo.owner2@example.com",
+    "region": "India",
+    "metadata": {
+      "purpose": "client demo tenant"
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T03:50:54.772305+00:00"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000104",
+    "name": "Sandbox",
+    "slug": "sandbox",
+    "status": "sandbox",
+    "plan": "sandbox",
+    "owner_name": "Product Team",
+    "owner_email": "sandbox@example.com",
+    "region": "India",
+    "metadata": {
+      "purpose": "experiments only"
+    },
+    "created_at": "2026-06-06T03:50:54.772305+00:00",
+    "updated_at": "2026-06-06T03:50:54.772305+00:00"
+  },
+  {
+    "id": "37021f55-e4c9-4ddf-88ff-7832abed59ee",
+    "name": "RTMT",
+    "slug": "rtmt",
+    "status": "active",
+    "plan": "trial",
+    "owner_name": "Rohit",
+    "owner_email": "rohit@rtmt.com",
+    "region": null,
+    "metadata": {},
+    "created_at": "2026-06-06T15:32:03.495524+00:00",
+    "updated_at": "2026-06-06T15:32:03.495524+00:00"
+  }
+]

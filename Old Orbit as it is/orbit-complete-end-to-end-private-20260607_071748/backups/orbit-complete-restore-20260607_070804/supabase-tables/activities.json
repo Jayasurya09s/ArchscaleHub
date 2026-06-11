@@ -1,0 +1,54 @@
+[
+  {
+    "id": "20747028-244f-448e-ba68-494228b1a0d8",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "contact_id": "5dead2f4-acd1-4278-a936-9cd469444ea7",
+    "deal_id": "dc9a9b4b-ea0b-47fd-9388-7ae14475a9c7",
+    "type": "email",
+    "note": "Sent proposal PDF",
+    "at": "2026-05-18",
+    "by_user_id": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "created_at": "2026-06-03T01:47:48.559128+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "1fce177a-5af3-40df-9db8-ddbbc1c49de4",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "contact_id": "a5686bbf-d116-42b6-b1f7-b17f16fb1d9f",
+    "deal_id": null,
+    "type": "whatsapp",
+    "note": "Shared pricing guide on WhatsApp",
+    "at": "2026-05-12",
+    "by_user_id": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "created_at": "2026-06-03T01:47:48.559128+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "ec6cdc92-2982-4b84-826a-2e9324f29816",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "contact_id": "0a0db24c-6369-4cac-b1aa-9afa5746d0ea",
+    "deal_id": "1f99132c-e786-4f75-bd5f-4c447f0888aa",
+    "type": "note",
+    "note": "Engaged heavily with Instagram content",
+    "at": "2026-05-25",
+    "by_user_id": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "created_at": "2026-06-03T01:47:48.559128+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "346298da-bdde-45ee-a64a-d9e17874178e",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "contact_id": "5dead2f4-acd1-4278-a936-9cd469444ea7",
+    "deal_id": "dc9a9b4b-ea0b-47fd-9388-7ae14475a9c7",
+    "type": "call",
+    "note": "Discovery call — 30 min",
+    "at": "2026-05-16",
+    "by_user_id": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "created_at": "2026-06-03T01:47:48.559128+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

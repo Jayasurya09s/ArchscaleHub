@@ -1,0 +1,41 @@
+2026/06/10-17:09:23.286 1068fb Reusing MANIFEST /Users/sd369/Documents/Workspace ABGx + ASGx/backups/orbit-complete-end-to-end-private-20260607_071748/.wwebjs_auth/session-orbit-demo/Default/Local Storage/leveldb/MANIFEST-000001
+2026/06/10-17:09:23.288 1068fb Recovering log #11
+2026/06/10-17:09:23.289 1068fb Reusing old log /Users/sd369/Documents/Workspace ABGx + ASGx/backups/orbit-complete-end-to-end-private-20260607_071748/.wwebjs_auth/session-orbit-demo/Default/Local Storage/leveldb/000011.log 
+2026/06/10-17:19:31.534 1068fe Level-0 table #14: started
+2026/06/10-17:19:31.538 1068fe Level-0 table #14: 14458 bytes OK
+2026/06/10-17:19:31.542 1068fe Delete type=0 #11
+2026/06/10-18:59:34.276 1068fe Level-0 table #16: started
+2026/06/10-18:59:34.280 1068fe Level-0 table #16: 13413 bytes OK
+2026/06/10-18:59:34.283 1068fe Delete type=0 #13
+2026/06/10-18:59:34.287 1068fb Compacting 4@0 + 0@1 files
+2026/06/10-18:59:34.291 1068fb Generated table #17@0: 58 keys, 6767 bytes
+2026/06/10-18:59:34.291 1068fb Compacted 4@0 + 0@1 files => 6767 bytes
+2026/06/10-18:59:34.293 1068fb compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/06/10-18:59:34.294 1068fb Delete type=2 #14
+2026/06/10-18:59:34.294 1068fb Delete type=2 #16
+2026/06/10-18:59:34.294 1068fb Delete type=2 #7
+2026/06/10-18:59:34.294 1068fb Delete type=2 #10
+2026/06/10-21:09:40.331 1068fe Level-0 table #19: started
+2026/06/10-21:09:40.336 1068fe Level-0 table #19: 13076 bytes OK
+2026/06/10-21:09:40.361 1068fe Delete type=0 #15
+2026/06/11-01:57:03.776 1068fe Level-0 table #21: started
+2026/06/11-01:57:03.781 1068fe Level-0 table #21: 14057 bytes OK
+2026/06/11-01:57:03.784 1068fe Delete type=0 #18
+2026/06/11-06:29:44.510 1068fe Level-0 table #23: started
+2026/06/11-06:29:44.514 1068fe Level-0 table #23: 13316 bytes OK
+2026/06/11-06:29:44.517 1068fe Delete type=0 #20
+2026/06/11-10:09:53.038 1068fe Level-0 table #25: started
+2026/06/11-10:09:53.046 1068fe Level-0 table #25: 13945 bytes OK
+2026/06/11-10:09:53.050 1068fe Delete type=0 #22
+2026/06/11-10:09:53.055 1068fe Compacting 4@0 + 1@1 files
+2026/06/11-10:09:53.061 1068fe Generated table #26@0: 58 keys, 6738 bytes
+2026/06/11-10:09:53.061 1068fe Compacted 4@0 + 1@1 files => 6738 bytes
+2026/06/11-10:09:53.063 1068fe compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/06/11-10:09:53.064 1068fe Delete type=2 #17
+2026/06/11-10:09:53.064 1068fe Delete type=2 #21
+2026/06/11-10:09:53.064 1068fe Delete type=2 #23
+2026/06/11-10:09:53.064 1068fe Delete type=2 #25
+2026/06/11-10:09:53.064 1068fe Delete type=2 #19
+2026/06/11-11:49:57.694 1068fb Level-0 table #28: started
+2026/06/11-11:49:57.700 1068fb Level-0 table #28: 13401 bytes OK
+2026/06/11-11:49:57.703 1068fb Delete type=0 #24

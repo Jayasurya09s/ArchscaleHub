@@ -1,0 +1,212 @@
+[
+  {
+    "id": "2897797b-c3dc-4505-bf55-fcd4385af929",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Launch referral programme for existing clients",
+    "description": "Target our top 20 client accounts. Start with a soft launch in two weeks.",
+    "status": "idea",
+    "tags": [],
+    "payload": {
+      "id": "i1",
+      "dept": "d4",
+      "notes": "Target our top 20 client accounts. Start with a soft launch in two weeks.",
+      "owner": "u3",
+      "title": "Launch referral programme for existing clients",
+      "impact": "high",
+      "status": "idea",
+      "createdBy": "u1"
+    },
+    "created_at": "2026-06-03T01:42:15.173461+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "3f7a5786-bd27-4590-9413-4140388896b3",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Quarterly all-hands review format",
+    "description": null,
+    "status": "idea",
+    "tags": [],
+    "payload": {
+      "id": "i2",
+      "dept": "d1",
+      "notes": "",
+      "owner": "u1",
+      "title": "Quarterly all-hands review format",
+      "impact": "med",
+      "status": "idea",
+      "createdBy": "u1"
+    },
+    "created_at": "2026-06-03T01:42:15.173461+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "bb5dcf15-a6eb-4ae5-b47b-b53dd8d8bd2b",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Vendor consolidation for office supplies",
+    "description": "Currently using 4 vendors. Negotiate volume rate with one.",
+    "status": "parked",
+    "tags": [],
+    "payload": {
+      "id": "i3",
+      "dept": "d2",
+      "notes": "Currently using 4 vendors. Negotiate volume rate with one.",
+      "owner": "u2",
+      "title": "Vendor consolidation for office supplies",
+      "impact": "med",
+      "status": "parked",
+      "createdBy": "u1"
+    },
+    "created_at": "2026-06-03T01:42:15.173461+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "2b2fa2bf-ad66-4e0d-a105-32a5f970cbb8",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Set up customer NPS feedback loop",
+    "description": "Monthly NPS to active clients with a simple 2-question form.",
+    "status": "idea",
+    "tags": [],
+    "payload": {
+      "id": "i4",
+      "dept": "d3",
+      "notes": "Monthly NPS to active clients with a simple 2-question form.",
+      "owner": "u3",
+      "title": "Set up customer NPS feedback loop",
+      "impact": "high",
+      "status": "idea",
+      "createdBy": "u3"
+    },
+    "created_at": "2026-06-03T01:42:15.173461+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "76ac3da3-d6c5-4aff-9b9c-6579bdeb9f0b",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Move daily standup from 9am to 10am",
+    "description": "Several team members find 9am too early.",
+    "status": "parked",
+    "tags": [],
+    "payload": {
+      "id": "i5",
+      "dept": "d1",
+      "notes": "Several team members find 9am too early.",
+      "owner": "u1",
+      "title": "Move daily standup from 9am to 10am",
+      "impact": "low",
+      "status": "parked",
+      "createdBy": "u2"
+    },
+    "created_at": "2026-06-03T01:42:15.173461+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "422c6c7b-d820-4810-8294-01dc3a336aec",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Festive season hiring drive",
+    "description": "Need 4 new hires before Diwali.",
+    "status": "idea",
+    "tags": [],
+    "payload": {
+      "id": "i6",
+      "dept": "d6",
+      "notes": "Need 4 new hires before Diwali.",
+      "owner": "u8",
+      "title": "Festive season hiring drive",
+      "impact": "high",
+      "status": "idea",
+      "createdBy": "u1"
+    },
+    "created_at": "2026-06-03T01:42:15.173461+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "1acf587b-c09a-4c4f-ac6f-8716c9c2bf83",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Redesign client onboarding checklist",
+    "description": "Current one has gaps in week 2.",
+    "status": "parked",
+    "tags": [],
+    "payload": {
+      "id": "i7",
+      "dept": "d8",
+      "notes": "Current one has gaps in week 2.",
+      "owner": "u3",
+      "title": "Redesign client onboarding checklist",
+      "impact": "med",
+      "status": "parked",
+      "createdBy": "u3"
+    },
+    "created_at": "2026-06-03T01:42:15.173461+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "86bff0d5-5b0d-4430-9e43-18fd90f62477",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Quarterly partner thank-you gifts",
+    "description": null,
+    "status": "parked",
+    "tags": [],
+    "payload": {
+      "id": "i8",
+      "dept": "d4",
+      "notes": "",
+      "owner": "u5",
+      "title": "Quarterly partner thank-you gifts",
+      "impact": "low",
+      "status": "parked",
+      "createdBy": "u1"
+    },
+    "created_at": "2026-06-03T01:42:15.173461+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "e6076835-e926-4ffe-93b2-7e5a8e5c4f59",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Build internal wiki for SOPs",
+    "description": "Notion or similar. Make it the single source of truth.",
+    "status": "parked",
+    "tags": [],
+    "payload": {
+      "id": "i9",
+      "dept": "d2",
+      "notes": "Notion or similar. Make it the single source of truth.",
+      "owner": "u2",
+      "title": "Build internal wiki for SOPs",
+      "impact": "high",
+      "status": "parked",
+      "createdBy": "u1"
+    },
+    "created_at": "2026-06-03T01:42:15.173461+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "72eb9154-fb99-408c-96be-370e76e19208",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "title": "Pilot 4-day work week trial",
+    "description": "6-week pilot in Q3 with one team.",
+    "status": "idea",
+    "tags": [],
+    "payload": {
+      "id": "i10",
+      "dept": "d1",
+      "notes": "6-week pilot in Q3 with one team.",
+      "owner": "u1",
+      "title": "Pilot 4-day work week trial",
+      "impact": "med",
+      "status": "idea",
+      "createdBy": "u1"
+    },
+    "created_at": "2026-06-03T01:42:15.173461+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

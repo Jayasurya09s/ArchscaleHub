@@ -1,0 +1,145 @@
+[
+  {
+    "id": "72d47e80-4bcd-4a10-967a-19b034fa2217",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "node_key": "n-trigger",
+    "node_type": "trigger",
+    "title": "Contact enters audience",
+    "config": {
+      "trigger": "audience_match"
+    },
+    "position": {
+      "x": 0,
+      "y": 120
+    },
+    "created_at": "2026-06-03T02:58:10.417827+00:00",
+    "updated_at": "2026-06-03T02:58:09.413+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "b4dc234a-2bb7-4376-a1e1-d5d368c0ea4b",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "node_key": "n-send-1",
+    "node_type": "send_whatsapp",
+    "title": "Send welcome WhatsApp",
+    "config": {
+      "templateId": "wt1"
+    },
+    "position": {
+      "x": 260,
+      "y": 120
+    },
+    "created_at": "2026-06-03T02:58:10.417827+00:00",
+    "updated_at": "2026-06-03T02:58:09.413+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "c3187041-9d77-475d-ac4a-979cd60be6bd",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "node_key": "n-wait-1",
+    "node_type": "wait",
+    "title": "Wait 24 hours",
+    "config": {
+      "mins": 1440
+    },
+    "position": {
+      "x": 520,
+      "y": 120
+    },
+    "created_at": "2026-06-03T02:58:10.417827+00:00",
+    "updated_at": "2026-06-03T02:58:09.413+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "0043ffba-7cb9-484b-9f7d-9d588bdcfae9",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "node_key": "n-condition-1",
+    "node_type": "condition",
+    "title": "Did they reply or click?",
+    "config": {
+      "condition": "clicked",
+      "withinHours": 24
+    },
+    "position": {
+      "x": 780,
+      "y": 120
+    },
+    "created_at": "2026-06-03T02:58:10.417827+00:00",
+    "updated_at": "2026-06-03T02:58:09.413+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "13d96929-eaec-4491-8076-870c58eb390b",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "node_key": "n-stage-yes",
+    "node_type": "update_stage",
+    "title": "Move to MQL",
+    "config": {
+      "toStage": "mql"
+    },
+    "position": {
+      "x": 1040,
+      "y": 40
+    },
+    "created_at": "2026-06-03T02:58:10.417827+00:00",
+    "updated_at": "2026-06-03T02:58:09.413+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "6208c8f3-6f95-4c1f-99d1-df64debb7689",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "node_key": "n-reengage",
+    "node_type": "send_whatsapp",
+    "title": "Send re-engagement",
+    "config": {
+      "templateId": "wt3"
+    },
+    "position": {
+      "x": 1040,
+      "y": 210
+    },
+    "created_at": "2026-06-03T02:58:10.417827+00:00",
+    "updated_at": "2026-06-03T02:58:09.413+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "10fd15ab-3e1f-4329-8f95-1300f2a0ef9a",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "node_key": "n-task",
+    "node_type": "create_task",
+    "title": "Create sales follow-up",
+    "config": {
+      "taskTitle": "Call interested lead"
+    },
+    "position": {
+      "x": 1300,
+      "y": 40
+    },
+    "created_at": "2026-06-03T02:58:10.417827+00:00",
+    "updated_at": "2026-06-03T02:58:09.413+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "b450bccc-a6cd-4337-a482-307f02dc0933",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "node_key": "n-exit",
+    "node_type": "exit",
+    "title": "End drip",
+    "config": {},
+    "position": {
+      "x": 1560,
+      "y": 120
+    },
+    "created_at": "2026-06-03T02:58:10.417827+00:00",
+    "updated_at": "2026-06-03T02:58:09.413+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

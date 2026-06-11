@@ -1,0 +1,433 @@
+[
+  {
+    "id": "ef6553f3-6af1-4ccb-8375-e3480b847c89",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Unassigned",
+    "email": null,
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": null,
+    "reports_to": null,
+    "status": "active",
+    "app_access": [],
+    "color": null,
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "65eb004c-f097-43f4-b6dc-6a10072f1afd",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Shanker De",
+    "email": "shankerde@gmail.com",
+    "whatsapp": null,
+    "role": "admin",
+    "dept_id": "c1743201-1d94-48d3-93b4-17b22786980e",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "admin",
+      "intranet",
+      "hr",
+      "orbit",
+      "projects",
+      "crm",
+      "marketing"
+    ],
+    "color": "bg-violet-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "beaa369d-2f1b-4382-9843-72b9a57e79dd",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Marketing Mehta",
+    "email": "marketing@gmail.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "e2ceb65d-7cf8-409f-9518-dd920d6b03b8",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "orbit",
+      "marketing"
+    ],
+    "color": "bg-indigo-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "27b90c44-99ef-4c3a-8a98-3b9573957c48",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Shanker Market Dev",
+    "email": "marketdeve@gmail.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "a4e4703c-1b59-468a-8755-3bb4f61d2b6f",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit",
+      "projects",
+      "crm",
+      "marketing"
+    ],
+    "color": "bg-emerald-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "235e0373-4163-4fc0-b3a2-388be1bde790",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Devender Singh",
+    "email": "devender.singh@gmail.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "0fa56c0e-b3ae-46e3-ae07-2e3f1d599ff2",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-sky-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "93ff41d5-4f1c-4718-8279-db27ac0fa9cd",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Akhilesh Kumar",
+    "email": "akhilesh.kumar@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "0fa56c0e-b3ae-46e3-ae07-2e3f1d599ff2",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-rose-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "3498bc2a-30a0-4435-80de-03d2756f33cd",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Chetan Verma",
+    "email": "chetan.verma@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "f1a35314-e69e-41af-b1a5-0f88f5fd1d35",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-amber-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "3950e3b5-8851-4f70-b3ce-896d0c193b60",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Junaid Ali",
+    "email": "junaid.ali@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "e2ceb65d-7cf8-409f-9518-dd920d6b03b8",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-cyan-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "75c271a5-1fdf-4945-a1fc-8219acf9a0b6",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Blessy Maam",
+    "email": "blessy.maam@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "a4e4703c-1b59-468a-8755-3bb4f61d2b6f",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-fuchsia-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "a6edd26a-fc46-49e6-a427-b33b832c4c18",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Manish Kumar",
+    "email": "manish.kumar@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "a4e4703c-1b59-468a-8755-3bb4f61d2b6f",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-orange-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "bbceec45-5b4d-408e-9087-3b912a315ea5",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Shanker Tech",
+    "email": "shanker.tech@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "32e8f239-50cf-41f6-9f0d-010cbef55bc3",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-teal-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "fdc143a8-228d-4351-bd74-4c6a338deb78",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Shanker Product Deve",
+    "email": "shanker.product.deve@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "350b41e1-511c-498b-a0dc-7893fc54c0aa",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-pink-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "7a8e5d18-6456-4de6-aef8-76701131a2b4",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Vihag Guru",
+    "email": "vihag.guru@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "0fa56c0e-b3ae-46e3-ae07-2e3f1d599ff2",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-slate-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "14a4b977-d0d6-4110-bfe6-81fca3bced9a",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "HR Sh",
+    "email": "hr.sh@acme.com",
+    "whatsapp": null,
+    "role": "manager",
+    "dept_id": "e24f83fb-db52-4769-9713-9be0ebd9eb2f",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "hr",
+      "orbit",
+      "projects",
+      "crm",
+      "marketing"
+    ],
+    "color": "bg-violet-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "1ccd3c98-faa1-4634-949e-77a66f4a0009",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Brand Sh",
+    "email": "brand.sh@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "f47facef-6249-4cbb-91a8-e0acd443234b",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-indigo-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "fe8eecde-48d6-468f-8dc8-0d98f9345830",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Customer Service Sh",
+    "email": "customer.service.sh@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "f4daf697-cf9a-43a0-bcfc-7fc7a1030bc1",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-emerald-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "ec0c811b-4a3b-4062-83b0-bceb05ab2467",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Customer Delivery Sh",
+    "email": "customer.delivery.sh@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "d786460b-65b8-4934-b751-3482562d88b3",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-sky-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "d3c96152-1c8b-4db6-ad37-493af9157349",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Sales Shanker",
+    "email": "sales.shanker@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "566e7234-2d1d-4ddb-b6ca-ec24a5a09e3f",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-rose-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "8e9735d7-c3ba-435b-8e23-72d03004a9b4",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Mohi Singh",
+    "email": "mohi.singh@acme.com",
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "350b41e1-511c-498b-a0dc-7893fc54c0aa",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit"
+    ],
+    "color": "bg-amber-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "5ab5a7d1-fd64-4761-a5c6-b8eaf7719ad3",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Neha Pardeshi",
+    "email": null,
+    "whatsapp": null,
+    "role": "member",
+    "dept_id": "e24f83fb-db52-4769-9713-9be0ebd9eb2f",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit",
+      "hr"
+    ],
+    "color": "bg-fuchsia-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "248c3132-e389-41ad-9d04-6b99e42ee268",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Sakshi Arya",
+    "email": null,
+    "whatsapp": null,
+    "role": "manager",
+    "dept_id": "c1743201-1d94-48d3-93b4-17b22786980e",
+    "reports_to": null,
+    "status": "active",
+    "app_access": [
+      "intranet",
+      "orbit",
+      "hr"
+    ],
+    "color": "bg-rose-500",
+    "avatar_url": null,
+    "created_at": "2026-06-03T01:42:14.260594+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

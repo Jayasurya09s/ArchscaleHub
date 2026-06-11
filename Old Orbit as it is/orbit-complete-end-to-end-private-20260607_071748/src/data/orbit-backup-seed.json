@@ -1,0 +1,1718 @@
+{
+  "version": 1,
+  "app": "orbit",
+  "exportedAt": "2026-06-02T01:18:55.260Z",
+  "data": {
+    "tasks": [
+      {
+        "assignedBy": "u1",
+        "id": "t1780361241612",
+        "title": "Test - Merge Members",
+        "desc": "",
+        "type": "General",
+        "dept": "d12",
+        "assignedTo": null,
+        "manager": null,
+        "reviewRequired": false,
+        "priority": "med",
+        "status": "draft",
+        "due": "2 Jun, 6:17 pm",
+        "startDate": "2026-06-02T18:17",
+        "endDate": "",
+        "recurring": false,
+        "reminders": [],
+        "focus": true,
+        "focusDate": "2026-06-02",
+        "estimateMinutes": 0,
+        "channels": {
+          "whatsapp": true,
+          "email": true,
+          "inApp": true
+        },
+        "checklist": [],
+        "tags": [],
+        "notes": "",
+        "attachments": [],
+        "watchers": [],
+        "voiceNotes": [],
+        "dependencies": {
+          "blocks": [],
+          "blockedBy": []
+        },
+        "comments": [],
+        "activity": [
+          {
+            "who": "u1",
+            "what": "created task",
+            "when": "just now"
+          }
+        ],
+        "num": 11
+      },
+      {
+        "assignedBy": "u1",
+        "id": "t1780361159257",
+        "title": "Test - Pickup Unassigned tasks ",
+        "desc": "",
+        "type": "General",
+        "dept": "d12",
+        "assignedTo": null,
+        "manager": null,
+        "reviewRequired": false,
+        "priority": "med",
+        "status": "draft",
+        "due": "2 Jun, 6:15 am",
+        "startDate": "2026-06-02T06:15",
+        "endDate": "",
+        "recurring": false,
+        "reminders": [],
+        "focus": false,
+        "focusDate": "",
+        "estimateMinutes": 30,
+        "channels": {
+          "whatsapp": true,
+          "email": true,
+          "inApp": true
+        },
+        "checklist": [],
+        "tags": [],
+        "notes": "",
+        "attachments": [],
+        "watchers": [],
+        "voiceNotes": [],
+        "dependencies": {
+          "blocks": [],
+          "blockedBy": []
+        },
+        "comments": [],
+        "activity": [
+          {
+            "who": "u1",
+            "what": "created task",
+            "when": "just now"
+          }
+        ],
+        "num": 10
+      },
+      {
+        "assignedBy": "u1",
+        "id": "t1780361091260",
+        "title": " Testing - Exit Triage with edge cases",
+        "desc": "Set up a test scenario:\n\nAdd a test member \"Edge Case Tester\"\nCreate 3 tasks assigned to them\nMake Edge Case Tester the manager of one of those tasks (open task → set manager)\nMake Edge Case Tester the delegator (assignedBy) of another task\nNow Archive them via Exit Triage:\n\nReassign 1 task to someone else\nPark 1 task to Unassigned\nCancel 1 task\n\n\nIn the Delegations section, transfer ownership to someone\nIn the Approvals section, transfer manager to someone\nClick Archive\nThen reload\n✅ Verify: reassignments stuck, parked task in Unassigned, cancelled task is cancelled, delegations transferred, manager transferred",
+        "type": "General",
+        "dept": "d12",
+        "assignedTo": "u10",
+        "manager": null,
+        "reviewRequired": false,
+        "priority": "med",
+        "status": "assigned",
+        "due": "2 Jun, 3:00 pm",
+        "startDate": "2026-06-02T15:00",
+        "endDate": "",
+        "recurring": false,
+        "reminders": [],
+        "focus": true,
+        "focusDate": "2026-06-02",
+        "estimateMinutes": 30,
+        "channels": {
+          "whatsapp": true,
+          "email": true,
+          "inApp": true
+        },
+        "checklist": [],
+        "tags": [],
+        "notes": "",
+        "attachments": [],
+        "watchers": [],
+        "voiceNotes": [],
+        "dependencies": {
+          "blocks": [],
+          "blockedBy": []
+        },
+        "comments": [],
+        "activity": [
+          {
+            "who": "u1",
+            "what": "created task",
+            "when": "just now"
+          }
+        ],
+        "num": 9
+      },
+      {
+        "assignedBy": "u1",
+        "id": "t1780360628013",
+        "title": "Pickup Mam from Airport",
+        "desc": "",
+        "type": "General",
+        "dept": "d11",
+        "assignedTo": "u4",
+        "manager": null,
+        "reviewRequired": false,
+        "priority": "med",
+        "status": "assigned",
+        "due": "2 Jun, 4:45 pm",
+        "startDate": "2026-06-02T16:45",
+        "endDate": "",
+        "recurring": false,
+        "reminders": [],
+        "focus": false,
+        "focusDate": "",
+        "estimateMinutes": 60,
+        "channels": {
+          "whatsapp": true,
+          "email": true,
+          "inApp": true
+        },
+        "checklist": [],
+        "tags": [],
+        "notes": "",
+        "attachments": [],
+        "watchers": [],
+        "voiceNotes": [],
+        "dependencies": {
+          "blocks": [],
+          "blockedBy": []
+        },
+        "comments": [],
+        "activity": [
+          {
+            "who": "u1",
+            "what": "created task",
+            "when": "just now"
+          }
+        ],
+        "num": 8
+      },
+      {
+        "assignedBy": "u1",
+        "id": "t1780360296421",
+        "title": "Assign Junaid's Task for today ",
+        "desc": "",
+        "type": "General",
+        "dept": "d5",
+        "assignedTo": "u7",
+        "manager": null,
+        "reviewRequired": false,
+        "priority": "high",
+        "status": "assigned",
+        "due": "2 Jun, 9:00 pm",
+        "startDate": "2026-06-02T21:00",
+        "endDate": "",
+        "recurring": false,
+        "reminders": [],
+        "focus": true,
+        "focusDate": "2026-06-02",
+        "estimateMinutes": 240,
+        "channels": {
+          "whatsapp": true,
+          "email": true,
+          "inApp": true
+        },
+        "checklist": [],
+        "tags": [],
+        "notes": "",
+        "attachments": [],
+        "watchers": [],
+        "voiceNotes": [],
+        "dependencies": {
+          "blocks": [],
+          "blockedBy": []
+        },
+        "comments": [],
+        "activity": [
+          {
+            "who": "u1",
+            "what": "created task",
+            "when": "just now"
+          }
+        ],
+        "num": 7
+      },
+      {
+        "assignedBy": "u1",
+        "id": "t1780337119345",
+        "title": "Verify 15 apps minimum for understanding gaps",
+        "desc": "Create the thing on the excel sheet",
+        "type": "General",
+        "dept": "d3",
+        "assignedTo": "u18",
+        "manager": null,
+        "reviewRequired": false,
+        "priority": "med",
+        "status": "assigned",
+        "due": "2 Jun, 11:35 pm",
+        "startDate": "2026-06-02T23:35",
+        "endDate": "",
+        "recurring": false,
+        "reminders": [],
+        "focus": true,
+        "focusDate": "2026-06-01",
+        "estimateMinutes": 120,
+        "channels": {
+          "whatsapp": true,
+          "email": true,
+          "inApp": true
+        },
+        "checklist": [],
+        "tags": [],
+        "notes": "",
+        "attachments": [],
+        "watchers": [],
+        "voiceNotes": [],
+        "dependencies": {
+          "blocks": [],
+          "blockedBy": []
+        },
+        "comments": [],
+        "activity": [
+          {
+            "who": "u1",
+            "what": "created task",
+            "when": "just now"
+          }
+        ],
+        "num": 6
+      },
+      {
+        "assignedBy": "u1",
+        "id": "t1780337020995",
+        "title": "20 Prompts Identify & Test for ID specifically",
+        "desc": "",
+        "type": "General",
+        "dept": "d3",
+        "assignedTo": "u18",
+        "manager": null,
+        "reviewRequired": false,
+        "priority": "med",
+        "status": "assigned",
+        "due": "2 Jun, 11:33 pm",
+        "startDate": "2026-06-02T23:33",
+        "endDate": "",
+        "recurring": false,
+        "reminders": [],
+        "focus": true,
+        "focusDate": "2026-06-01",
+        "estimateMinutes": 960,
+        "channels": {
+          "whatsapp": true,
+          "email": true,
+          "inApp": true
+        },
+        "checklist": [],
+        "tags": [],
+        "notes": "",
+        "attachments": [],
+        "watchers": [],
+        "voiceNotes": [],
+        "dependencies": {
+          "blocks": [],
+          "blockedBy": []
+        },
+        "comments": [],
+        "activity": [
+          {
+            "who": "u1",
+            "what": "created task",
+            "when": "just now"
+          }
+        ],
+        "num": 5
+      },
+      {
+        "assignedBy": "u1",
+        "id": "t1780336981401",
+        "title": "15 Apps Identify & Test",
+        "desc": "List them in the sequence of the stage they are needed. For apps that allow testing has test user counts ready.",
+        "type": "General",
+        "dept": "d3",
+        "assignedTo": "u18",
+        "manager": null,
+        "reviewRequired": false,
+        "priority": "med",
+        "status": "assigned",
+        "due": "",
+        "startDate": "",
+        "endDate": "",
+        "recurring": false,
+        "reminders": [],
+        "focus": true,
+        "focusDate": "2026-06-02",
+        "estimateMinutes": 240,
+        "channels": {
+          "whatsapp": true,
+          "email": true,
+          "inApp": true
+        },
+        "checklist": [],
+        "tags": [],
+        "notes": "",
+        "attachments": [],
+        "watchers": [],
+        "voiceNotes": [],
+        "dependencies": {
+          "blocks": [],
+          "blockedBy": []
+        },
+        "comments": [],
+        "activity": [
+          {
+            "who": "u1",
+            "what": "created task",
+            "when": "just now"
+          }
+        ],
+        "num": 4
+      },
+      {
+        "assignedBy": "u1",
+        "id": "t1780336863088",
+        "title": "OutStation Challans Clear",
+        "desc": "",
+        "type": "General",
+        "dept": "d11",
+        "assignedTo": "u5",
+        "manager": null,
+        "reviewRequired": false,
+        "priority": "med",
+        "status": "assigned",
+        "due": "28 May, 11:30 pm",
+        "startDate": "2026-05-28T23:30",
+        "endDate": "",
+        "recurring": false,
+        "reminders": [],
+        "focus": false,
+        "focusDate": "",
+        "estimateMinutes": 1440,
+        "channels": {
+          "whatsapp": true,
+          "email": true,
+          "inApp": true
+        },
+        "checklist": [],
+        "tags": [],
+        "notes": "",
+        "attachments": [],
+        "watchers": [],
+        "voiceNotes": [],
+        "dependencies": {
+          "blocks": [],
+          "blockedBy": []
+        },
+        "comments": [],
+        "activity": [
+          {
+            "who": "u1",
+            "what": "created task",
+            "when": "just now"
+          }
+        ],
+        "num": 3
+      },
+      {
+        "assignedBy": "u1",
+        "id": "t1780336811158",
+        "title": "Complete Challans",
+        "desc": "",
+        "type": "General",
+        "dept": "d11",
+        "assignedTo": "u4",
+        "manager": null,
+        "reviewRequired": false,
+        "priority": "med",
+        "status": "assigned",
+        "due": "27 May, 11:29 pm",
+        "startDate": "2026-05-27T23:29",
+        "endDate": "",
+        "recurring": false,
+        "reminders": [],
+        "focus": true,
+        "focusDate": "2026-06-01",
+        "estimateMinutes": 0,
+        "channels": {
+          "whatsapp": true,
+          "email": true,
+          "inApp": true
+        },
+        "checklist": [],
+        "tags": [],
+        "notes": "",
+        "attachments": [],
+        "watchers": [],
+        "voiceNotes": [],
+        "dependencies": {
+          "blocks": [],
+          "blockedBy": []
+        },
+        "comments": [],
+        "activity": [
+          {
+            "who": "u1",
+            "what": "created task",
+            "when": "just now"
+          }
+        ],
+        "num": 2
+      },
+      {
+        "assignedBy": "u1",
+        "id": "t1780336728773",
+        "title": "Hire a research Assistant",
+        "desc": "",
+        "type": "General",
+        "dept": "d10",
+        "assignedTo": "u1780326331317",
+        "manager": null,
+        "reviewRequired": false,
+        "priority": "med",
+        "status": "assigned",
+        "due": "4 May, 11:28 pm",
+        "startDate": "2026-05-04T23:28",
+        "endDate": "",
+        "recurring": false,
+        "reminders": [],
+        "focus": false,
+        "focusDate": "",
+        "estimateMinutes": 960,
+        "channels": {
+          "whatsapp": true,
+          "email": true,
+          "inApp": true
+        },
+        "checklist": [],
+        "tags": [],
+        "notes": "",
+        "attachments": [],
+        "watchers": [],
+        "voiceNotes": [],
+        "dependencies": {
+          "blocks": [],
+          "blockedBy": []
+        },
+        "comments": [],
+        "activity": [
+          {
+            "who": "u1",
+            "what": "created task",
+            "when": "just now"
+          }
+        ],
+        "num": 1
+      }
+    ],
+    "taskSeq": 11,
+    "empSeq": 20,
+    "ideas": [
+      {
+        "id": "i1",
+        "title": "Launch referral programme for existing clients",
+        "dept": "d4",
+        "impact": "high",
+        "owner": "u3",
+        "notes": "Target our top 20 client accounts. Start with a soft launch in two weeks.",
+        "status": "idea",
+        "createdBy": "u1"
+      },
+      {
+        "id": "i2",
+        "title": "Quarterly all-hands review format",
+        "dept": "d1",
+        "impact": "med",
+        "owner": "u1",
+        "notes": "",
+        "status": "idea",
+        "createdBy": "u1"
+      },
+      {
+        "id": "i3",
+        "title": "Vendor consolidation for office supplies",
+        "dept": "d2",
+        "impact": "med",
+        "owner": "u2",
+        "notes": "Currently using 4 vendors. Negotiate volume rate with one.",
+        "status": "parked",
+        "createdBy": "u1"
+      },
+      {
+        "id": "i4",
+        "title": "Set up customer NPS feedback loop",
+        "dept": "d3",
+        "impact": "high",
+        "owner": "u3",
+        "notes": "Monthly NPS to active clients with a simple 2-question form.",
+        "status": "idea",
+        "createdBy": "u3"
+      },
+      {
+        "id": "i5",
+        "title": "Move daily standup from 9am to 10am",
+        "dept": "d1",
+        "impact": "low",
+        "owner": "u1",
+        "notes": "Several team members find 9am too early.",
+        "status": "parked",
+        "createdBy": "u2"
+      },
+      {
+        "id": "i6",
+        "title": "Festive season hiring drive",
+        "dept": "d6",
+        "impact": "high",
+        "owner": "u8",
+        "notes": "Need 4 new hires before Diwali.",
+        "status": "idea",
+        "createdBy": "u1"
+      },
+      {
+        "id": "i7",
+        "title": "Redesign client onboarding checklist",
+        "dept": "d8",
+        "impact": "med",
+        "owner": "u3",
+        "notes": "Current one has gaps in week 2.",
+        "status": "parked",
+        "createdBy": "u3"
+      },
+      {
+        "id": "i8",
+        "title": "Quarterly partner thank-you gifts",
+        "dept": "d4",
+        "impact": "low",
+        "owner": "u5",
+        "notes": "",
+        "status": "parked",
+        "createdBy": "u1"
+      },
+      {
+        "id": "i9",
+        "title": "Build internal wiki for SOPs",
+        "dept": "d2",
+        "impact": "high",
+        "owner": "u2",
+        "notes": "Notion or similar. Make it the single source of truth.",
+        "status": "parked",
+        "createdBy": "u1"
+      },
+      {
+        "id": "i10",
+        "title": "Pilot 4-day work week trial",
+        "dept": "d1",
+        "impact": "med",
+        "owner": "u1",
+        "notes": "6-week pilot in Q3 with one team.",
+        "status": "idea",
+        "createdBy": "u1"
+      }
+    ],
+    "focusIds": {
+      "primary": null,
+      "secondary": null
+    },
+    "pinnedTasks": [],
+    "dashWidgets": {
+      "kpis": true,
+      "quickActions": true,
+      "focus": false,
+      "reminders": true,
+      "workload": true,
+      "pinned": true
+    },
+    "permissions": {
+      "admin": {
+        "scr.parking": true,
+        "scr.ideas": true,
+        "scr.workload": true,
+        "scr.analytics": true,
+        "scr.users": true,
+        "scr.departments": true,
+        "scr.templates": true,
+        "scr.checklists": true,
+        "scr.recurring": true,
+        "scr.reminderRules": true,
+        "scr.commSetup": true,
+        "scr.statusMasters": true,
+        "scr.priorityMasters": true,
+        "scr.roles": true,
+        "scr.appSettings": true,
+        "act.createTask": true,
+        "act.editAnyTask": true,
+        "act.deleteTask": true,
+        "act.approveTask": true,
+        "act.deleteIdea": true,
+        "act.archiveIdea": true,
+        "act.editIdea": true,
+        "act.exportData": true,
+        "act.importData": true,
+        "vis.allTasks": true,
+        "vis.deptTasks": true,
+        "vis.otherDepts": true,
+        "vis.workloadAll": true,
+        "vis.analytics": true
+      },
+      "manager": {
+        "scr.parking": true,
+        "scr.ideas": true,
+        "scr.workload": true,
+        "scr.analytics": true,
+        "scr.users": false,
+        "scr.departments": false,
+        "scr.templates": true,
+        "scr.checklists": true,
+        "scr.recurring": true,
+        "scr.reminderRules": false,
+        "scr.commSetup": false,
+        "scr.statusMasters": false,
+        "scr.priorityMasters": false,
+        "scr.roles": false,
+        "scr.appSettings": false,
+        "act.createTask": true,
+        "act.editAnyTask": true,
+        "act.deleteTask": false,
+        "act.approveTask": true,
+        "act.deleteIdea": false,
+        "act.archiveIdea": true,
+        "act.editIdea": true,
+        "act.exportData": false,
+        "act.importData": false,
+        "vis.allTasks": false,
+        "vis.deptTasks": true,
+        "vis.otherDepts": false,
+        "vis.workloadAll": true,
+        "vis.analytics": true
+      },
+      "user": {
+        "scr.parking": false,
+        "scr.ideas": false,
+        "scr.workload": false,
+        "scr.analytics": false,
+        "scr.users": false,
+        "scr.departments": false,
+        "scr.templates": false,
+        "scr.checklists": false,
+        "scr.recurring": false,
+        "scr.reminderRules": false,
+        "scr.commSetup": false,
+        "scr.statusMasters": false,
+        "scr.priorityMasters": false,
+        "scr.roles": false,
+        "scr.appSettings": false,
+        "act.createTask": true,
+        "act.editAnyTask": false,
+        "act.deleteTask": false,
+        "act.approveTask": false,
+        "act.deleteIdea": false,
+        "act.archiveIdea": false,
+        "act.editIdea": false,
+        "act.exportData": false,
+        "act.importData": false,
+        "vis.allTasks": false,
+        "vis.deptTasks": false,
+        "vis.otherDepts": false,
+        "vis.workloadAll": false,
+        "vis.analytics": false
+      },
+      "guest": {
+        "scr.parking": false,
+        "scr.ideas": false,
+        "scr.workload": false,
+        "scr.analytics": false,
+        "scr.users": false,
+        "scr.departments": false,
+        "scr.templates": false,
+        "scr.checklists": false,
+        "scr.recurring": false,
+        "scr.reminderRules": false,
+        "scr.commSetup": false,
+        "scr.statusMasters": false,
+        "scr.priorityMasters": false,
+        "scr.roles": false,
+        "scr.appSettings": false,
+        "act.createTask": false,
+        "act.editAnyTask": false,
+        "act.deleteTask": false,
+        "act.approveTask": false,
+        "act.deleteIdea": false,
+        "act.archiveIdea": false,
+        "act.editIdea": false,
+        "act.exportData": false,
+        "act.importData": false,
+        "vis.allTasks": false,
+        "vis.deptTasks": false,
+        "vis.otherDepts": false,
+        "vis.workloadAll": false,
+        "vis.analytics": false
+      }
+    },
+    "tzPrimary": "Asia/Kolkata",
+    "tzAdditional": [],
+    "users": [
+      {
+        "id": "u-unassigned",
+        "name": "Unassigned",
+        "email": "",
+        "role": "member",
+        "dept": null,
+        "empId": "—",
+        "status": "active",
+        "isSystem": true,
+        "hoursPerWeek": 0,
+        "daysPerWeek": 5,
+        "dailyCapacityMinutes": 0,
+        "engagement": "system",
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "documents": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "appAccess": []
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u1",
+        "name": "Shanker De",
+        "initials": "SD",
+        "role": "admin",
+        "dept": "d1",
+        "color": "bg-violet-500",
+        "email": "shankerde@gmail.com",
+        "phone": "",
+        "empId": "E-001",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "admin",
+          "intranet",
+          "hr",
+          "orbit",
+          "projects",
+          "crm",
+          "marketing"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u2",
+        "name": "Marketing Mehta",
+        "initials": "MM",
+        "role": "member",
+        "dept": "d5",
+        "color": "bg-indigo-500",
+        "email": "marketing@gmail.com",
+        "phone": "",
+        "empId": "E-002",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "orbit",
+          "marketing"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u3",
+        "name": "Shanker Market Dev",
+        "initials": "SM",
+        "role": "member",
+        "dept": "d2",
+        "color": "bg-emerald-500",
+        "email": "marketdeve@gmail.com",
+        "phone": "",
+        "empId": "E-003",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit",
+          "projects",
+          "crm",
+          "marketing"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u4",
+        "name": "Devender Singh",
+        "initials": "DS",
+        "role": "member",
+        "dept": "d11",
+        "color": "bg-sky-500",
+        "email": "devender.singh@gmail.com",
+        "phone": "",
+        "empId": "E-004",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u5",
+        "name": "Akhilesh Kumar",
+        "initials": "AK",
+        "role": "member",
+        "dept": "d11",
+        "color": "bg-rose-500",
+        "email": "akhilesh.kumar@acme.com",
+        "phone": "",
+        "empId": "E-005",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u6",
+        "name": "Chetan Verma",
+        "initials": "CV",
+        "role": "member",
+        "dept": "d9",
+        "color": "bg-amber-500",
+        "email": "chetan.verma@acme.com",
+        "phone": "",
+        "empId": "E-006",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u7",
+        "name": "Junaid Ali",
+        "initials": "JA",
+        "role": "member",
+        "dept": "d5",
+        "color": "bg-cyan-500",
+        "email": "junaid.ali@acme.com",
+        "phone": "",
+        "empId": "E-007",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u8",
+        "name": "Blessy Maam",
+        "initials": "BM",
+        "role": "member",
+        "dept": "d2",
+        "color": "bg-fuchsia-500",
+        "email": "blessy.maam@acme.com",
+        "phone": "",
+        "empId": "E-008",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u9",
+        "name": "Manish Kumar",
+        "initials": "MK",
+        "role": "member",
+        "dept": "d2",
+        "color": "bg-orange-500",
+        "email": "manish.kumar@acme.com",
+        "phone": "",
+        "empId": "E-009",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u10",
+        "name": "Shanker Tech",
+        "initials": "ST",
+        "role": "member",
+        "dept": "d12",
+        "color": "bg-teal-500",
+        "email": "shanker.tech@acme.com",
+        "phone": "",
+        "empId": "E-010",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u11",
+        "name": "Shanker Product Deve",
+        "initials": "SP",
+        "role": "member",
+        "dept": "d3",
+        "color": "bg-pink-500",
+        "email": "shanker.product.deve@acme.com",
+        "phone": "",
+        "empId": "E-011",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u12",
+        "name": "Vihag Guru",
+        "initials": "VG",
+        "role": "member",
+        "dept": "d11",
+        "color": "bg-slate-500",
+        "email": "vihag.guru@acme.com",
+        "phone": "",
+        "empId": "E-012",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u13",
+        "name": "HR Sh",
+        "initials": "HS",
+        "role": "manager",
+        "dept": "d10",
+        "color": "bg-violet-500",
+        "email": "hr.sh@acme.com",
+        "phone": "",
+        "empId": "E-013",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "hr",
+          "orbit",
+          "projects",
+          "crm",
+          "marketing"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u14",
+        "name": "Brand Sh",
+        "initials": "BS",
+        "role": "member",
+        "dept": "d4",
+        "color": "bg-indigo-500",
+        "email": "brand.sh@acme.com",
+        "phone": "",
+        "empId": "E-014",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u15",
+        "name": "Customer Service Sh",
+        "initials": "CS",
+        "role": "member",
+        "dept": "d8",
+        "color": "bg-emerald-500",
+        "email": "customer.service.sh@acme.com",
+        "phone": "",
+        "empId": "E-015",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u16",
+        "name": "Customer Delivery Sh",
+        "initials": "CD",
+        "role": "member",
+        "dept": "d7",
+        "color": "bg-sky-500",
+        "email": "customer.delivery.sh@acme.com",
+        "phone": "",
+        "empId": "E-016",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u17",
+        "name": "Sales Shanker",
+        "initials": "SS",
+        "role": "member",
+        "dept": "d6",
+        "color": "bg-rose-500",
+        "email": "sales.shanker@acme.com",
+        "phone": "",
+        "empId": "E-017",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "dailyCapacityMinutes": 480,
+        "engagement": "fulltime",
+        "id": "u18",
+        "name": "Mohi Singh",
+        "initials": "MS",
+        "role": "member",
+        "dept": "d3",
+        "color": "bg-amber-500",
+        "email": "mohi.singh@acme.com",
+        "phone": "",
+        "empId": "E-018",
+        "status": "active",
+        "hoursPerWeek": 40,
+        "daysPerWeek": 5,
+        "joinedAt": "",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "documents": [],
+        "appAccess": [
+          "intranet",
+          "orbit"
+        ]
+      },
+      {
+        "id": "u1780326331317",
+        "empId": "E-019",
+        "name": "Neha Pardeshi",
+        "email": "",
+        "phone": "",
+        "role": "member",
+        "dept": "d10",
+        "status": "active",
+        "initials": "NP",
+        "color": "bg-fuchsia-500",
+        "engagement": "fulltime",
+        "hoursPerWeek": 30,
+        "daysPerWeek": 5,
+        "dailyCapacityMinutes": 480,
+        "joinedAt": "2026-04-17",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "documents": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "appAccess": [
+          "intranet",
+          "orbit",
+          "hr"
+        ]
+      },
+      {
+        "id": "u1780326367929",
+        "empId": "E-020",
+        "name": "Sakshi Arya",
+        "email": "",
+        "phone": "",
+        "role": "manager",
+        "dept": "d1",
+        "status": "active",
+        "initials": "SA",
+        "color": "bg-rose-500",
+        "engagement": "fulltime",
+        "hoursPerWeek": 30,
+        "daysPerWeek": 5,
+        "dailyCapacityMinutes": 480,
+        "joinedAt": "2026-02-11",
+        "noticeAt": "",
+        "exitAt": "",
+        "ktDismissed": false,
+        "kras": [],
+        "kpis": [],
+        "reviews": [],
+        "documents": [],
+        "resignationNote": "",
+        "offerLetterUrl": "",
+        "completionLetterUrl": "",
+        "appAccess": [
+          "intranet",
+          "orbit",
+          "hr"
+        ]
+      }
+    ],
+    "departments": [
+      {
+        "id": "d1",
+        "name": "Management",
+        "color": "bg-slate-900"
+      },
+      {
+        "id": "d2",
+        "name": "Market Development",
+        "color": "bg-indigo-500"
+      },
+      {
+        "id": "d3",
+        "name": "Product Development",
+        "color": "bg-emerald-500"
+      },
+      {
+        "id": "d4",
+        "name": "Brand Development",
+        "color": "bg-fuchsia-500"
+      },
+      {
+        "id": "d5",
+        "name": "Marketing",
+        "color": "bg-rose-500"
+      },
+      {
+        "id": "d6",
+        "name": "Sales",
+        "color": "bg-amber-500"
+      },
+      {
+        "id": "d7",
+        "name": "Client Delivery",
+        "color": "bg-sky-500"
+      },
+      {
+        "id": "d8",
+        "name": "Client Service",
+        "color": "bg-cyan-500"
+      },
+      {
+        "id": "d9",
+        "name": "Finance Resources",
+        "color": "bg-teal-500"
+      },
+      {
+        "id": "d10",
+        "name": "Human Resources",
+        "color": "bg-orange-500"
+      },
+      {
+        "id": "d11",
+        "name": "Admin",
+        "color": "bg-slate-500"
+      },
+      {
+        "id": "d12",
+        "name": "Technology",
+        "color": "bg-pink-500"
+      }
+    ],
+    "taskTemplates": [
+      {
+        "id": "tpl-offer",
+        "name": "Create Offer Letter",
+        "title": "Create offer letter",
+        "desc": "Draft and send an offer letter to a new hire.",
+        "dept": "d10",
+        "priority": "high",
+        "assignedTo": null,
+        "tags": [
+          "hr",
+          "offer"
+        ],
+        "checklist": [
+          {
+            "text": "Confirm role, level & compensation",
+            "required": false
+          },
+          {
+            "text": "Confirm start date",
+            "required": false
+          },
+          {
+            "text": "Draft offer letter from template",
+            "required": false
+          },
+          {
+            "text": "Get leadership approval",
+            "required": false
+          },
+          {
+            "text": "Send offer to candidate",
+            "required": false
+          },
+          {
+            "text": "Track acceptance / e-sign",
+            "required": false
+          },
+          {
+            "text": "Trigger onboarding task",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "tpl-pay",
+        "name": "Collect Pending Payment",
+        "title": "Collect pending payment",
+        "desc": "Follow up and recover an outstanding invoice.",
+        "dept": "d9",
+        "priority": "high",
+        "assignedTo": null,
+        "tags": [
+          "finance",
+          "payment"
+        ],
+        "checklist": [
+          {
+            "text": "Check pending invoice amount",
+            "required": false
+          },
+          {
+            "text": "Confirm due date",
+            "required": false
+          },
+          {
+            "text": "Send polite reminder via email",
+            "required": false
+          },
+          {
+            "text": "Call client if no response in 48 hrs",
+            "required": false
+          },
+          {
+            "text": "Update payment status in CRM",
+            "required": false
+          },
+          {
+            "text": "Share receipt confirmation",
+            "required": false
+          },
+          {
+            "text": "Close task",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "tpl-onboard",
+        "name": "New Employee Onboarding",
+        "title": "Onboard new employee",
+        "desc": "End-to-end onboarding for a new joiner.",
+        "dept": "d10",
+        "priority": "med",
+        "assignedTo": null,
+        "tags": [
+          "hr",
+          "onboarding"
+        ],
+        "checklist": [
+          {
+            "text": "Confirm start date and role",
+            "required": false
+          },
+          {
+            "text": "Provision Google Workspace + Slack",
+            "required": false
+          },
+          {
+            "text": "Order laptop + accessories",
+            "required": false
+          },
+          {
+            "text": "Schedule day-1 orientation",
+            "required": false
+          },
+          {
+            "text": "Assign onboarding buddy",
+            "required": false
+          },
+          {
+            "text": "Send welcome email and policies",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "tpl-prop",
+        "name": "Send Client Proposal",
+        "title": "Send client proposal",
+        "desc": "Prepare and send a proposal to a prospect.",
+        "dept": "d6",
+        "priority": "high",
+        "assignedTo": null,
+        "tags": [
+          "sales",
+          "proposal"
+        ],
+        "checklist": [
+          {
+            "text": "Confirm scope and pricing internally",
+            "required": false
+          },
+          {
+            "text": "Update proposal template",
+            "required": false
+          },
+          {
+            "text": "Add relevant case studies",
+            "required": false
+          },
+          {
+            "text": "Internal review with manager",
+            "required": false
+          },
+          {
+            "text": "Send to client stakeholders",
+            "required": false
+          },
+          {
+            "text": "Follow up in 48 hrs",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "tpl-social",
+        "name": "Monthly Social Media Plan",
+        "title": "Plan monthly social media",
+        "desc": "Plan and schedule the month’s social content.",
+        "dept": "d5",
+        "priority": "med",
+        "assignedTo": null,
+        "tags": [
+          "marketing",
+          "social"
+        ],
+        "checklist": [
+          {
+            "text": "Pick this week's content theme",
+            "required": false
+          },
+          {
+            "text": "Draft caption + hook",
+            "required": false
+          },
+          {
+            "text": "Design 3 visuals or 1 reel",
+            "required": false
+          },
+          {
+            "text": "Get internal review",
+            "required": false
+          },
+          {
+            "text": "Schedule the post",
+            "required": false
+          },
+          {
+            "text": "Reply to comments within 24 hrs",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "tpl-report",
+        "name": "Prepare Monthly Report",
+        "title": "Prepare monthly report",
+        "desc": "Compile the monthly performance report.",
+        "dept": "d1",
+        "priority": "med",
+        "assignedTo": null,
+        "tags": [
+          "report",
+          "monthly"
+        ],
+        "checklist": [
+          {
+            "text": "Pull data from source systems",
+            "required": false
+          },
+          {
+            "text": "Reconcile numbers",
+            "required": false
+          },
+          {
+            "text": "Build summary sheet",
+            "required": false
+          },
+          {
+            "text": "Add MoM/QoQ commentary",
+            "required": false
+          },
+          {
+            "text": "Share with stakeholders",
+            "required": false
+          },
+          {
+            "text": "Schedule review call",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "role": "admin"
+  }
+}

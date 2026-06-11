@@ -1,0 +1,19 @@
+[
+  {
+    "id": "0d206844-a96f-43c4-8cdc-c346fafc96e3",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "provider": "cloud",
+    "phone_number": null,
+    "phone_number_id": null,
+    "waba_id": null,
+    "status": "disconnected",
+    "health": "unknown",
+    "last_connected_at": null,
+    "last_message_at": null,
+    "daily_limit": 250,
+    "sent_today": 0,
+    "created_at": "2026-06-03T01:51:10.155929+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

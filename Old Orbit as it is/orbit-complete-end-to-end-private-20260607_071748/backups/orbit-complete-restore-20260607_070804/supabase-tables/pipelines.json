@@ -1,0 +1,62 @@
+[
+  {
+    "id": "53420064-bc37-4e08-994b-089fb2d538aa",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Default funnel",
+    "stages": [
+      {
+        "id": "cold",
+        "dot": "bg-slate-400",
+        "kind": "entry",
+        "tone": "bg-slate-100 text-slate-600 ring-slate-200",
+        "label": "Cold / Prospect"
+      },
+      {
+        "id": "subscriber",
+        "dot": "bg-cyan-500",
+        "kind": "entry",
+        "tone": "bg-cyan-50 text-cyan-700 ring-cyan-200",
+        "label": "Subscriber"
+      },
+      {
+        "id": "lead",
+        "dot": "bg-sky-500",
+        "kind": "normal",
+        "tone": "bg-sky-50 text-sky-700 ring-sky-200",
+        "label": "Lead"
+      },
+      {
+        "id": "mql",
+        "dot": "bg-amber-500",
+        "kind": "normal",
+        "tone": "bg-amber-50 text-amber-700 ring-amber-200",
+        "label": "MQL"
+      },
+      {
+        "id": "sql",
+        "dot": "bg-violet-500",
+        "kind": "normal",
+        "tone": "bg-violet-50 text-violet-700 ring-violet-200",
+        "label": "SQL"
+      },
+      {
+        "id": "customer",
+        "dot": "bg-emerald-500",
+        "kind": "won",
+        "tone": "bg-emerald-50 text-emerald-700 ring-emerald-200",
+        "label": "Customer"
+      },
+      {
+        "id": "unqualified",
+        "dot": "bg-rose-500",
+        "kind": "dead",
+        "tone": "bg-rose-50 text-rose-700 ring-rose-200",
+        "label": "Unqualified"
+      }
+    ],
+    "form": null,
+    "created_at": "2026-06-03T01:47:46.397892+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

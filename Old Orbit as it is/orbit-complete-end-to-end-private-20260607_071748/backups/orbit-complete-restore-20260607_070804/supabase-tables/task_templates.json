@@ -1,0 +1,292 @@
+[
+  {
+    "id": "8c12dfc4-058f-48fd-8c2d-fd53ee3ca0cf",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Create Offer Letter",
+    "payload": {
+      "id": "tpl-offer",
+      "dept": "d10",
+      "desc": "Draft and send an offer letter to a new hire.",
+      "name": "Create Offer Letter",
+      "tags": [
+        "hr",
+        "offer"
+      ],
+      "title": "Create offer letter",
+      "priority": "high",
+      "checklist": [
+        {
+          "text": "Confirm role, level & compensation",
+          "required": false
+        },
+        {
+          "text": "Confirm start date",
+          "required": false
+        },
+        {
+          "text": "Draft offer letter from template",
+          "required": false
+        },
+        {
+          "text": "Get leadership approval",
+          "required": false
+        },
+        {
+          "text": "Send offer to candidate",
+          "required": false
+        },
+        {
+          "text": "Track acceptance / e-sign",
+          "required": false
+        },
+        {
+          "text": "Trigger onboarding task",
+          "required": false
+        }
+      ],
+      "assignedTo": null
+    },
+    "created_at": "2026-06-03T01:42:15.537318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "1d509999-5906-4c90-b49b-b074eb4e9355",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Collect Pending Payment",
+    "payload": {
+      "id": "tpl-pay",
+      "dept": "d9",
+      "desc": "Follow up and recover an outstanding invoice.",
+      "name": "Collect Pending Payment",
+      "tags": [
+        "finance",
+        "payment"
+      ],
+      "title": "Collect pending payment",
+      "priority": "high",
+      "checklist": [
+        {
+          "text": "Check pending invoice amount",
+          "required": false
+        },
+        {
+          "text": "Confirm due date",
+          "required": false
+        },
+        {
+          "text": "Send polite reminder via email",
+          "required": false
+        },
+        {
+          "text": "Call client if no response in 48 hrs",
+          "required": false
+        },
+        {
+          "text": "Update payment status in CRM",
+          "required": false
+        },
+        {
+          "text": "Share receipt confirmation",
+          "required": false
+        },
+        {
+          "text": "Close task",
+          "required": false
+        }
+      ],
+      "assignedTo": null
+    },
+    "created_at": "2026-06-03T01:42:15.537318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "e4a77ad2-5025-44de-acd4-9b47bc3ce8c0",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "New Employee Onboarding",
+    "payload": {
+      "id": "tpl-onboard",
+      "dept": "d10",
+      "desc": "End-to-end onboarding for a new joiner.",
+      "name": "New Employee Onboarding",
+      "tags": [
+        "hr",
+        "onboarding"
+      ],
+      "title": "Onboard new employee",
+      "priority": "med",
+      "checklist": [
+        {
+          "text": "Confirm start date and role",
+          "required": false
+        },
+        {
+          "text": "Provision Google Workspace + Slack",
+          "required": false
+        },
+        {
+          "text": "Order laptop + accessories",
+          "required": false
+        },
+        {
+          "text": "Schedule day-1 orientation",
+          "required": false
+        },
+        {
+          "text": "Assign onboarding buddy",
+          "required": false
+        },
+        {
+          "text": "Send welcome email and policies",
+          "required": false
+        }
+      ],
+      "assignedTo": null
+    },
+    "created_at": "2026-06-03T01:42:15.537318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "046ae1bf-01a5-4cf2-ae72-5bd6bcb07f83",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Send Client Proposal",
+    "payload": {
+      "id": "tpl-prop",
+      "dept": "d6",
+      "desc": "Prepare and send a proposal to a prospect.",
+      "name": "Send Client Proposal",
+      "tags": [
+        "sales",
+        "proposal"
+      ],
+      "title": "Send client proposal",
+      "priority": "high",
+      "checklist": [
+        {
+          "text": "Confirm scope and pricing internally",
+          "required": false
+        },
+        {
+          "text": "Update proposal template",
+          "required": false
+        },
+        {
+          "text": "Add relevant case studies",
+          "required": false
+        },
+        {
+          "text": "Internal review with manager",
+          "required": false
+        },
+        {
+          "text": "Send to client stakeholders",
+          "required": false
+        },
+        {
+          "text": "Follow up in 48 hrs",
+          "required": false
+        }
+      ],
+      "assignedTo": null
+    },
+    "created_at": "2026-06-03T01:42:15.537318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "ee78c42b-d008-4718-9dc8-693d6c624b73",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Monthly Social Media Plan",
+    "payload": {
+      "id": "tpl-social",
+      "dept": "d5",
+      "desc": "Plan and schedule the month’s social content.",
+      "name": "Monthly Social Media Plan",
+      "tags": [
+        "marketing",
+        "social"
+      ],
+      "title": "Plan monthly social media",
+      "priority": "med",
+      "checklist": [
+        {
+          "text": "Pick this week's content theme",
+          "required": false
+        },
+        {
+          "text": "Draft caption + hook",
+          "required": false
+        },
+        {
+          "text": "Design 3 visuals or 1 reel",
+          "required": false
+        },
+        {
+          "text": "Get internal review",
+          "required": false
+        },
+        {
+          "text": "Schedule the post",
+          "required": false
+        },
+        {
+          "text": "Reply to comments within 24 hrs",
+          "required": false
+        }
+      ],
+      "assignedTo": null
+    },
+    "created_at": "2026-06-03T01:42:15.537318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  },
+  {
+    "id": "a4bf0b06-3232-4ace-9c2b-d58beb2c42af",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "name": "Prepare Monthly Report",
+    "payload": {
+      "id": "tpl-report",
+      "dept": "d1",
+      "desc": "Compile the monthly performance report.",
+      "name": "Prepare Monthly Report",
+      "tags": [
+        "report",
+        "monthly"
+      ],
+      "title": "Prepare monthly report",
+      "priority": "med",
+      "checklist": [
+        {
+          "text": "Pull data from source systems",
+          "required": false
+        },
+        {
+          "text": "Reconcile numbers",
+          "required": false
+        },
+        {
+          "text": "Build summary sheet",
+          "required": false
+        },
+        {
+          "text": "Add MoM/QoQ commentary",
+          "required": false
+        },
+        {
+          "text": "Share with stakeholders",
+          "required": false
+        },
+        {
+          "text": "Schedule review call",
+          "required": false
+        }
+      ],
+      "assignedTo": null
+    },
+    "created_at": "2026-06-03T01:42:15.537318+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "6deaad18-06d7-459d-8c16-cc58d2d3a88f",
+    "workspace_id": "00000000-0000-0000-0000-000000000201",
+    "campaign_id": "567946ce-fe1e-4175-b2f2-87a143e244db",
+    "contact_id": "4f4d3911-76c6-4450-ac8d-c19e21c52167",
+    "step_index": 7,
+    "status": "completed",
+    "last_opened": false,
+    "last_clicked": false,
+    "enrolled_at": "2026-05-30",
+    "next_run_at": null,
+    "created_at": "2026-06-03T01:51:14.358963+00:00",
+    "updated_at": "2026-06-06T03:42:38.874483+00:00",
+    "current_node_key": "n-exit",
+    "last_node_key": "n-exit",
+    "context": {
+      "workerLastSeenAt": "2026-06-04T18:43:20.491Z"
+    },
+    "organization_id": "00000000-0000-0000-0000-000000000101"
+  }
+]
